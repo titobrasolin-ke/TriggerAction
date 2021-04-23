@@ -1,0 +1,272 @@
+{
+    "UrbanDataset" : {
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-04-18T09:44:06",
+            "coordinates" : {
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0,
+                "format" : "WGS84-DD"
+            },
+            "language" : "IT"
+        },
+        "specification" : {
+            "version" : "2.0",
+            "id" : {
+                "value" : "AirMonitoring-2.0",
+                "schemeID" : "SCPS"
+            },
+            "name" : "Air Monitoring",
+            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#AirMonitoring",
+            "properties" : {
+                "propertyDefinition" : [
+                    {
+                        "propertyName" : "period",
+                        "propertyDescription" : "Periodo durante il quale sono stati rilevati i dati riportati nella riga",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "start_ts",
+                                "end_ts"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "CO2",
+                        "propertyDescription" : "Biossido di carbonio",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "partsPerMillion"
+                    },
+                    {
+                        "propertyName" : "PM10",
+                        "propertyDescription" : "quantità di particolato, polveri sottili, con diametro <= 10 micron",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicMeter"
+                    },
+                    {
+                        "propertyName" : "LocationID",
+                        "propertyDescription" : "Identificativo dell'area osservata.",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "MonitoringStationName",
+                        "propertyDescription" : "Nome della stazione di monitoraggio che ha fornito i dati",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "NO2",
+                        "propertyDescription" : "Biossido di azoto",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicMeter"
+                    },
+                    {
+                        "propertyName" : "PM2",
+                        "propertyDescription" : "quantità di particolato, polveri sottili, con diametro <= 2,5 micron",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicMeter"
+                    },
+                    {
+                        "propertyName" : "SO2",
+                        "propertyDescription" : "Concentrazione di biossido di Zolfo",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicMeter"
+                    },
+                    {
+                        "propertyName" : "coordinates",
+                        "propertyDescription" : "Riferimento geografico",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "format",
+                                "latitude",
+                                "longitude",
+                                "height"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "SchemeID",
+                        "propertyDescription" : "Identificativo di uno schema di identificazione utilizzato",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "ArsenicConcentration",
+                        "propertyDescription" : "Concentrazione di Arsenico (As)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicMeter"
+                    },
+                    {
+                        "propertyName" : "BenzoapyreneConcentration",
+                        "propertyDescription" : "Concentrazione di Benzoapirene (BaP)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicMeter"
+                    },
+                    {
+                        "propertyName" : "C6H6",
+                        "propertyDescription" : "Benzene",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicMeter"
+                    },
+                    {
+                        "propertyName" : "CO",
+                        "propertyDescription" : "Monossido di carbonio",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicMeter"
+                    },
+                    {
+                        "propertyName" : "CadmiumConcentration",
+                        "propertyDescription" : "Concentrazione di Cadmio (Cd)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicMeter"
+                    },
+                    {
+                        "propertyName" : "NO",
+                        "propertyDescription" : "Monossido di azoto",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicMeter"
+                    },
+                    {
+                        "propertyName" : "NickelConcentration",
+                        "propertyDescription" : "Concentrazione di Nichel (Ni)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicMeter"
+                    },
+                    {
+                        "propertyName" : "O3",
+                        "propertyDescription" : "Ozono",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicMeter"
+                    },
+                    {
+                        "propertyName" : "VOC",
+                        "propertyDescription" : "Composti organici volatili",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "partsPerMillion"
+                    },
+                    {
+                        "propertyName" : "start_ts",
+                        "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "end_ts",
+                        "propertyDescription" : "Marca temporale indicante la fine del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    }
+                ]
+            }
+        },
+        "values" : {
+            "line" : [
+                {
+                    "id" : 1.0,
+                    "coordinates" : {
+                        "latitude" : 0.0,
+                        "longitude" : 0.0,
+                        "height" : 0.0,
+                        "format" : "WGS84-DD"
+                    },
+                    "period" : {
+                        "start_ts" : "2000-12-31T00:00:00",
+                        "end_ts" : "2000-12-31T23:59:00"
+                    },
+                    "property" : [
+                        {
+                            "name" : "CO2",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "PM10",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "LocationID",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "MonitoringStationName",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "NO2",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "PM2",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "SO2",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "SchemeID",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "ArsenicConcentration",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "BenzoapyreneConcentration",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "C6H6",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "CO",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "CadmiumConcentration",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "NO",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "NickelConcentration",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "O3",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "VOC",
+                            "val" : " ",
+                            "property" : [ ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

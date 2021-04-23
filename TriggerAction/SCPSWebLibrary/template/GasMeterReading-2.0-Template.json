@@ -1,0 +1,151 @@
+{
+    "UrbanDataset" : {
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-04-18T09:44:20",
+            "coordinates" : {
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0,
+                "format" : "WGS84-DD"
+            },
+            "language" : "IT"
+        },
+        "specification" : {
+            "version" : "2.0",
+            "id" : {
+                "value" : "GasMeterReading-2.0",
+                "schemeID" : "SCPS"
+            },
+            "name" : "Gas Meter Reading",
+            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#GasMeterReading",
+            "properties" : {
+                "propertyDefinition" : [
+                    {
+                        "propertyName" : "period",
+                        "propertyDescription" : "Periodo durante il quale sono stati rilevati i dati riportati nella riga",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "start_ts",
+                                "end_ts"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "GasConsumption",
+                        "propertyDescription" : "Consumo gas",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "cubicMetre"
+                    },
+                    {
+                        "propertyName" : "coordinates",
+                        "propertyDescription" : "Riferimento geografico",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "format",
+                                "latitude",
+                                "longitude",
+                                "height"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "SchemeID",
+                        "propertyDescription" : "Identificativo di uno schema di identificazione utilizzato",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "MeterID",
+                        "propertyDescription" : "Identificativo univoco del contatore",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "MeterSchemeID",
+                        "propertyDescription" : "Identificativo dello schema di codifica a cui appartiene l'identificativo fornito nel campo MeterID",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "PDRID",
+                        "propertyDescription" : "Codice PDR cui è associata l'utenza",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "RealEstateUnitID",
+                        "propertyDescription" : "Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "start_ts",
+                        "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "end_ts",
+                        "propertyDescription" : "Marca temporale indicante la fine del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    }
+                ]
+            }
+        },
+        "values" : {
+            "line" : [
+                {
+                    "id" : 1.0,
+                    "coordinates" : {
+                        "latitude" : 0.0,
+                        "longitude" : 0.0,
+                        "height" : 0.0,
+                        "format" : "WGS84-DD"
+                    },
+                    "period" : {
+                        "start_ts" : "2000-12-31T00:00:00",
+                        "end_ts" : "2000-12-31T23:59:00"
+                    },
+                    "property" : [
+                        {
+                            "name" : "GasConsumption",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "SchemeID",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "MeterID",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "MeterSchemeID",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "PDRID",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "RealEstateUnitID",
+                            "val" : " ",
+                            "property" : [ ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

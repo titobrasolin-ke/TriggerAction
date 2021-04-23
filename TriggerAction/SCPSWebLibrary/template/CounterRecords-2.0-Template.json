@@ -1,0 +1,95 @@
+{
+    "UrbanDataset" : {
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-04-18T09:44:19",
+            "coordinates" : {
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0,
+                "format" : "WGS84-DD"
+            },
+            "language" : "IT"
+        },
+        "specification" : {
+            "version" : "2.0",
+            "id" : {
+                "value" : "CounterRecords-2.0",
+                "schemeID" : "SCPS"
+            },
+            "name" : "Counter Records",
+            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#CounterRecords",
+            "properties" : {
+                "propertyDefinition" : [
+                    {
+                        "propertyName" : "PODID",
+                        "propertyDescription" : "Codice POD che identifica univocamente il punto di prelievo",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "coordinates",
+                        "propertyDescription" : "Riferimento geografico",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "format",
+                                "latitude",
+                                "longitude",
+                                "height"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "format",
+                        "propertyDescription" : "Formato wgs84 in cui sono espresse le coordinate (attributo opzionale)",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/FormatCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "latitude",
+                        "propertyDescription" : "Latitudine",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "longitude",
+                        "propertyDescription" : "Longitudine",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "height",
+                        "propertyDescription" : "Altitudine (proprieta' opzionale)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    }
+                ]
+            }
+        },
+        "values" : {
+            "line" : [
+                {
+                    "id" : 1.0,
+                    "coordinates" : {
+                        "latitude" : 0.0,
+                        "longitude" : 0.0,
+                        "height" : 0.0,
+                        "format" : "WGS84-DD"
+                    },
+                    "property" : [
+                        {
+                            "name" : "PODID",
+                            "val" : " ",
+                            "property" : [ ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

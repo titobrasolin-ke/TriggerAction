@@ -1,0 +1,220 @@
+{
+    "UrbanDataset" : {
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-04-18T09:44:22",
+            "coordinates" : {
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0,
+                "format" : "WGS84-DD"
+            },
+            "language" : "IT"
+        },
+        "specification" : {
+            "version" : "2.0",
+            "id" : {
+                "value" : "PhotovoltaicSystemRecords-2.0",
+                "schemeID" : "SCPS"
+            },
+            "name" : "Photovoltaic System Records",
+            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#PhotovoltaicSystemRecords",
+            "properties" : {
+                "propertyDefinition" : [
+                    {
+                        "propertyName" : "coordinates",
+                        "propertyDescription" : "Riferimento geografico",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "format",
+                                "latitude",
+                                "longitude",
+                                "height"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "period",
+                        "propertyDescription" : "Periodo durante il quale sono stati rilevati i dati riportati nella riga",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "start_ts",
+                                "end_ts"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "EnergySystemID",
+                        "propertyDescription" : "Identificativo del sistema energetico (o macchina o apparecchio)",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "AirTemperature",
+                        "propertyDescription" : "Temperatura dell'aria",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "degreeCelsius"
+                    },
+                    {
+                        "propertyName" : "SchemeID",
+                        "propertyDescription" : "Identificativo di uno schema di identificazione utilizzato",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "EnergySystemPower",
+                        "propertyDescription" : "Potenza del sistema",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "kilowatt"
+                    },
+                    {
+                        "propertyName" : "EnergySystemTechnologyName",
+                        "propertyDescription" : "Nome che identifica la tecnologia del sistema energetico",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "Area",
+                        "propertyDescription" : "Superficie",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "squareMetre"
+                    },
+                    {
+                        "propertyName" : "HorizontalTilt",
+                        "propertyDescription" : "Inclinazione sul piano orizzontale",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "degree"
+                    },
+                    {
+                        "propertyName" : "NominalEfficiency",
+                        "propertyDescription" : "Efficienza nominale del sistema",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "NominalOperatingCellTemperature",
+                        "propertyDescription" : "Temperatura nominale di lavoro raggiunta dal pannello fotovoltaico (NOCT)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "degreeCelsius"
+                    },
+                    {
+                        "propertyName" : "SouthDirection",
+                        "propertyDescription" : "Orientamento rispetto al sud",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "degree"
+                    },
+                    {
+                        "propertyName" : "format",
+                        "propertyDescription" : "Formato wgs84 in cui sono espresse le coordinate (attributo opzionale)",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/FormatCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "latitude",
+                        "propertyDescription" : "Latitudine",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "longitude",
+                        "propertyDescription" : "Longitudine",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "height",
+                        "propertyDescription" : "Altitudine (proprieta' opzionale)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "start_ts",
+                        "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "end_ts",
+                        "propertyDescription" : "Marca temporale indicante la fine del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    }
+                ]
+            }
+        },
+        "values" : {
+            "line" : [
+                {
+                    "id" : 1.0,
+                    "coordinates" : {
+                        "latitude" : 0.0,
+                        "longitude" : 0.0,
+                        "height" : 0.0,
+                        "format" : "WGS84-DD"
+                    },
+                    "period" : {
+                        "start_ts" : "2000-12-31T00:00:00",
+                        "end_ts" : "2000-12-31T23:59:00"
+                    },
+                    "property" : [
+                        {
+                            "name" : "EnergySystemID",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "AirTemperature",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "SchemeID",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "EnergySystemPower",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "EnergySystemTechnologyName",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "Area",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "HorizontalTilt",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "NominalEfficiency",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "NominalOperatingCellTemperature",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "SouthDirection",
+                            "val" : " ",
+                            "property" : [ ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

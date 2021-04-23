@@ -1,0 +1,271 @@
+{
+    "UrbanDataset" : {
+        "specification" : {
+            "version" : "1.0",
+            "id" : {
+                "value" : "WeatherSolarMonitoring-1.0",
+                "schemeID" : "SCPS"
+            },
+            "name" : "Weather Solar Monitoring",
+            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#WeatherSolarMonitoring",
+            "properties" : {
+                "propertyDefinition" : [
+                    {
+                        "propertyName" : "AirTemperature",
+                        "propertyDescription" : "Temperatura dell'aria",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "degreeCelsius"
+                    },
+                    {
+                        "propertyName" : "coordinates",
+                        "propertyDescription" : "Riferimento geografico",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "format",
+                                "latitude",
+                                "longitude",
+                                "height"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "period",
+                        "propertyDescription" : "Periodo durante il quale sono stati rilevati i dati riportati nella riga",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "start_ts",
+                                "end_ts"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "AtmosphericPressur",
+                        "propertyDescription" : "Pressione atmosferica osservata",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "hectopascal"
+                    },
+                    {
+                        "propertyName" : "RelativeHumidity",
+                        "propertyDescription" : "Umidità relativa dell'aria espressa in percentuale.",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "SolarRadiation",
+                        "propertyDescription" : "Radiazione solare totale osservata misurata in Watt per metro quadrato",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "wattPerSquareMetre"
+                    },
+                    {
+                        "propertyName" : "WindDirection",
+                        "propertyDescription" : "Direzione del vento espressa in gradi decimali rispetto al Nord geografico (misurata in senso orario)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "degree"
+                    },
+                    {
+                        "propertyName" : "WindSpeed",
+                        "propertyDescription" : "Velocità del vento osservata in metri al secondo",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "metrePerSecond-Time"
+                    },
+                    {
+                        "propertyName" : "SensorID",
+                        "propertyDescription" : "identificativo univoco del sensore\nes. serial number, mac address",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "SensorName",
+                        "propertyDescription" : "marca/modello (codice) del sensore",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "SensorTypeCode",
+                        "propertyDescription" : "tipologia di sensore che effettua la misura\nes. smart plug, smart switch, presence, ...",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/1.0/gc/SensorTypeCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "DirectSolarRadition",
+                        "propertyDescription" : "misura della radiazione solare diretta",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "wattPerSquareMetre"
+                    },
+                    {
+                        "propertyName" : "EastLuminosity",
+                        "propertyDescription" : "luminosità verticale direzione est",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "lux"
+                    },
+                    {
+                        "propertyName" : "HorizontalLuminosity",
+                        "propertyDescription" : "misura della luminosità orizzontale",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "lux"
+                    },
+                    {
+                        "propertyName" : "NorthLuminosity",
+                        "propertyDescription" : "luminosità verticale direzione nord",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "lux"
+                    },
+                    {
+                        "propertyName" : "SouthLuminosity",
+                        "propertyDescription" : "luminosità verticale direzione sud",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "lux"
+                    },
+                    {
+                        "propertyName" : "WestLuminosity",
+                        "propertyDescription" : "luminosità verticale direzione ovest",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "lux"
+                    },
+                    {
+                        "propertyName" : "PM10",
+                        "propertyDescription" : "quantità di particolato, polveri sottili, con diametro <= 10 microni\nespresso in microgrammi al metro cubo",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "microgramPerCubicCentimetre"
+                    },
+                    {
+                        "propertyName" : "format",
+                        "propertyDescription" : "Formato wgs84 in cui sono espresse le coordinate (attributo opzionale)",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/1.0/gc/FormatCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "latitude",
+                        "propertyDescription" : "Latitudine",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "longitude",
+                        "propertyDescription" : "Longitudine",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "height",
+                        "propertyDescription" : "Altitudine (proprieta' opzionale)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "start_ts",
+                        "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "end_ts",
+                        "propertyDescription" : "Marca temporale indicante la fine del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    }
+                ]
+            }
+        },
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-04-13T09:29:36",
+            "coordinates" : {
+                "format" : "WGS84-DD",
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0
+            },
+            "language" : "IT"
+        },
+        "values" : {
+            "line" : [
+                {
+                    "id" : 1,
+                    "coordinates" : {
+                        "format" : "WGS84-DD",
+                        "latitude" : 0.0,
+                        "longitude" : 0.0,
+                        "height" : 0.0
+                    },
+                    "period" : {
+                        "start_ts" : "2000-12-31T00:00:00",
+                        "end_ts" : "2000-12-31T23:59:00"
+                    },
+                    "property" : [
+                        {
+                            "name" : "AirTemperature",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "AtmosphericPressur",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "RelativeHumidity",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "SolarRadiation",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "WindDirection",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "WindSpeed",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "SensorID",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "SensorName",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "SensorTypeCode",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "DirectSolarRadition",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "EastLuminosity",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "HorizontalLuminosity",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "NorthLuminosity",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "SouthLuminosity",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "WestLuminosity",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "PM10",
+                            "val" : " "
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

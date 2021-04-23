@@ -16,5 +16,5 @@ namespace TriggerAction.ServiceModel.Types
         public PushResponse PushResponse { get; set; }
     }
 
-    public class QuerySales : QueryDb<PushResponseLog> { }
+    public class QueryPushResponseLog : QueryDb<PushResponseLog> { }
 }

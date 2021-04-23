@@ -1,0 +1,136 @@
+{
+    "UrbanDataset" : {
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-04-18T09:44:16",
+            "coordinates" : {
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0,
+                "format" : "WGS84-DD"
+            },
+            "language" : "IT"
+        },
+        "specification" : {
+            "version" : "2.0",
+            "id" : {
+                "value" : "ApplianceElectricConsumption-2.0",
+                "schemeID" : "SCPS"
+            },
+            "name" : "Appliance Electric Consumption",
+            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#ApplianceElectricConsumption",
+            "properties" : {
+                "propertyDefinition" : [
+                    {
+                        "propertyName" : "ElectricConsumption",
+                        "propertyDescription" : "Consumo energia elettrica",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "kilowattHour"
+                    },
+                    {
+                        "propertyName" : "period",
+                        "propertyDescription" : "Periodo durante il quale sono stati rilevati i dati riportati nella riga",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "start_ts",
+                                "end_ts"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "ApplianceCode",
+                        "propertyDescription" : "tipo di appliance associata alla smart plug/switch\nes. lavatrice, televisione, lampada",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/ApplianceCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "RoomCode",
+                        "propertyDescription" : "Tipologia di stanza in cui sensore è installato\nes. cucina, bagno, ufficio",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/RoomCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "SensorID",
+                        "propertyDescription" : "identificativo univoco del sensore\nes. serial number, mac address",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "SensorName",
+                        "propertyDescription" : "marca/modello (codice) del sensore",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "SensorTypeCode",
+                        "propertyDescription" : "tipologia di sensore che effettua la misura\nes. smart plug, smart switch, presence, ...",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/SensorTypeCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "start_ts",
+                        "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "end_ts",
+                        "propertyDescription" : "Marca temporale indicante la fine del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    }
+                ]
+            }
+        },
+        "values" : {
+            "line" : [
+                {
+                    "id" : 1.0,
+                    "period" : {
+                        "start_ts" : "2000-12-31T00:00:00",
+                        "end_ts" : "2000-12-31T23:59:00"
+                    },
+                    "property" : [
+                        {
+                            "name" : "ElectricConsumption",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "ApplianceCode",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "RoomCode",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "SensorID",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "SensorName",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "SensorTypeCode",
+                            "val" : " ",
+                            "property" : [ ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

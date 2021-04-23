@@ -1,0 +1,125 @@
+{
+    "UrbanDataset" : {
+        "specification" : {
+            "version" : "1.0",
+            "id" : {
+                "value" : "BuildingDeviceAnomalies-1.0",
+                "schemeID" : "SCPS"
+            },
+            "name" : "Building Device\n            Anomalies",
+            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#BuildingDeviceAnomalies",
+            "properties" : {
+                "propertyDefinition" : [
+                    {
+                        "propertyName" : "BuildingName",
+                        "propertyDescription" : "Etichetta associata all'edificio",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "BuildingID",
+                        "propertyDescription" : "Identificatore dell'edificio",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "DataDescription",
+                        "propertyDescription" : "Descrizione testuale dei dati inviati",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "DeviceAnomalyCode",
+                        "propertyDescription" : "Codice identificativo dell'anomalia del device",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/1.0/gc/DeviceAnomalyCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "DeviceID",
+                        "propertyDescription" : "Identificatore del device",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "DeviceTotalAnomalies",
+                        "propertyDescription" : "Numero totale delle anomalie individuate su un device",
+                        "dataType" : "integer",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "period",
+                        "propertyDescription" : "Periodo durante il quale sono stati rilevati i dati riportati nella riga",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "start_ts",
+                                "end_ts"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "start_ts",
+                        "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "end_ts",
+                        "propertyDescription" : "Marca temporale indicante la fine del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    }
+                ]
+            }
+        },
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-04-13T09:29:37",
+            "coordinates" : {
+                "format" : "WGS84-DD",
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0
+            },
+            "language" : "IT"
+        },
+        "values" : {
+            "line" : [
+                {
+                    "id" : 1,
+                    "description" : "descrizione dei valori forniti",
+                    "period" : {
+                        "start_ts" : "2000-12-31T00:00:00",
+                        "end_ts" : "2000-12-31T23:59:00"
+                    },
+                    "property" : [
+                        {
+                            "name" : "BuildingName",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "BuildingID",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "DeviceAnomalyCode",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "DeviceID",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "DeviceTotalAnomalies",
+                            "val" : " "
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

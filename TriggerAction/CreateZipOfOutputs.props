@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AssemblyInfoCSPath>$(ProjectDir)Properties\AssemblyInfo.cs</AssemblyInfoCSPath>
+    <AssemblyInfoCSContent>$([System.IO.File]::ReadAllText("$(AssemblyInfoCSPath)"))</AssemblyInfoCSContent>
+    <AssemblyInfoCSVersionTextRegexPattern>(?m)^[ \t]*\[assembly:[ \t]AssemblyVersion\("([\d\.]+)[\.\*]*"[^)]*\)[^\]]*\][ \t\r\n]*$</AssemblyInfoCSVersionTextRegexPattern>
+    <AssemblyInfoCSVersionText>$([System.Text.RegularExpressions.Regex]::Match($(AssemblyInfoCSContent), $(AssemblyInfoCSVersionTextRegexPattern)).Groups[1].Value.TrimEnd('.'))</AssemblyInfoCSVersionText>
+    <ZipOfOutputsPath>$(ProjectDir)$(OutputPath)$(TargetName)_$(AssemblyInfoCSVersionText).zip</ZipOfOutputsPath>
+    <DisableCreateZipOfOutputs Condition="'$(Configuration)' != 'Release'">true</DisableCreateZipOfOutputs>
+    <ZipOfOutputsExcludeFilesPattern >$(OutputPath)\TriggerAction.*.dll.config;$(OutputPath)\Configuration\*.config;**\*.nupkg;**\*.iso;**\*.zip;**\*.pdb;**\*.xml;**\*.application;**\*.vshost.exe.manifest;**\*.vshost.exe;**\*.vshost.exe.config</ZipOfOutputsExcludeFilesPattern>
+    <ZipOfRemoveRoot>$(OutputPath)</ZipOfRemoveRoot>
+  </PropertyGroup>
+</Project>

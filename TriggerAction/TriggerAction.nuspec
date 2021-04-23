@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>TriggerAction</id>
+    <version>1.0.0.0</version>
+    <title>TriggerAction</title>
+    <authors>TriggerAction</authors>
+    <description>Applicazione pilota Trigger Action 6.3</description>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>© 2021</copyright>
+    <dependencies />
+  </metadata>
+  <files>
+    <file src="*.*" target="lib\net45\" exclude="*.pdb;*.nupkg;*.vshost.*"/>
+  </files>
+</package>

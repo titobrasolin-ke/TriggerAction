@@ -1,0 +1,271 @@
+{
+    "UrbanDataset" : {
+        "specification" : {
+            "version" : "1.0",
+            "id" : {
+                "value" : "BuildingRecords-1.0",
+                "schemeID" : "SCPS"
+            },
+            "name" : "Building Records",
+            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#BuildingRecords",
+            "properties" : {
+                "propertyDefinition" : [
+                    {
+                        "propertyName" : "BuildingName",
+                        "propertyDescription" : "Etichetta associata all'edificio",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "BuildingID",
+                        "propertyDescription" : "Identificatore dell'edificio",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "coordinates",
+                        "propertyDescription" : "Riferimento geografico",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "format",
+                                "latitude",
+                                "longitude",
+                                "height"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "Address",
+                        "propertyDescription" : "indirizzo senza numero civico",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "AddressNumber",
+                        "propertyDescription" : "numero civico di un indirizzo\nes. 8, 7a, snc",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "BuildingPeriodCode",
+                        "propertyDescription" : "periodo di costruzione di un edificio\nes. 1981-1992",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/1.0/gc/BuildingPeriodCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "BuildingTypeCode",
+                        "propertyDescription" : "tipologia di edificio\nes. : residenziale, scuola, caserma, ospedale, ...",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/1.0/gc/BuildingTypeCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "ProvinceCode",
+                        "propertyDescription" : "Codice Provincia",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/1.0/gc/ProvinceCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "RealEstateUnits",
+                        "propertyDescription" : "numero di unità immobiliari",
+                        "dataType" : "integer",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "RegionCode",
+                        "propertyDescription" : "Codice Regione",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/1.0/gc/RegionCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "TownCode",
+                        "propertyDescription" : "codice ISTAT del comune",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/1.0/gc/TownCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "UrbanSection",
+                        "propertyDescription" : "dato catastale immobile : sezione urbana",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "ArchitecturalConstraint",
+                        "propertyDescription" : "vincolo architettonico : si / no / non so",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/1.0/gc/YNUCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "LandscapeConstraint",
+                        "propertyDescription" : "vincolo paesaggistico : si / no / non so",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/1.0/gc/YNUCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "TownName",
+                        "propertyDescription" : "Nome esteso del Comune\nes. Roma, Anguillara Sabazia, ...",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "ZIPCode",
+                        "propertyDescription" : "Codice di Avviamento Postale (CAP)\neccezione nelle regole di naming in quanto non ha associato nessuna lista .gc",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "CadastralParcel",
+                        "propertyDescription" : "dato catastale immobile : particella",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "CadastralSheet",
+                        "propertyDescription" : "dato catastale immobile : foglio",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "CadastralSub",
+                        "propertyDescription" : "dato catastale immobile : subalterno",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "format",
+                        "propertyDescription" : "Formato wgs84 in cui sono espresse le coordinate (attributo opzionale)",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/1.0/gc/FormatCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "latitude",
+                        "propertyDescription" : "Latitudine",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "longitude",
+                        "propertyDescription" : "Longitudine",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "height",
+                        "propertyDescription" : "Altitudine (proprieta' opzionale)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    }
+                ]
+            }
+        },
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-04-13T09:29:40",
+            "coordinates" : {
+                "format" : "WGS84-DD",
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0
+            },
+            "language" : "IT"
+        },
+        "values" : {
+            "line" : [
+                {
+                    "id" : 1,
+                    "coordinates" : {
+                        "format" : "WGS84-DD",
+                        "latitude" : 0.0,
+                        "longitude" : 0.0,
+                        "height" : 0.0
+                    },
+                    "property" : [
+                        {
+                            "name" : "BuildingName",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "BuildingID",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "Address",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "AddressNumber",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "BuildingPeriodCode",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "BuildingTypeCode",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "ProvinceCode",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "RealEstateUnits",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "RegionCode",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "TownCode",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "UrbanSection",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "ArchitecturalConstraint",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "LandscapeConstraint",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "TownName",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "ZIPCode",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "CadastralParcel",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "CadastralSheet",
+                            "val" : " "
+                        },
+                        {
+                            "name" : "CadastralSub",
+                            "val" : " "
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

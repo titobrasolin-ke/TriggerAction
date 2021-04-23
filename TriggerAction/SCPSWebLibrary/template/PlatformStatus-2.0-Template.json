@@ -1,0 +1,171 @@
+{
+    "UrbanDataset" : {
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-04-18T09:44:25",
+            "coordinates" : {
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0,
+                "format" : "WGS84-DD"
+            },
+            "language" : "IT"
+        },
+        "specification" : {
+            "version" : "2.0",
+            "id" : {
+                "value" : "PlatformStatus-2.0",
+                "schemeID" : "SCPS"
+            },
+            "name" : "Platform Status",
+            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#PlatformStatus",
+            "properties" : {
+                "propertyDefinition" : [
+                    {
+                        "propertyName" : "DataDescription",
+                        "propertyDescription" : "Descrizione testuale dei dati inviati",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "ProvinceCode",
+                        "propertyDescription" : "Codice Provincia",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/ProvinceCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "LogCode",
+                        "propertyDescription" : "Codice che indica lo stato dell'\\\"oggetto\\\" monitorato",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/LogCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "LogDescription",
+                        "propertyDescription" : "Descrizione testuale dello stato dell'oggetto monitorato",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "PlatformID",
+                        "propertyDescription" : "Identificatore della piattaforma software",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "PlatformName",
+                        "propertyDescription" : "Nome della piattaforma software",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "TotalAccessedUDCount",
+                        "propertyDescription" : "Numero totale UrbanDataset acceduti",
+                        "dataType" : "integer",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "TotalManagedUsersCount",
+                        "propertyDescription" : "Numero degli utenti gestiti",
+                        "dataType" : "integer",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "TotalManagedVerticalsCount",
+                        "propertyDescription" : "Numero delle applicazioni verticali gestite",
+                        "dataType" : "integer",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "TotalProducedUDCount",
+                        "propertyDescription" : "Numero totale UrbanDataset prodotti",
+                        "dataType" : "integer",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "TownName",
+                        "propertyDescription" : "Nome esteso del Comune\nes. Roma, Anguillara Sabazia, ...",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "ZIPCode",
+                        "propertyDescription" : "Codice di Avviamento Postale (CAP)\neccezione nelle regole di naming in quanto non ha associato nessuna lista .gc",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    }
+                ]
+            }
+        },
+        "values" : {
+            "line" : [
+                {
+                    "id" : 1.0,
+                    "description" : "descrizione dei valori forniti",
+                    "property" : [
+                        {
+                            "name" : "ProvinceCode",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "LogCode",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "LogDescription",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "PlatformID",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "PlatformName",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "TotalAccessedUDCount",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "TotalManagedUsersCount",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "TotalManagedVerticalsCount",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "TotalProducedUDCount",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "TownName",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "ZIPCode",
+                            "val" : " ",
+                            "property" : [ ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

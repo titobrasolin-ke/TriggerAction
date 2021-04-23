@@ -1,0 +1,51 @@
+{
+    "UrbanDataset": {
+        "specification": {
+            "id": {
+                "value": "Whatever-1.0",
+                "schemeID": "SCPS"
+            },
+            "name": "Whatever",
+            "uri": "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#Whatever"
+        },
+        "context": {
+            "producer": {
+                "id": "DARETIMTEST-9"
+            },
+            "timeZone": "UTC+1",
+            "timestamp": "2021-03-31T00:00:00",
+            "coordinates": {
+                "latitude": 41.91153,
+                "longitude": 12.41503,
+                "format": "WGS84-DD"
+            },
+            "language": "IT"
+        },
+        "values": {
+            "line": [
+                {
+                    "id": 1,
+                    "description": "Test description 1. Prova invio TIM DARE",
+                    "coordinates": {
+                        "latitude": 41.91153,
+                        "longitude": 12.41503
+                    },
+                    "period": {
+                        "start_ts": "2021-03-31T12:00:00",
+                        "end_ts": "2021-03-31T12:01:00"
+                    },
+                    "property": [
+                        {
+                            "name": "nomeSensore",
+                            "val": "1234X"
+                        },
+                        {
+                            "name": "valoremisurato",
+                            "val": "115"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

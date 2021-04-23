@@ -1,0 +1,232 @@
+{
+    "UrbanDataset" : {
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-04-18T09:44:21",
+            "coordinates" : {
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0,
+                "format" : "WGS84-DD"
+            },
+            "language" : "IT"
+        },
+        "specification" : {
+            "version" : "2.0",
+            "id" : {
+                "value" : "SinglePhaseCounterReading-2.0",
+                "schemeID" : "SCPS"
+            },
+            "name" : "Single Phase Counter Reading",
+            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#SinglePhaseCounterReading",
+            "properties" : {
+                "propertyDefinition" : [
+                    {
+                        "propertyName" : "ActiveEnergy",
+                        "propertyDescription" : "Energia attiva consumata",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "kilowattHour"
+                    },
+                    {
+                        "propertyName" : "PODID",
+                        "propertyDescription" : "Codice POD che identifica univocamente il punto di prelievo",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "ReactiveEnergy",
+                        "propertyDescription" : "Energia reattiva (inductiveEnergy + capacitiveEnergy)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "kilovoltamperereactivePerHour"
+                    },
+                    {
+                        "propertyName" : "coordinates",
+                        "propertyDescription" : "Riferimento geografico",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "format",
+                                "latitude",
+                                "longitude",
+                                "height"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "period",
+                        "propertyDescription" : "Periodo durante il quale sono stati rilevati i dati riportati nella riga",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "start_ts",
+                                "end_ts"
+                            ]
+                        }
+                    },
+                    {
+                        "propertyName" : "ElectricPanelID",
+                        "propertyDescription" : "Identificativo del quadro elettrico",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "TownCode",
+                        "propertyDescription" : "codice ISTAT del comune",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/TownCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "ActivePower",
+                        "propertyDescription" : "Potenza attiva fase",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "kilowatt"
+                    },
+                    {
+                        "propertyName" : "ApparentPower",
+                        "propertyDescription" : "Potenza apparente",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "kilovoltampere"
+                    },
+                    {
+                        "propertyName" : "LineCurrent",
+                        "propertyDescription" : "Corrente della linea",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "ampere"
+                    },
+                    {
+                        "propertyName" : "PhaseVoltage",
+                        "propertyDescription" : "Tensione della fase",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "volt"
+                    },
+                    {
+                        "propertyName" : "PowerFactor",
+                        "propertyDescription" : "Fattore di potenza",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "ReactivePower",
+                        "propertyDescription" : "Potenza reattiva",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "kilovoltamperereactive"
+                    },
+                    {
+                        "propertyName" : "format",
+                        "propertyDescription" : "Formato wgs84 in cui sono espresse le coordinate (attributo opzionale)",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/FormatCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "latitude",
+                        "propertyDescription" : "Latitudine",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "longitude",
+                        "propertyDescription" : "Longitudine",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "height",
+                        "propertyDescription" : "Altitudine (proprieta' opzionale)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "start_ts",
+                        "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "end_ts",
+                        "propertyDescription" : "Marca temporale indicante la fine del periodo",
+                        "dataType" : "dateTime",
+                        "unitOfMeasure" : "dimensionless"
+                    }
+                ]
+            }
+        },
+        "values" : {
+            "line" : [
+                {
+                    "id" : 1.0,
+                    "coordinates" : {
+                        "latitude" : 0.0,
+                        "longitude" : 0.0,
+                        "height" : 0.0,
+                        "format" : "WGS84-DD"
+                    },
+                    "period" : {
+                        "start_ts" : "2000-12-31T00:00:00",
+                        "end_ts" : "2000-12-31T23:59:00"
+                    },
+                    "property" : [
+                        {
+                            "name" : "ActiveEnergy",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "PODID",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "ReactiveEnergy",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "ElectricPanelID",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "TownCode",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "ActivePower",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "ApparentPower",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "LineCurrent",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "PhaseVoltage",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "PowerFactor",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "ReactivePower",
+                            "val" : " ",
+                            "property" : [ ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

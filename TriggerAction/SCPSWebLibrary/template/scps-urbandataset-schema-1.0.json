@@ -1,0 +1,206 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {"UrbanDataset": {
+        "type": "object",
+        "properties": {
+            "specification": {
+                "type": "object",
+                "properties": {
+                    "version": {"type": "string"},
+                    "id": {
+                        "type": "object",
+                        "properties": {
+                            "value": {"type": "string"},
+                            "schemeID": {"type": "string"}
+                        },
+                        "required": ["value"],
+                        "additionalProperties": {"enum": [false]}
+                    },
+                    "name": {"type": "string"},
+                    "uri": {"type": "string"},
+                    "properties": {
+                        "type": "object",
+                        "properties": {"propertyDefinition": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": {"enum": [false]},
+                                "properties": {
+                                    "propertyName": {"type": "string"},
+                                    "propertyDescription": {"type": "string"},
+                                    "dataType": {"type": "string"},
+                                    "codeList": {"type": "string"},
+                                    "unitOfMeasure": {"type": "string"},
+                                    "subProperties": {
+                                        "type": "object",
+                                        "properties": {"propertyName": {
+                                            "items": {"type": "string"},
+                                            "type": "array",
+                                            "minItems": 2
+                                        }},
+                                        "required": ["propertyName"],
+                                        "additionalProperties": {"enum": [false]}
+                                    }
+                                },
+                                "required": ["propertyName"],
+                                "oneOf": [
+                                    {"required": ["dataType"]},
+                                    {"required": ["subProperties"]}
+                                ],
+                                "not": {"anyOf": [
+                                    {"required": [
+                                        "codeList",
+                                        "unitOfMeasure",
+                                        "subProperties"
+                                    ]},
+                                    {"required": [
+                                        "codeList",
+                                        "subProperties"
+                                    ]},
+                                    {"required": [
+                                        "unitOfMeasure",
+                                        "subProperties"
+                                    ]}
+                                ]}
+                            }
+                        }},
+                        "required": ["propertyDefinition"],
+                        "additionalProperties": {"enum": [false]}
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "uri"
+                ],
+                "additionalProperties": {"enum": [false]}
+            },
+            "context": {
+                "type": "object",
+                "properties": {
+                    "producer": {
+                        "type": "object",
+                        "properties": {
+                            "id": {"type": "string"},
+                            "schemeID": {"type": "string"}
+                        },
+                        "required": ["id"],
+                        "additionalProperties": {"enum": [false]}
+                    },
+                    "timeZone": {"type": "string"},
+                    "timestamp": {"type": "string"},
+                    "coordinates": {
+                        "type": "object",
+                        "properties": {
+                            "format": {"type": "string"},
+                            "latitude": {"type": "number"},
+                            "longitude": {"type": "number"},
+                            "height": {"type": "number"}
+                        },
+                        "required": [
+                            "latitude",
+                            "longitude"
+                        ],
+                        "additionalProperties": {"enum": [false]}
+                    },
+                    "language": {"type": "string"}
+                },
+                "required": [
+                    "producer",
+                    "timeZone",
+                    "timestamp",
+                    "coordinates"
+                ],
+                "additionalProperties": {"enum": [false]}
+            },
+            "values": {
+                "type": "object",
+                "properties": {"line": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {"type": "number"},
+                            "description": {"type": "string"},
+                            "timestamp": {"type": "string"},
+                            "coordinates": {
+                                "type": "object",
+                                "properties": {
+                                    "format": {"type": "string"},
+                                    "latitude": {"type": "number"},
+                                    "longitude": {"type": "number"},
+                                    "height": {"type": "number"}
+                                },
+                                "required": [
+                                    "latitude",
+                                    "longitude"
+                                ],
+                                "additionalProperties": {"enum": [false]}
+                            },
+                            "period": {
+                                "type": "object",
+                                "properties": {
+                                    "start_ts": {"type": "string"},
+                                    "end_ts": {"type": "string"}
+                                },
+                                "required": [
+                                    "start_ts",
+                                    "end_ts"
+                                ],
+                                "additionalProperties": {"enum": [false]}
+                            },
+                            "property": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {"type": "string"},
+                                        "val": {"type": "string"},
+                                        "property": {
+                                            "type": "array",
+                                            "minItems": 2,
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "name": {"type": "string"},
+                                                    "val": {"type": "string"}
+                                                },
+                                                "required": ["name"],
+                                                "oneOf": [
+                                                    {"required": ["val"]},
+                                                    {"required": ["property"]}
+                                                ],
+                                                "additionalProperties": {"enum": [false]}
+                                            }
+                                        }
+                                    },
+                                    "required": ["name"],
+                                    "oneOf": [
+                                        {"required": ["val"]},
+                                        {"required": ["property"]}
+                                    ],
+                                    "additionalProperties": {"enum": [false]}
+                                }
+                            }
+                        },
+                        "required": ["property"],
+                        "additionalProperties": {"enum": [false]}
+                    }
+                }},
+                "required": ["line"],
+                "additionalProperties": {"enum": [false]}
+            },
+            "additionalProperties": {"enum": [false]}
+        },
+        "required": [
+            "specification",
+            "context",
+            "values"
+        ],
+        "additionalProperties": {"enum": [false]}
+    }},
+    "required": ["UrbanDataset"],
+    "additionalProperties": {"enum": [false]}
+}
