@@ -142,6 +142,8 @@ namespace TriggerAction.ServiceModel.Types
             public static readonly string Address = "Address";
             [Description("numero civico di un indirizzo es. 8, 7a, snc (dimensionless, string)")]
             public static readonly string AddressNumber = "AddressNumber";
+            [Description("Fascia di età (dimensionless, string)")]
+            public static readonly string AgeRange = "AgeRange";
             [Description("Temperatura dell'aria (degreeCelsius, double)")]
             public static readonly string AirTemperature = "AirTemperature";
             [Description("Potenza apparente (kilovoltampere, double)")]
@@ -238,6 +240,8 @@ namespace TriggerAction.ServiceModel.Types
             public static readonly string ElectricPanelID = "ElectricPanelID";
             [Description("Energia elettrica prodotta (kilowattHour, double)")]
             public static readonly string ElectricProduction = "ElectricProduction";
+            [Description("Ora di fine di una fascia oraria (dimensionless, Time)")]
+            public static readonly string EndTimeSlot = "EndTimeSlot";
             [Description("Marca temporale indicante la fine del periodo (dimensionless, dateTime)")]
             public static readonly string end_ts = "end_ts";
             [Description("Identificativo del sistema energetico (o macchina o apparecchio) (dimensionless, string)")]
@@ -256,6 +260,8 @@ namespace TriggerAction.ServiceModel.Types
             public static readonly string format = "format";
             [Description("Consumo gas (cubicMetre, double)")]
             public static readonly string GasConsumption = "GasConsumption";
+            [Description("Genere (dimensionless, string)")]
+            public static readonly string GenderCode = "GenderCode";
             [Description("Identificatore del Gruppo del social network (dimensionless, string)")]
             public static readonly string GroupID = "GroupID";
             [Description("Nome del Gruppo del social network (dimensionless, string)")]
@@ -294,6 +300,8 @@ namespace TriggerAction.ServiceModel.Types
             public static readonly string LineCurrent = "LineCurrent";
             [Description("Identificativo dell'area osservata. (dimensionless, string)")]
             public static readonly string LocationID = "LocationID";
+            [Description("Denominazione luogo (dimensionless, string)")]
+            public static readonly string LocationName = "LocationName";
             [Description("Codice che indica lo stato dell'\"oggetto\" monitorato (dimensionless, string)")]
             public static readonly string LogCode = "LogCode";
             [Description("Descrizione testuale dello stato dell'oggetto monitorato (dimensionless, string)")]
@@ -328,6 +336,8 @@ namespace TriggerAction.ServiceModel.Types
             public static readonly string MinOutputThermalPower = "MinOutputThermalPower";
             [Description("Nome della stazione di monitoraggio che ha fornito i dati (dimensionless, string)")]
             public static readonly string MonitoringStationName = "MonitoringStationName";
+            [Description("Nazionalità (dimensionless, string)")]
+            public static readonly string Nationality = "Nationality";
             [Description("Concentrazione di Nichel (Ni) (microgramPerCubicMeter, double)")]
             public static readonly string NickelConcentration = "NickelConcentration";
             [Description("Monossido di azoto (microgramPerCubicMeter, double)")]
@@ -382,14 +392,22 @@ namespace TriggerAction.ServiceModel.Types
             public static readonly string PageName = "PageName";
             [Description("Link (url) alla Pagina del social network (dimensionless, string)")]
             public static readonly string PageURL = "PageURL";
+            [Description("Indica se il numero di presenze indicato è un parziale (true) o un totale (false) per il periodo indicato. (dimensionless, string)")]
+            public static readonly string PartialCountFlag = "PartialCountFlag";
             [Description("Codice PDR cui è associata l'utenza (dimensionless, string)")]
             public static readonly string PDRID = "PDRID";
             [Description("KPI tecnici specifici del PELL IP (dimensionless, string)")]
             public static readonly string PellKPICode = "PellKPICode";
             [Description("Periodo durante il quale sono stati rilevati i dati riportati nella riga")]
             public static readonly string period = "period";
+            [Description("Periodo espresso come valore. Alcuni esempi: - 2020, 2019, … , se PeriodValueQualifier = year - 1, 2, 30,… , se PeriodValueQualifier = week - Mon, Tue, Sat,… , se PeriodValueQualifier = day (dimensionless, string)")]
+            public static readonly string PeriodValue = "PeriodValue";
+            [Description("Qualificatore per l'elemento PeriodValue (dimensionless, string)")]
+            public static readonly string PeriodValueQualifierCode = "PeriodValueQualifierCode";
             [Description("Tensione della fase (volt, double)")]
             public static readonly string PhaseVoltage = "PhaseVoltage";
+            [Description("Indica la categoria (persone, veicoli) alla quale si riferisce il conteggio (dimensionless, string)")]
+            public static readonly string PhysicalUnitCategoryCode = "PhysicalUnitCategoryCode";
             [Description("Identificatore dell'impianto (dimensionless, string)")]
             public static readonly string PlantID = "PlantID";
             [Description("Nome dell'impianto (dimensionless, string)")]
@@ -426,6 +444,8 @@ namespace TriggerAction.ServiceModel.Types
             public static readonly string PowerFactorPhase3 = "PowerFactorPhase3";
             [Description("Probabilità, espressa in percentuale, con cui si verificheranno delle precipitazioni. (dimensionless, double)")]
             public static readonly string PrecipitationProbabilityPercentage = "PrecipitationProbabilityPercentage";
+            [Description("Numero di presenze rilevato (dimensionless, integer)")]
+            public static readonly string PresenceCount = "PresenceCount";
             [Description("Percentuale di tempo in cui un ambiente ha avuto la presenza di almeno una pesona (dimensionless, double)")]
             public static readonly string PresencePercentage = "PresencePercentage";
             [Description("Numero di dispositivi di localizzazione (dimensionless, integer)")]
@@ -474,10 +494,14 @@ namespace TriggerAction.ServiceModel.Types
             public static readonly string SouthDirection = "SouthDirection";
             [Description("luminosità verticale direzione sud (lux, double)")]
             public static readonly string SouthLuminosity = "SouthLuminosity";
+            [Description("Ora di inizio di una fascia oraria (dimensionless, Time)")]
+            public static readonly string StartTimeSlot = "StartTimeSlot";
             [Description("Marca temporale indicante l'inizio del periodo (dimensionless, dateTime)")]
             public static readonly string start_ts = "start_ts";
             [Description("Quantità di pioggia calcolata in 3 ore dai pluviometri in millimetri di accumulo. (millimetre, double)")]
             public static readonly string ThreeHoursRainfall = "ThreeHoursRainfall";
+            [Description("Fascia oraria espressa come valore. Valori suggeriti \"diurna\", \"notturna\", dove se non diversamente specificato tramite \"Ora inizio\" e \"Ora fine\", si assume che: - diurna: dalle 07:00 alle 18:59 - notturna: dalle 19:00 alle 06:59 (dimensionless, string)")]
+            public static readonly string TimeSlotDescription = "TimeSlotDescription";
             [Description("Numero totale UrbanDataset acceduti (dimensionless, integer)")]
             public static readonly string TotalAccessedUDCount = "TotalAccessedUDCount";
             [Description("Potenza attiva totale (kilowatt, double)")]
@@ -528,6 +552,8 @@ namespace TriggerAction.ServiceModel.Types
             public static readonly string WindowStatusCode = "WindowStatusCode";
             [Description("Velocità del vento osservata in metri al secondo (metrePerSecond-Time, double)")]
             public static readonly string WindSpeed = "WindSpeed";
+            [Description("Indica se si fa riferimento a giorni feriali o festivi. (dimensionless, string)")]
+            public static readonly string WorkingDayFlag = "WorkingDayFlag";
             [Description("URL dell'endpoint del Web Service a cui si vuole accedere (dimensionless, string)")]
             public static readonly string WSEndpoint = "WSEndpoint";
             [Description("Codice di Avviamento Postale (CAP) eccezione nelle regole di naming in quanto non ha associato nessuna lista .gc (dimensionless, string)")]

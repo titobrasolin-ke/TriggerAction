@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Devices.cs" />
+    <Compile Include="Enums\BuildingTypeCode.cs" />
+    <Compile Include="Enums\ElectricityEndUseCode.cs" />
+    <Compile Include="Enums\SensorTypeCode.cs" />
     <Compile Include="Hello.cs" />
     <Compile Include="IsAlive.cs" />
     <Compile Include="Login.cs" />
@@ -62,7 +65,7 @@
     <Compile Include="Types\Plant.cs" />
     <Compile Include="Types\PushResponseLog.cs" />
     <Compile Include="Types\Reading.cs" />
-    <Compile Include="Types\RoomCodes.cs" />
+    <Compile Include="Enums\RoomCode.cs" />
     <Compile Include="Types\Template.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +75,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
