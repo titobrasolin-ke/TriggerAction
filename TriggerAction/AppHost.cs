@@ -88,9 +88,8 @@ namespace TriggerAction
                 new NameValueCollection
                 {
                     ["quartz.scheduler.instanceName"] = "ServerScheduler",
-                    ["quartz.threadPool.type"] = "Quartz.Simpl.SimpleThreadPool, Quartz",
+                    ["quartz.threadPool.type"] = "Quartz.Simpl.DefaultThreadPool, Quartz",
                     ["quartz.threadPool.threadCount"] = "5",
-                    ["quartz.threadPool.threadPriority"] = "Normal",
                     ["quartz.plugin.xml.type"] = "Quartz.Plugin.Xml.XMLSchedulingDataProcessorPlugin, Quartz.Plugins",
                     ["quartz.plugin.xml.fileNames"] = "~/Configuration/QuartzJobs.config",
                     ["quartz.plugin.xml.failOnFileNotFound"] = "true",
