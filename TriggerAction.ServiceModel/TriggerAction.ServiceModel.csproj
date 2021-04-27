@@ -54,6 +54,7 @@
     <Compile Include="Hello.cs" />
     <Compile Include="IsAlive.cs" />
     <Compile Include="Login.cs" />
+    <Compile Include="Names\PropertyName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Push.cs" />
     <Compile Include="Test.cs" />

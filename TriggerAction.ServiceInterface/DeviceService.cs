@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using TriggerAction.ServiceModel;
 using TriggerAction.ServiceModel.Enums;
+using TriggerAction.ServiceModel.Names;
 using TriggerAction.ServiceModel.Types;
 
 namespace TriggerAction.ServiceInterface
@@ -124,17 +125,51 @@ namespace TriggerAction.ServiceInterface
             {
                 BatchOperationType = BatchOperationType,
                 DeviceId = DeviceId,
-                Label = PropertyDefinition.CommonPropertyNames.SensorID,
+                Label = PropertyName.SensorID,
                 Unit = "dimensionless",
                 Value = SensorID,
                 Timestamp = DateTimeOffset.Now
             });
 
-            string realEstateUnitID;
-            string roomCode;
+            // Al momento la proprietà "MeterID" è un alias di "SensorID". È
+            // utilizzata, per esempio, nel dataset "GasMeterReading".
 
-            if (Regex.IsMatch(dev.Location, @"(?:[A-Za-z0-9]+)(?:\s*,\s*(?:[A-Za-z0-9]+))+"))
+            lastReadings.Add(new Reading
             {
+                BatchOperationType = BatchOperationType,
+                DeviceId = DeviceId,
+                Label = PropertyName.MeterID,
+                Unit = "dimensionless",
+                Value = SensorID,
+                Timestamp = DateTimeOffset.Now
+            });
+
+            string realEstateUnitID; // Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)
+            string roomCode;
+            string pdrID; // Codice PDR cui è associata l'utenza.
+
+            // Consideriamo la possibilità che il campo "Location" contenga un
+            // oggetto di tipo "Location" serializzato in formato JSV.
+
+            StringDictionary location = null;
+            try
+            {
+                location = dev.Location.FromJsv<StringDictionary>();
+            }
+            catch
+            {
+                // Ignore malformed JSV.
+            }
+
+            if (location != null)
+            {
+                location.TryGetValue(PropertyName.RealEstateUnitID, out realEstateUnitID);
+                location.TryGetValue(PropertyName.RoomCode, out roomCode);
+                location.TryGetValue(PropertyName.PDRID, out pdrID);
+            }
+            else if (Regex.IsMatch(dev.Location, @"(?:[A-Za-z0-9]+)(?:\s*,\s*(?:[A-Za-z0-9]+))+"))
+            {
+                // TODO: Eliminare completamente questo "else"?
                 var strList = dev.Location.Split(',')
                     .Select(x => x.Trim().ToUpperInvariant())
                     .ToList();
@@ -142,33 +177,54 @@ namespace TriggerAction.ServiceInterface
                 realEstateUnitID = strList[0];
                 roomCode = int.TryParse(strList[1], out int value) && Enum.IsDefined(typeof(RoomCode), value)
                     ? value.ToString()
-                    : RoomCode.Altro.ToString("d");
+                    : "";
+                pdrID = "";
             }
             else
             {
                 realEstateUnitID = Regex.Replace(dev.Plant.Label.Trim(), @"[^a-zA-Z0-9]", string.Empty).ToUpperInvariant() + "-" + dev.PlantId;
-                roomCode = RoomCode.Altro.ToString("d");
+                roomCode = "";
+                pdrID = "";
             }
 
-            lastReadings.Add(new Reading
+            if (!realEstateUnitID.IsNullOrEmpty())
             {
-                BatchOperationType = BatchOperationType,
-                DeviceId = DeviceId,
-                Label = PropertyDefinition.CommonPropertyNames.RealEstateUnitID,
-                Unit = "dimensionless",
-                Value = realEstateUnitID,
-                Timestamp = DateTimeOffset.Now
-            });
+                lastReadings.Add(new Reading
+                {
+                    BatchOperationType = BatchOperationType,
+                    DeviceId = DeviceId,
+                    Label = PropertyName.RealEstateUnitID,
+                    Unit = "dimensionless",
+                    Value = realEstateUnitID,
+                    Timestamp = DateTimeOffset.Now
+                });
+            }
 
-            lastReadings.Add(new Reading
+            if (!roomCode.IsNullOrEmpty())
             {
-                BatchOperationType = BatchOperationType,
-                DeviceId = DeviceId,
-                Label = PropertyDefinition.CommonPropertyNames.RoomCode,
-                Unit = "dimensionless",
-                Value = roomCode,
-                Timestamp = DateTimeOffset.Now
-            });
+                lastReadings.Add(new Reading
+                {
+                    BatchOperationType = BatchOperationType,
+                    DeviceId = DeviceId,
+                    Label = PropertyName.RoomCode,
+                    Unit = "dimensionless",
+                    Value = roomCode,
+                    Timestamp = DateTimeOffset.Now
+                });
+            }
+
+            if (!pdrID.IsNullOrEmpty())
+            {
+                lastReadings.Add(new Reading
+                {
+                    BatchOperationType = BatchOperationType,
+                    DeviceId = DeviceId,
+                    Label = PropertyName.PDRID,
+                    Unit = "dimensionless",
+                    Value = pdrID,
+                    Timestamp = DateTimeOffset.Now
+                });
+            }
 
             dto.Values = lastReadings;
             return dto;
