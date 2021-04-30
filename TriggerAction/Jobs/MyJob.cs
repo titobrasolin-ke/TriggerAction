@@ -1,9 +1,7 @@
 ﻿using Quartz;
-using Quartz.Util;
 using ServiceStack;
 using ServiceStack.Configuration;
 using ServiceStack.Text;
-using ServiceStack.Text.Common;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -29,7 +27,26 @@ namespace TriggerAction.Jobs
 
         public Task Execute(IJobExecutionContext context)
         {
-            object q = HostContext.ServiceController.Execute(new DeviceValueQuery { BatchOperationTypeLike = "SCP-%" });
+            JobDataMap dataMap = context.JobDetail.JobDataMap;
+
+            string[] BatchOperationTypeIn;
+            try
+            {
+                BatchOperationTypeIn = dataMap.GetString("BatchOperationTypeIn")?.FromJsv<string[]>();
+            }
+            catch
+            {
+                BatchOperationTypeIn = null;
+            }
+
+            // N.B. I filtri di tipo ICollection come BatchOperationTypeIn se sono vuoti vengono ignorati:
+            // https://github.com/ServiceStack/ServiceStack/blob/master/src/ServiceStack.Server/AutoQueryFeature.cs#L1080
+
+            object q = HostContext.ServiceController.Execute(new DeviceValueQuery
+            {
+                BatchOperationTypeStartsWith = "SCP-",
+                BatchOperationTypeIn = BatchOperationTypeIn,
+            });
             if (q is QueryResponse<DeviceValue> qr)
             {
                 var pushRequests = new Dictionary<string, PushRequest>();
@@ -138,7 +155,7 @@ namespace TriggerAction.Jobs
                     var path = Path.Combine("test", Guid.NewGuid().ToString() + ".json");
                     using (var stream = File.OpenWrite(path))
                     {
-                       
+
                         JsonSerializer.SerializeToStream(pushRequest, stream);
                     }
                 }
