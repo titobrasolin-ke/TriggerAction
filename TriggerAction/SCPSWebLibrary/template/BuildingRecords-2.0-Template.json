@@ -6,7 +6,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-04-18T09:44:13",
+            "timestamp" : "2021-04-30T10:36:50",
             "coordinates" : {
                 "latitude" : 0.0,
                 "longitude" : 0.0,
@@ -22,7 +22,7 @@
                 "schemeID" : "SCPS"
             },
             "name" : "Building Records",
-            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#BuildingRecords",
+            "uri" : "https://smartcityplatform.enea.it/specification/semantic/2.0/ontology/scps-ontology-2.0.owl#BuildingRecords",
             "properties" : {
                 "propertyDefinition" : [
                     {
@@ -189,7 +189,7 @@
         "values" : {
             "line" : [
                 {
-                    "id" : 1.0,
+                    "id" : 1,
                     "coordinates" : {
                         "latitude" : 0.0,
                         "longitude" : 0.0,

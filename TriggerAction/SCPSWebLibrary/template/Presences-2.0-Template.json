@@ -6,7 +6,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-04-30T10:36:45",
+            "timestamp" : "2021-04-30T10:37:06",
             "coordinates" : {
                 "latitude" : 0.0,
                 "longitude" : 0.0,
@@ -18,23 +18,33 @@
         "specification" : {
             "version" : "2.0",
             "id" : {
-                "value" : "WeatherCondition-2.0",
+                "value" : "Presences-2.0",
                 "schemeID" : "SCPS"
             },
-            "name" : "Weather Condition",
-            "uri" : "https://smartcityplatform.enea.it/specification/semantic/2.0/ontology/scps-ontology-2.0.owl#WeatherCondition",
+            "name" : "Presences",
+            "uri" : "https://smartcityplatform.enea.it/specification/semantic/2.0/ontology/scps-ontology-2.0.owl#Presences",
             "properties" : {
                 "propertyDefinition" : [
                     {
-                        "propertyName" : "AirTemperature",
-                        "propertyDescription" : "Temperatura dell'aria",
-                        "dataType" : "double",
-                        "unitOfMeasure" : "degreeCelsius"
+                        "propertyName" : "period",
+                        "propertyDescription" : "Periodo durante il quale sono stati rilevati i dati riportati nella riga",
+                        "subProperties" : {
+                            "propertyName" : [
+                                "start_ts",
+                                "end_ts"
+                            ]
+                        }
                     },
                     {
-                        "propertyName" : "MeteoStationName",
-                        "propertyDescription" : "Nome della stazione Meteo che ha fornito i dati",
+                        "propertyName" : "LocationID",
+                        "propertyDescription" : "Identificativo dell'area osservata.",
                         "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "PresenceCount",
+                        "propertyDescription" : "Numero di presenze rilevato",
+                        "dataType" : "integer",
                         "unitOfMeasure" : "dimensionless"
                     },
                     {
@@ -50,117 +60,96 @@
                         }
                     },
                     {
-                        "propertyName" : "period",
-                        "propertyDescription" : "Periodo durante il quale sono stati rilevati i dati riportati nella riga",
-                        "subProperties" : {
-                            "propertyName" : [
-                                "start_ts",
-                                "end_ts"
-                            ]
-                        }
-                    },
-                    {
-                        "propertyName" : "RelativeHumidity",
-                        "propertyDescription" : "Umidità relativa dell'aria espressa in percentuale.",
-                        "dataType" : "double",
-                        "unitOfMeasure" : "dimensionless"
-                    },
-                    {
-                        "propertyName" : "LocationID",
-                        "propertyDescription" : "Identificativo dell'area osservata.",
-                        "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
-                    },
-                    {
-                        "propertyName" : "DewPoint",
-                        "propertyDescription" : "Punto di rugiada",
-                        "dataType" : "double",
-                        "unitOfMeasure" : "degreeCelsius"
-                    },
-                    {
-                        "propertyName" : "SolarRadiation",
-                        "propertyDescription" : "Radiazione solare totale osservata misurata in Watt per metro quadrato",
-                        "dataType" : "double",
-                        "unitOfMeasure" : "wattPerSquareMetre"
-                    },
-                    {
-                        "propertyName" : "WindDirection",
-                        "propertyDescription" : "Direzione del vento espressa in gradi decimali rispetto al Nord geografico (misurata in senso orario)",
-                        "dataType" : "double",
-                        "unitOfMeasure" : "degree"
-                    },
-                    {
-                        "propertyName" : "WindSpeed",
-                        "propertyDescription" : "Velocità del vento osservata in metri al secondo",
-                        "dataType" : "double",
-                        "unitOfMeasure" : "metrePerSecond-Time"
-                    },
-                    {
                         "propertyName" : "SchemeID",
                         "propertyDescription" : "Identificativo di uno schema di identificazione utilizzato",
                         "dataType" : "string",
                         "unitOfMeasure" : "dimensionless"
                     },
                     {
-                        "propertyName" : "ThreeHoursRainfall",
-                        "propertyDescription" : "Quantità di pioggia calcolata in 3 ore dai pluviometri in millimetri di accumulo.",
-                        "dataType" : "double",
-                        "unitOfMeasure" : "millimetre"
-                    },
-                    {
-                        "propertyName" : "TotalCloudCoveragePercentage",
-                        "propertyDescription" : "Percentuale di copertura nuvolosa sul totale.",
-                        "dataType" : "double",
-                        "unitOfMeasure" : "dimensionless"
-                    },
-                    {
-                        "propertyName" : "WeatherConditionCode",
-                        "propertyDescription" : "Parametro che definisce la situazione meteo (pioggia, neve, sereno, coperto,…)",
+                        "propertyName" : "PeriodQualifierCode",
+                        "propertyDescription" : "Qualificatore che descrive il periodo",
                         "dataType" : "string",
-                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/WeatherConditionCode.gc",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/PeriodValueQualifierCode.gc",
                         "unitOfMeasure" : "dimensionless"
                     },
                     {
-                        "propertyName" : "WeatherConditionDescription",
-                        "propertyDescription" : "Descrizione testuale della situazione meteo.",
+                        "propertyName" : "SubLocationName",
+                        "propertyDescription" : "Nome di un'area all'interno di un luogo",
                         "dataType" : "string",
                         "unitOfMeasure" : "dimensionless"
                     },
                     {
-                        "propertyName" : "OneHourRainfall",
-                        "propertyDescription" : "Quantita' di pioggia calcolata in un'ora dai pluviometri in millimetri di accumulo",
-                        "dataType" : "double",
-                        "unitOfMeasure" : "millimetre"
-                    },
-                    {
-                        "propertyName" : "AtmosphericPressure",
-                        "propertyDescription" : "Pressione atmosferica osservata",
-                        "dataType" : "double",
-                        "unitOfMeasure" : "hectopascal"
-                    },
-                    {
-                        "propertyName" : "format",
-                        "propertyDescription" : "Formato wgs84 in cui sono espresse le coordinate (attributo opzionale)",
+                        "propertyName" : "TotalCountFlag",
+                        "propertyDescription" : "Indica se il numero di presenze indicato è un totale (true) o un parziale (false) per il periodo indicato.",
                         "dataType" : "string",
-                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/FormatCode.gc",
                         "unitOfMeasure" : "dimensionless"
                     },
                     {
-                        "propertyName" : "latitude",
-                        "propertyDescription" : "Latitudine",
-                        "dataType" : "double",
+                        "propertyName" : "TownName",
+                        "propertyDescription" : "Nome esteso del Comune\nes. Roma, Anguillara Sabazia, ...",
+                        "dataType" : "string",
                         "unitOfMeasure" : "dimensionless"
                     },
                     {
-                        "propertyName" : "longitude",
-                        "propertyDescription" : "Longitudine",
-                        "dataType" : "double",
+                        "propertyName" : "AgeRange",
+                        "propertyDescription" : "Fascia di età",
+                        "dataType" : "string",
                         "unitOfMeasure" : "dimensionless"
                     },
                     {
-                        "propertyName" : "height",
-                        "propertyDescription" : "Altitudine (proprieta' opzionale)",
-                        "dataType" : "double",
+                        "propertyName" : "EndTimeSlot",
+                        "propertyDescription" : "Ora di fine di una fascia oraria",
+                        "dataType" : "Time",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "GenderCode",
+                        "propertyDescription" : "Genere",
+                        "dataType" : "string",
+                        "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/GenderCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "LocationName",
+                        "propertyDescription" : "Denominazione luogo",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "Nationality",
+                        "propertyDescription" : "Nazionalità",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "PeriodValue",
+                        "propertyDescription" : "Periodo espresso come valore (es. il giorno della settimana, l'anno, ecc.)",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "PhysicalUnitCategoryCode",
+                        "propertyDescription" : "Indica la categoria (persone, veicoli) alla quale si riferisce il conteggio",
+                        "dataType" : "string",
+                        "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/PhysicalUnitCategoryCode.gc",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "StartTimeSlot",
+                        "propertyDescription" : "Ora di inizio di una fascia oraria",
+                        "dataType" : "Time",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "TimeSlotDescription",
+                        "propertyDescription" : "Fascia oraria espressa come valore.\nValori suggeriti \\\"diurna\\\", \\\"notturna\\\", dove se non diversamente specificato tramite \\\"Ora inizio\\\" e \\\"Ora fine\\\", si assume che:\n- diurna: dalle 07:00 alle 18:59\n- notturna: dalle 19:00 alle 06:59",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
+                        "propertyName" : "WorkingDayFlag",
+                        "propertyDescription" : "Indica se si fa riferimento a giorni feriali o festivi.",
+                        "dataType" : "string",
                         "unitOfMeasure" : "dimensionless"
                     },
                     {
@@ -194,42 +183,12 @@
                     },
                     "property" : [
                         {
-                            "name" : "AirTemperature",
-                            "val" : " ",
-                            "property" : [ ]
-                        },
-                        {
-                            "name" : "MeteoStationName",
-                            "val" : " ",
-                            "property" : [ ]
-                        },
-                        {
-                            "name" : "RelativeHumidity",
-                            "val" : " ",
-                            "property" : [ ]
-                        },
-                        {
                             "name" : "LocationID",
                             "val" : " ",
                             "property" : [ ]
                         },
                         {
-                            "name" : "DewPoint",
-                            "val" : " ",
-                            "property" : [ ]
-                        },
-                        {
-                            "name" : "SolarRadiation",
-                            "val" : " ",
-                            "property" : [ ]
-                        },
-                        {
-                            "name" : "WindDirection",
-                            "val" : " ",
-                            "property" : [ ]
-                        },
-                        {
-                            "name" : "WindSpeed",
+                            "name" : "PresenceCount",
                             "val" : " ",
                             "property" : [ ]
                         },
@@ -239,32 +198,72 @@
                             "property" : [ ]
                         },
                         {
-                            "name" : "ThreeHoursRainfall",
+                            "name" : "PeriodQualifierCode",
                             "val" : " ",
                             "property" : [ ]
                         },
                         {
-                            "name" : "TotalCloudCoveragePercentage",
+                            "name" : "SubLocationName",
                             "val" : " ",
                             "property" : [ ]
                         },
                         {
-                            "name" : "WeatherConditionCode",
+                            "name" : "TotalCountFlag",
                             "val" : " ",
                             "property" : [ ]
                         },
                         {
-                            "name" : "WeatherConditionDescription",
+                            "name" : "TownName",
                             "val" : " ",
                             "property" : [ ]
                         },
                         {
-                            "name" : "OneHourRainfall",
+                            "name" : "AgeRange",
                             "val" : " ",
                             "property" : [ ]
                         },
                         {
-                            "name" : "AtmosphericPressure",
+                            "name" : "EndTimeSlot",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "GenderCode",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "LocationName",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "Nationality",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "PeriodValue",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "PhysicalUnitCategoryCode",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "StartTimeSlot",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "TimeSlotDescription",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "WorkingDayFlag",
                             "val" : " ",
                             "property" : [ ]
                         }

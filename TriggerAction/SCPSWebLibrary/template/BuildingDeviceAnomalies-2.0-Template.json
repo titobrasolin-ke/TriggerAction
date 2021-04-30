@@ -6,7 +6,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-04-18T09:44:11",
+            "timestamp" : "2021-04-30T10:36:48",
             "coordinates" : {
                 "latitude" : 0.0,
                 "longitude" : 0.0,
@@ -22,7 +22,7 @@
                 "schemeID" : "SCPS"
             },
             "name" : "Building Device\n            Anomalies",
-            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#BuildingDeviceAnomalies",
+            "uri" : "https://smartcityplatform.enea.it/specification/semantic/2.0/ontology/scps-ontology-2.0.owl#BuildingDeviceAnomalies",
             "properties" : {
                 "propertyDefinition" : [
                     {
@@ -90,7 +90,7 @@
         "values" : {
             "line" : [
                 {
-                    "id" : 1.0,
+                    "id" : 1,
                     "description" : "descrizione dei valori forniti",
                     "period" : {
                         "start_ts" : "2000-12-31T00:00:00",

@@ -6,7 +6,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-04-18T09:44:25",
+            "timestamp" : "2021-04-30T10:37:05",
             "coordinates" : {
                 "latitude" : 0.0,
                 "longitude" : 0.0,
@@ -22,7 +22,7 @@
                 "schemeID" : "SCPS"
             },
             "name" : "Platform Status",
-            "uri" : "http://smartcityplatform.enea.it/specification/semantic/1.0/ontology/scps-ontology-1.0.owl#PlatformStatus",
+            "uri" : "https://smartcityplatform.enea.it/specification/semantic/2.0/ontology/scps-ontology-2.0.owl#PlatformStatus",
             "properties" : {
                 "propertyDefinition" : [
                     {
@@ -105,7 +105,7 @@
         "values" : {
             "line" : [
                 {
-                    "id" : 1.0,
+                    "id" : 1,
                     "description" : "descrizione dei valori forniti",
                     "property" : [
                         {
