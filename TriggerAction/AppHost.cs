@@ -13,8 +13,11 @@ using ServiceStack.Quartz;
 using ServiceStack.Razor;
 using ServiceStack.Text;
 using ServiceStack.Text.Common;
+using ServiceStack.Validation;
 using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Globalization;
 using System.IO;
 using TriggerAction.ServiceInterface;
 using TriggerAction.ServiceModel.Types;
@@ -46,12 +49,19 @@ namespace TriggerAction
 #else
                 DebugMode = AppSettings.Get("DebugMode", Env.IsWindows),
 #endif
+                /*
+                 * Consentiamo l'estensione "json" per poter rendere eventualmente
+                 * accessibili via web gli UrbanDataset registrati su file system.
+                 */
                 AllowFileExtensions = { "json" },
             });
 
-            // We'll configure our Database to use a default SQL Server database and register an optional named
-            // connection looking at a “Reporting” SQLite database.
+            AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(Config.WebHostPhysicalPath, "App_Data"));
 
+            /*
+             * Configuriamo il database SQL Server predefinito e registriamo
+             * una connessione opzionale SQLite denominata "Reporting".
+             */
             var defaultDbConn = AppSettings.GetConnectionString("DefaultConnection")
                 ?? @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|aspnetdb.mdf;Integrated Security=True";
 
@@ -63,6 +73,8 @@ namespace TriggerAction
             {
                 db.CreateTableIfNotExists<PushResponseLog>();
             }
+
+            CsvConfig.ItemSeperatorString = CultureInfo.CurrentCulture.TextInfo.ListSeparator;
 
             JsConfig.SkipDateTimeConversion = true;
             JsConfig<DateTime>.SerializeFn = dateTime => dateTime.ToString(DateTimeSerializer.DateTimeFormatSecondsNoOffset);
@@ -76,9 +88,23 @@ namespace TriggerAction
             Plugins.Add(new RazorFormat());
             Plugins.Add(new AdminFeature());
             Plugins.Add(new OpenApiFeature());
+            /*
+             * I validatori (ad esempio "UpdateDeviceValidator") sono definiti
+             * nell'assembly contenente le implementazioni dei servizi web.
+             */
+            Plugins.Add(new ValidationFeature());
             Plugins.Add(new AutoQueryFeature
             {
                 IncludeTotal = true,
+            });
+
+            /*
+             * Per utilizzare AutoQuery CRUD implementiamo una mappatura con
+             * l'API Auto Mapping Populator incorporata di ServiceStack.
+             */
+            AutoMapping.RegisterPopulator((Dictionary<string, object> target, UpdateDevice source) =>
+            {
+                target[nameof(Device.Location)] = source.ConvertTo<LocationInfo>();
             });
         }
 

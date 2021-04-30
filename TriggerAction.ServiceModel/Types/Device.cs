@@ -1,4 +1,5 @@
-﻿using ServiceStack.DataAnnotations;
+﻿using ServiceStack;
+using ServiceStack.DataAnnotations;
 using ServiceStack.Model;
 using System;
 
@@ -11,6 +12,9 @@ namespace TriggerAction.ServiceModel.Types
         [AutoIncrement]
         [Alias("DeviceId")]
         public int Id { get; set; }
+        public string SensorLabel { get; set; }
+        public string UserLabel { get; set; }
+        public LocationInfo Location { get; set; }
         [Reference]
         public Gateway Gateway { get; set; }
         public int? GatewayId { get; set; }
@@ -22,9 +26,6 @@ namespace TriggerAction.ServiceModel.Types
         [Reference]
         public DeviceType DeviceType { get; set; }
         public int? DeviceTypeId { get; set; }
-        public string SensorLabel { get; set; }
-        public string UserLabel { get; set; }
-        public string Location { get; set; }
         public int Slave { get; set; }
         public int? ViewId { get; set; }
         public bool IsDataExpected { get; set; }
@@ -34,5 +35,52 @@ namespace TriggerAction.ServiceModel.Types
         public DateTime InstallDate { get; set; }
         public DateTime UninstallDate { get; set; }
         public int? PollInterval { get; set; }
+
+        [Ignore]
+        public string RealEstateUnitID { get => Location?.RealEstateUnitID; set => Location.RealEstateUnitID = value; }
+        [Ignore]
+        public int? RoomCode { get => Location?.RoomCode; set => Location.RoomCode = value; }
+        [Ignore]
+        public string LocationID { get => Location?.LocationID; set => Location.LocationID = value; }
+        [Ignore]
+        public string PDRID { get => Location?.PDRID; set => Location.PDRID = value; }
+    }
+
+    public class LocationInfo
+    {
+        [Description("Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)")]
+        public string RealEstateUnitID { get; set; }
+        [Description("Tipologia di stanza in cui sensore è installato es. cucina, bagno, ufficio")]
+        public int? RoomCode { get; set; }
+        [Description("Identificativo dell'area osservata.")]
+        public string LocationID { get; set; }
+        [Description("Codice PDR cui è associata l'utenza")]
+        public string PDRID { get; set; }
+    }
+
+    [AutoQueryViewer(DefaultFields = "Id,SensorLabel,UserLabel,Location,DeviceTypeId,LogicId,Slave,GatewayId,PlantId")]
+    public partial class DeviceQuery : QueryDb<Device> { }
+
+    public class UpdateDevice :
+        IUpdateDb<Device>, IReturn<UpdateDeviceResponse>
+    {
+        public int Id { get; set; }
+        public string SensorLabel { get; set; }
+        public string UserLabel { get; set; }
+        [Description("Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)")]
+        public string RealEstateUnitID { get; set; }
+        [Description("Tipologia di stanza in cui sensore è installato es. cucina, bagno, ufficio")]
+        public int? RoomCode { get; set; }
+        [Description("Identificativo dell'area osservata.")]
+        public string LocationID { get; set; }
+        [Description("Codice PDR cui è associata l'utenza")]
+        public string PDRID { get; set; }
+    }
+
+    public class UpdateDeviceResponse
+    {
+        public int Id { get; set; }
+        public Device Result { get; set; }
+        public ResponseStatus ResponseStatus { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using ServiceStack;
 using ServiceStack.DataAnnotations;
 using ServiceStack.Model;
+using System.Collections.Generic;
 
 namespace TriggerAction.ServiceModel.Types
 {
@@ -22,6 +23,38 @@ namespace TriggerAction.ServiceModel.Types
         [Required]
         public string BatchOperationType { get; set; }
         public string Label { get; set; }
+    }
+
+    public class CreateDeviceValue : ICreateDb<DeviceValue>, IReturn<CreateDeviceValueResponse>
+    {
+        public int? DeviceId { get; set; }
+        public string ValueUniqueId { get; set; }
+        public decimal Offset { get; set; }
+        public string Unit { get; set; }
+        public decimal? TransformFactor { get; set; }
+        public int? ValueTypeId { get; set; }
+        public string BatchOperationType { get; set; }
+        public string Label { get; set; }
+    }
+
+    public class CreateDeviceValueResponse
+    {
+        public int Id { get; set; }
+        public ResponseStatus ResponseStatus { get; set; }
+    }
+
+    public class UpdateDeviceValue :
+        IUpdateDb<DeviceValue>, IReturn<UpdateDeviceValueResponse>
+    {
+        public int Id { get; set; }
+        public Dictionary<string,string> Location { get; set; }
+    }
+
+    public class UpdateDeviceValueResponse
+    {
+        public int Id { get; set; }
+        public DeviceValue Result { get; set; }
+        public ResponseStatus ResponseStatus { get; set; }
     }
 
     public partial class DeviceValueQuery : QueryDb<DeviceValue>

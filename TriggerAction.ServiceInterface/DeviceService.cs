@@ -1,4 +1,5 @@
 ﻿using ServiceStack;
+using ServiceStack.FluentValidation;
 using ServiceStack.OrmLite;
 using ServiceStack.Text;
 using System;
@@ -6,7 +7,6 @@ using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using TriggerAction.ServiceModel;
-using TriggerAction.ServiceModel.Enums;
 using TriggerAction.ServiceModel.Names;
 using TriggerAction.ServiceModel.Types;
 
@@ -21,7 +21,11 @@ namespace TriggerAction.ServiceInterface
 
             var dto = dev.ConvertTo<DeviceResponse>();
 
-            Db.LoadReferences(dev.DeviceType);
+            if (dev.DeviceType != null)
+            {
+                Db.LoadReferences(dev.DeviceType);
+            }
+
             // dto.SensorTypeCode = dev.DeviceType.DeviceCategory.Label;
             //dto.SensorTypeCode = SensorTypeCode.ConfortMultisensor;
 
@@ -117,9 +121,20 @@ namespace TriggerAction.ServiceInterface
             var BatchOperationType = "SCP-"; // Uguale per tutte le informazioni aggiuntive.
             var DeviceId = request.DeviceId;
 
-            var SensorID = Regex.IsMatch(dto.SensorLabel.Trim(), @"^[a-zA-Z0-9]+-[0-9]+$")
-                ? dto.SensorLabel.Trim().ToUpperInvariant()
-                : Regex.Replace(dto.SensorLabel, @"[^a-zA-Z0-9]", string.Empty).ToUpperInvariant() + "-" + dto.Id;
+            string SensorID;
+
+            if (string.IsNullOrWhiteSpace(dto.SensorLabel))
+            {
+                SensorID = dto.Id.ToString(CultureInfo.InvariantCulture);
+            }
+            else if (Regex.IsMatch(dto.SensorLabel.Trim(), @"^[a-zA-Z0-9]+-[0-9]+$"))
+            {
+                SensorID = dto.SensorLabel.Trim().ToUpperInvariant();
+            }
+            else
+            {
+                SensorID = Regex.Replace(dto.SensorLabel, @"[^a-zA-Z0-9]", string.Empty).ToUpperInvariant() + "-" + dto.Id;
+            }
 
             lastReadings.Add(new Reading
             {
@@ -144,87 +159,23 @@ namespace TriggerAction.ServiceInterface
                 Timestamp = DateTimeOffset.Now
             });
 
-            string realEstateUnitID; // Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)
-            string roomCode;
-            string pdrID; // Codice PDR cui è associata l'utenza.
-
             // Consideriamo la possibilità che il campo "Location" contenga un
-            // oggetto di tipo "Location" serializzato in formato JSV.
+            // dizionario serializzato in formato JSV.
 
-            StringDictionary location = null;
-            try
-            {
-                location = dev.Location.FromJsv<StringDictionary>();
-            }
-            catch
-            {
-                // Ignore malformed JSV.
-            }
-
-            if (location != null)
-            {
-                location.TryGetValue(PropertyName.RealEstateUnitID, out realEstateUnitID);
-                location.TryGetValue(PropertyName.RoomCode, out roomCode);
-                location.TryGetValue(PropertyName.PDRID, out pdrID);
-            }
-            else if (Regex.IsMatch(dev.Location, @"(?:[A-Za-z0-9]+)(?:\s*,\s*(?:[A-Za-z0-9]+))+"))
-            {
-                // TODO: Eliminare completamente questo "else"?
-                var strList = dev.Location.Split(',')
-                    .Select(x => x.Trim().ToUpperInvariant())
-                    .ToList();
-
-                realEstateUnitID = strList[0];
-                roomCode = int.TryParse(strList[1], out int value) && Enum.IsDefined(typeof(RoomCode), value)
-                    ? value.ToString()
-                    : "";
-                pdrID = "";
-            }
-            else
-            {
-                realEstateUnitID = Regex.Replace(dev.Plant.Label.Trim(), @"[^a-zA-Z0-9]", string.Empty).ToUpperInvariant() + "-" + dev.PlantId;
-                roomCode = "";
-                pdrID = "";
-            }
-
-            if (!realEstateUnitID.IsNullOrEmpty())
-            {
-                lastReadings.Add(new Reading
+            dev.Location.ToStringDictionary()
+                .Each((key, val) =>
                 {
-                    BatchOperationType = BatchOperationType,
-                    DeviceId = DeviceId,
-                    Label = PropertyName.RealEstateUnitID,
-                    Unit = "dimensionless",
-                    Value = realEstateUnitID,
-                    Timestamp = DateTimeOffset.Now
+                    if (!string.IsNullOrWhiteSpace(val))
+                        lastReadings.Add(new Reading
+                        {
+                            BatchOperationType = BatchOperationType,
+                            DeviceId = DeviceId,
+                            Label = key,
+                            Unit = "dimensionless",
+                            Value = val.Trim(), // TODO: Eliminare tutti gli spazi bianchi ed i caratteri non permessi?
+                            Timestamp = DateTimeOffset.Now
+                        });
                 });
-            }
-
-            if (!roomCode.IsNullOrEmpty())
-            {
-                lastReadings.Add(new Reading
-                {
-                    BatchOperationType = BatchOperationType,
-                    DeviceId = DeviceId,
-                    Label = PropertyName.RoomCode,
-                    Unit = "dimensionless",
-                    Value = roomCode,
-                    Timestamp = DateTimeOffset.Now
-                });
-            }
-
-            if (!pdrID.IsNullOrEmpty())
-            {
-                lastReadings.Add(new Reading
-                {
-                    BatchOperationType = BatchOperationType,
-                    DeviceId = DeviceId,
-                    Label = PropertyName.PDRID,
-                    Unit = "dimensionless",
-                    Value = pdrID,
-                    Timestamp = DateTimeOffset.Now
-                });
-            }
 
             dto.Values = lastReadings;
             return dto;
@@ -233,6 +184,17 @@ namespace TriggerAction.ServiceInterface
         public object Get(PlantsRequest req)
         {
             return Db.LoadSelect<Plant>();
+        }
+
+        public class UpdateDeviceValidator : AbstractValidator<UpdateDevice>
+        {
+            public UpdateDeviceValidator()
+            {
+                RuleFor(r => r.RoomCode).GreaterThan(0);       
+                RuleFor(r => r.PDRID)
+                    .Must(x => x.IsNullOrEmpty() || Regex.IsMatch(x, @"^[0-9]{14}$"))
+                    .WithMessage("Il codice PDR viene assegnato dal distributore dopo l'allacciamento del gas con l'installazione del contatore ed è composto da 14 cifre.");
+            }
         }
     }
 }

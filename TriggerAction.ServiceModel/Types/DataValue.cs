@@ -1,10 +1,10 @@
 ﻿using ServiceStack.DataAnnotations;
 using ServiceStack.Model;
 using System;
-using System.Runtime.Serialization;
 
 namespace TriggerAction.ServiceModel.Types
 {
+    [Alias("DataValues")]
     public class DataValue // Data Model
         : IHasId<long>
     {
