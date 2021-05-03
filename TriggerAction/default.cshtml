@@ -1,6 +1,10 @@
 ﻿@{ ViewBag.Title = "Smart City Platform PROJECT"; }
 
 <h2>Applicazione pilota Trigger Action</h2>
+<button onclick="location.href='app://studio?connect=http://localhost:8088'"
+        class="sel btn btn-block btn-social btn-servicestack btn-md" style="cursor: pointer">
+    <i class="fab fa-servicestack"></i> ServiceStack Studio
+</button>
 <h3>Links:</h3>
 <ul>
     <li><a href="/metadata">Metadata</a></li>
@@ -11,7 +15,7 @@
             <li><a href="/quartz/api/triggers">Triggers</a></li>
             <li><a href="/quartz/api/history">History</a></li>
         </ul>
-        </li>
+    </li>
     <li><a href="/ss_admin/autoquery/">AutoQuery Viewer</a></li>
     <li><a href="/swagger-ui/">Swagger UI</a></li>
 </ul>
