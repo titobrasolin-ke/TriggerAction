@@ -2,6 +2,7 @@
   <add key="scps.baseUri" value="" />
   <add key="scps.username" value="" />
   <add key="scps.password" value="" />
+  <add key="scps.outgoingFolder" value="outgoing" />
   <add key="webPages:Enabled" value="false" />
   <add key="ClientSettingsProvider.ServiceUri" value="" />
 </appSettings>

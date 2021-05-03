@@ -66,7 +66,7 @@ namespace TriggerAction
                 ?? @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|aspnetdb.mdf;Integrated Security=True";
 
             var dbFactory = new OrmLiteConnectionFactory(defaultDbConn, SqlServer2012Dialect.Provider);
-            dbFactory.RegisterConnection("Reporting", "~/App_Data/reporting.sqlite".MapAbsolutePath(), SqliteDialect.Provider);
+            dbFactory.RegisterConnection("Reporting", Path.Combine(Constants.ApplicationDataFolder, "db.sqlite"), SqliteDialect.Provider);
             container.Register<IDbConnectionFactory>(dbFactory);
 
             using (var db = dbFactory.Open("Reporting"))

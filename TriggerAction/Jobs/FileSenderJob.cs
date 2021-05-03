@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Topshelf.Logging;
 using TriggerAction.ServiceInterface;
 using TriggerAction.ServiceModel;
+using TriggerAction.Utilities;
 
 namespace TriggerAction.Jobs
 {
@@ -37,8 +38,13 @@ namespace TriggerAction.Jobs
         {
             var username = AppSettings.GetRequiredString("scps.username");
             var password = AppSettings.GetRequiredString("scps.password");
+            var outgoingFolder = AppSettings.GetRequiredString("scps.outgoingFolder");
 
-            var directoryInfo = Directory.CreateDirectory("~/test".MapAbsolutePath());
+            var path = FileSystemHelper.IsFullPath(outgoingFolder) ?
+                outgoingFolder : Path.Combine(Constants.ApplicationDataFolder, outgoingFolder);
+
+            // Crea tutte le directory e le sottodirectory nel percorso specificato a meno che non esistano già.
+            var directoryInfo = Directory.CreateDirectory(path);
             var files = Directory.GetFiles(directoryInfo.FullName, "*.json", SearchOption.TopDirectoryOnly);
 
             foreach (var fileInfo in files.Select(fileName => new FileInfo(fileName)))

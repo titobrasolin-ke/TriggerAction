@@ -169,9 +169,6 @@
     <Reference Include="SharpCompress, Version=0.17.1.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpCompress.0.17.1\lib\net45\SharpCompress.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleHelper, Version=0.0.18.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleHelper.0.0.18\lib\net472\SimpleHelper.dll</HintPath>
-    </Reference>
     <Reference Include="SJP.Sherlock, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SJP.Sherlock.1.0.0\lib\net451\SJP.Sherlock.dll</HintPath>
     </Reference>
@@ -253,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppHost.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Jobs\FileSenderJob.cs" />
     <Compile Include="Jobs\MyJob.cs" />
     <Compile Include="Program.cs" />
@@ -262,6 +260,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\FileSystemHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

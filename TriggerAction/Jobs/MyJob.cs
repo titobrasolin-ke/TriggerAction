@@ -13,6 +13,7 @@ using Topshelf.Logging;
 using TriggerAction.ServiceInterface;
 using TriggerAction.ServiceModel;
 using TriggerAction.ServiceModel.Types;
+using TriggerAction.Utilities;
 
 namespace TriggerAction.Jobs
 {
@@ -152,7 +153,12 @@ namespace TriggerAction.Jobs
                     pushRequest.Dataset.UrbanDataset.Context.Timestamp = DateTime.Now;
                     pushRequest.Dataset.UrbanDataset.Context.TimeZone = DateTimeOffset.Now.ToString("'UTC'zzz");
 
-                    var path = Path.Combine("test", Guid.NewGuid().ToString() + ".json");
+                    var outgoingFolder = AppSettings.GetRequiredString("scps.outgoingFolder");
+
+                    var path1 = FileSystemHelper.IsFullPath(outgoingFolder) ?
+                        outgoingFolder : Path.Combine(Constants.ApplicationDataFolder, outgoingFolder);
+
+                    var path = Path.Combine(path1, Guid.NewGuid().ToString() + ".json");
                     using (var stream = File.OpenWrite(path))
                     {
 
