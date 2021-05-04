@@ -551,12 +551,14 @@
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
-  <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
-    <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
-      <Output TaskParameter="Assemblies" ItemName="myAssemblyInfo" />
-    </GetAssemblyIdentity>
-    <Exec Command="nuget pack TriggerAction.nuspec -Version %(myAssemblyInfo.Version) -Properties Configuration=Release -OutputDirectory $(OutDir) -BasePath $(OutDir)" />
-    <Exec Command="squirrel &#45;&#45;releasify $(OutDir)TriggerAction.$([System.Version]::Parse(%(myAssemblyInfo.Version)).ToString(3)).nupkg" />
+  <Target Name="AfterBuild">
   </Target>
   -->
+  <!--
+  The following target ensures that "CreateZipOfOutputs" is executed after "CopySQLiteInteropFiles".
+  https://github.com/jsakamoto/CreateZipOfOutputs.MSBuildTask/blob/master/CreateZipOfOutputs.MSBuildTask/CreateZipOfOutputs.MSBuildTask.targets
+  -->
+  <Target Name="AfterBuild" Condition="'$(Configuration)' == 'Release'"
+          DependsOnTargets="CopySQLiteInteropFiles">
+  </Target>
 </Project>
