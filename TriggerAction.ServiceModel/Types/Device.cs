@@ -41,6 +41,10 @@ namespace TriggerAction.ServiceModel.Types
         [Ignore]
         public double? Longitude { get => Location?.Longitude; set => Location.Longitude = value; }
         [Ignore]
+        public string BuildingID { get => Location?.BuildingID; set => Location.BuildingID = value; }
+        [Ignore]
+        public string ApartmentID { get => Location?.ApartmentID; set => Location.ApartmentID = value; }
+        [Ignore]
         public string RealEstateUnitID { get => Location?.RealEstateUnitID; set => Location.RealEstateUnitID = value; }
         [Ignore]
         public string RoomCode { get => Location?.RoomCode; set => Location.RoomCode = value; }
@@ -58,6 +62,9 @@ namespace TriggerAction.ServiceModel.Types
         public double? Latitude { get; set; }
         [Description("Riferimento geografico: longitudine")]
         public double? Longitude { get; set; }
+        [Description("Identificatore dell'edificio")]
+        public string BuildingID { get; set; }
+        public string ApartmentID { get; set; }
         [Description("Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)")]
         public string RealEstateUnitID { get; set; }
         [Description("Tipologia di stanza in cui sensore è installato es. cucina, bagno, ufficio")]
@@ -79,14 +86,23 @@ namespace TriggerAction.ServiceModel.Types
         public int Id { get; set; }
         public string SensorLabel { get; set; }
         public string UserLabel { get; set; }
+        [Description("Riferimento geografico: latitudine")]
+        public double? Latitude { get; set; }
+        [Description("Riferimento geografico: longitudine")]
+        public double? Longitude { get; set; }
+        [Description("Identificatore dell'edificio")]
+        public string BuildingID { get; set; }
+        public string ApartmentID { get; set; }
         [Description("Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)")]
         public string RealEstateUnitID { get; set; }
         [Description("Tipologia di stanza in cui sensore è installato es. cucina, bagno, ufficio")]
-        public int? RoomCode { get; set; }
+        public string RoomCode { get; set; }
         [Description("Identificativo dell'area osservata.")]
         public string LocationID { get; set; }
         [Description("Codice PDR cui è associata l'utenza")]
         public string PDRID { get; set; }
+        [Description("Uso finale dell'energia elettrica consumata (ad es. illuminazione, forza motrice, generale, condizionamento, ...)")]
+        public string ElectricityEndUseCode { get; set; }
     }
 
     public class UpdateDeviceResponse

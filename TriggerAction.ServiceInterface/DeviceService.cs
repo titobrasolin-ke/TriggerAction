@@ -190,7 +190,6 @@ namespace TriggerAction.ServiceInterface
         {
             public UpdateDeviceValidator()
             {
-                RuleFor(r => r.RoomCode).GreaterThan(0);       
                 RuleFor(r => r.PDRID)
                     .Must(x => x.IsNullOrEmpty() || Regex.IsMatch(x, @"^[0-9]{14}$"))
                     .WithMessage("Il codice PDR viene assegnato dal distributore dopo l'allacciamento del gas con l'installazione del contatore ed è composto da 14 cifre.");
