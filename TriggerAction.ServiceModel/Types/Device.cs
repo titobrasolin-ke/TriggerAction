@@ -37,25 +37,37 @@ namespace TriggerAction.ServiceModel.Types
         public int? PollInterval { get; set; }
 
         [Ignore]
+        public double? Latitude { get => Location?.Latitude; set => Location.Latitude = value; }
+        [Ignore]
+        public double? Longitude { get => Location?.Longitude; set => Location.Longitude = value; }
+        [Ignore]
         public string RealEstateUnitID { get => Location?.RealEstateUnitID; set => Location.RealEstateUnitID = value; }
         [Ignore]
-        public int? RoomCode { get => Location?.RoomCode; set => Location.RoomCode = value; }
+        public string RoomCode { get => Location?.RoomCode; set => Location.RoomCode = value; }
         [Ignore]
         public string LocationID { get => Location?.LocationID; set => Location.LocationID = value; }
         [Ignore]
         public string PDRID { get => Location?.PDRID; set => Location.PDRID = value; }
+        [Ignore]
+        public string ElectricityEndUseCode { get => Location?.ElectricityEndUseCode; set => Location.ElectricityEndUseCode = value; }
     }
 
     public class LocationInfo
     {
+        [Description("Riferimento geografico: latitudine")]
+        public double? Latitude { get; set; }
+        [Description("Riferimento geografico: longitudine")]
+        public double? Longitude { get; set; }
         [Description("Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)")]
         public string RealEstateUnitID { get; set; }
         [Description("Tipologia di stanza in cui sensore è installato es. cucina, bagno, ufficio")]
-        public int? RoomCode { get; set; }
+        public string RoomCode { get; set; }
         [Description("Identificativo dell'area osservata.")]
         public string LocationID { get; set; }
         [Description("Codice PDR cui è associata l'utenza")]
         public string PDRID { get; set; }
+        [Description("Uso finale dell'energia elettrica consumata (ad es. illuminazione, forza motrice, generale, condizionamento, ...)")]
+        public string ElectricityEndUseCode { get; set; }
     }
 
     [AutoQueryViewer(DefaultFields = "Id,SensorLabel,UserLabel,Location,DeviceTypeId,LogicId,Slave,GatewayId,PlantId")]
