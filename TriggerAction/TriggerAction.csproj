@@ -420,6 +420,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\app.manifest" />
+    <None Include="SCPSWebLibrary\template\Presences-2.0-Template.json" />
     <None Include="SCPSWebLibrary\template\scps-urbandataset-schema-1.0.json" />
     <Content Include="SCPSWebLibrary\template\SinglePhaseCounterReading-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -558,7 +559,6 @@
   The following target ensures that "CreateZipOfOutputs" is executed after "CopySQLiteInteropFiles".
   https://github.com/jsakamoto/CreateZipOfOutputs.MSBuildTask/blob/master/CreateZipOfOutputs.MSBuildTask/CreateZipOfOutputs.MSBuildTask.targets
   -->
-  <Target Name="AfterBuild" Condition="'$(Configuration)' == 'Release'"
-          DependsOnTargets="CopySQLiteInteropFiles">
+  <Target Name="AfterBuild" Condition="'$(Configuration)' == 'Release'" DependsOnTargets="CopySQLiteInteropFiles">
   </Target>
 </Project>
