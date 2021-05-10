@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Codes\ElectricityEndUseCode.cs" />
+    <Compile Include="Codes\RoomCode.cs" />
     <Compile Include="Codes\WindowStatusCode.cs" />
     <Compile Include="Devices.cs" />
     <Compile Include="Enums\BuildingTypeCode.cs" />

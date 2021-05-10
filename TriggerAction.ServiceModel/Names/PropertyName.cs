@@ -113,7 +113,7 @@ namespace TriggerAction.ServiceModel.Names
         [Description("Consumo energia elettrica (kilowattHour, double)")]
         public static readonly string ElectricConsumption = "ElectricConsumption";
         [Description("Uso finale dell'energia elettrica consumata (ad es. illuminazione, forza motrice, generale, condizionamento,…) (dimensionless, string)")]
-        public static readonly string ElectricityUseCode = "ElectricityUseCode";
+        public static readonly string ElectricityEndUseCode = "ElectricityEndUseCode";
         [Description("Identificativo del quadro elettrico (dimensionless, string)")]
         public static readonly string ElectricPanelID = "ElectricPanelID";
         [Description("Energia elettrica prodotta (kilowattHour, double)")]
@@ -270,18 +270,16 @@ namespace TriggerAction.ServiceModel.Names
         public static readonly string PageName = "PageName";
         [Description("Link (url) alla Pagina del social network (dimensionless, string)")]
         public static readonly string PageURL = "PageURL";
-        [Description("Indica se il numero di presenze indicato è un parziale (true) o un totale (false) per il periodo indicato. (dimensionless, string)")]
-        public static readonly string PartialCountFlag = "PartialCountFlag";
         [Description("Codice PDR cui è associata l'utenza (dimensionless, string)")]
         public static readonly string PDRID = "PDRID";
         [Description("KPI tecnici specifici del PELL IP (dimensionless, string)")]
         public static readonly string PellKPICode = "PellKPICode";
         [Description("Periodo durante il quale sono stati rilevati i dati riportati nella riga")]
         public static readonly string period = "period";
-        [Description("Periodo espresso come valore. Alcuni esempi: - 2020, 2019, … , se PeriodValueQualifier = year - 1, 2, 30,… , se PeriodValueQualifier = week - Mon, Tue, Sat,… , se PeriodValueQualifier = day (dimensionless, string)")]
+        [Description("Qualificatore che descrive il periodo (dimensionless, string)")]
+        public static readonly string PeriodQualifierCode = "PeriodQualifierCode";
+        [Description("Periodo espresso come valore (es. il giorno della settimana, l'anno, ecc.) (dimensionless, string)")]
         public static readonly string PeriodValue = "PeriodValue";
-        [Description("Qualificatore per l'elemento PeriodValue (dimensionless, string)")]
-        public static readonly string PeriodValueQualifierCode = "PeriodValueQualifierCode";
         [Description("Tensione della fase (volt, double)")]
         public static readonly string PhaseVoltage = "PhaseVoltage";
         [Description("Indica la categoria (persone, veicoli) alla quale si riferisce il conteggio (dimensionless, string)")]
@@ -344,7 +342,7 @@ namespace TriggerAction.ServiceModel.Names
         public static readonly string ReactivePowerPhase2 = "ReactivePowerPhase2";
         [Description("Potenza reattiva T (kilovoltamperereactive, double)")]
         public static readonly string ReactivePowerPhase3 = "ReactivePowerPhase3";
-        [Description("Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...) (dimensionless, string)")]
+        [Description("Identificativo dell'unità immobiliare (es. appartamento, edificio, abitazione indipendente...) (dimensionless, string)")]
         public static readonly string RealEstateUnitID = "RealEstateUnitID";
         [Description("numero di unità immobiliari (dimensionless, integer)")]
         public static readonly string RealEstateUnits = "RealEstateUnits";
@@ -376,6 +374,8 @@ namespace TriggerAction.ServiceModel.Names
         public static readonly string StartTimeSlot = "StartTimeSlot";
         [Description("Marca temporale indicante l'inizio del periodo (dimensionless, dateTime)")]
         public static readonly string start_ts = "start_ts";
+        [Description("Nome di un'area all'interno di un luogo (dimensionless, string)")]
+        public static readonly string SubLocationName = "SubLocationName";
         [Description("Quantità di pioggia calcolata in 3 ore dai pluviometri in millimetri di accumulo. (millimetre, double)")]
         public static readonly string ThreeHoursRainfall = "ThreeHoursRainfall";
         [Description("Fascia oraria espressa come valore. Valori suggeriti \"diurna\", \"notturna\", dove se non diversamente specificato tramite \"Ora inizio\" e \"Ora fine\", si assume che: - diurna: dalle 07:00 alle 18:59 - notturna: dalle 19:00 alle 06:59 (dimensionless, string)")]
@@ -388,6 +388,8 @@ namespace TriggerAction.ServiceModel.Names
         public static readonly string TotalApparentPower = "TotalApparentPower";
         [Description("Percentuale di copertura nuvolosa sul totale. (dimensionless, double)")]
         public static readonly string TotalCloudCoveragePercentage = "TotalCloudCoveragePercentage";
+        [Description("Indica se il numero di presenze indicato è un totale (true) o un parziale (false) per il periodo indicato. (dimensionless, string)")]
+        public static readonly string TotalCountFlag = "TotalCountFlag";
         [Description("Numero degli utenti gestiti (dimensionless, integer)")]
         public static readonly string TotalManagedUsersCount = "TotalManagedUsersCount";
         [Description("Numero delle applicazioni verticali gestite (dimensionless, integer)")]
