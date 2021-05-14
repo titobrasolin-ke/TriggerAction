@@ -352,6 +352,8 @@ namespace TriggerAction.ServiceModel.Names
         public static readonly string RelativeHumidity = "RelativeHumidity";
         [Description("Tipologia di stanza in cui sensore è installato es. cucina, bagno, ufficio (dimensionless, string)")]
         public static readonly string RoomCode = "RoomCode";
+        [Description("Codice che identifica una stanza (dimensionless, string)")]
+        public static readonly string RoomID = "RoomID";
         [Description("Identificativo di uno schema di identificazione utilizzato (dimensionless, string)")]
         public static readonly string SchemeID = "SchemeID";
         [Description("identificativo univoco del sensore es. serial number, mac address (dimensionless, string)")]
@@ -388,7 +390,7 @@ namespace TriggerAction.ServiceModel.Names
         public static readonly string TotalApparentPower = "TotalApparentPower";
         [Description("Percentuale di copertura nuvolosa sul totale. (dimensionless, double)")]
         public static readonly string TotalCloudCoveragePercentage = "TotalCloudCoveragePercentage";
-        [Description("Indica se il numero di presenze indicato è un totale (true) o un parziale (false) per il periodo indicato. (dimensionless, string)")]
+        [Description("Indica se il numero di presenze indicato è un totale (true) o un parziale (false) per il periodo indicato. (dimensionless, boolean)")]
         public static readonly string TotalCountFlag = "TotalCountFlag";
         [Description("Numero degli utenti gestiti (dimensionless, integer)")]
         public static readonly string TotalManagedUsersCount = "TotalManagedUsersCount";
@@ -432,7 +434,7 @@ namespace TriggerAction.ServiceModel.Names
         public static readonly string WindowStatusCode = "WindowStatusCode";
         [Description("Velocità del vento osservata in metri al secondo (metrePerSecond-Time, double)")]
         public static readonly string WindSpeed = "WindSpeed";
-        [Description("Indica se si fa riferimento a giorni feriali o festivi. (dimensionless, string)")]
+        [Description("Indica se si fa riferimento a giorni feriali o festivi. (dimensionless, boolean)")]
         public static readonly string WorkingDayFlag = "WorkingDayFlag";
         [Description("URL dell'endpoint del Web Service a cui si vuole accedere (dimensionless, string)")]
         public static readonly string WSEndpoint = "WSEndpoint";

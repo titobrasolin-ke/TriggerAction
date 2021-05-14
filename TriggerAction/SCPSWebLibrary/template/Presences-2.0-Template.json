@@ -6,7 +6,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-04-30T10:37:06",
+            "timestamp" : "2021-05-14T08:17:06",
             "coordinates" : {
                 "latitude" : 0.0,
                 "longitude" : 0.0,
@@ -81,7 +81,7 @@
                     {
                         "propertyName" : "TotalCountFlag",
                         "propertyDescription" : "Indica se il numero di presenze indicato è un totale (true) o un parziale (false) per il periodo indicato.",
-                        "dataType" : "string",
+                        "dataType" : "boolean",
                         "unitOfMeasure" : "dimensionless"
                     },
                     {
@@ -149,7 +149,7 @@
                     {
                         "propertyName" : "WorkingDayFlag",
                         "propertyDescription" : "Indica se si fa riferimento a giorni feriali o festivi.",
-                        "dataType" : "string",
+                        "dataType" : "boolean",
                         "unitOfMeasure" : "dimensionless"
                     },
                     {

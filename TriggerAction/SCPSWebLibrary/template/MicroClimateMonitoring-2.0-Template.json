@@ -6,7 +6,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-10T10:43:10",
+            "timestamp" : "2021-05-14T08:16:53",
             "coordinates" : {
                 "latitude" : 0.0,
                 "longitude" : 0.0,
@@ -122,6 +122,12 @@
                         "unitOfMeasure" : "partsPerMillion"
                     },
                     {
+                        "propertyName" : "RoomID",
+                        "propertyDescription" : "Codice che identifica una stanza",
+                        "dataType" : "string",
+                        "unitOfMeasure" : "dimensionless"
+                    },
+                    {
                         "propertyName" : "AtmosphericPressure",
                         "propertyDescription" : "Pressione atmosferica osservata",
                         "dataType" : "double",
@@ -231,6 +237,11 @@
                         },
                         {
                             "name" : "VOC",
+                            "val" : " ",
+                            "property" : [ ]
+                        },
+                        {
+                            "name" : "RoomID",
                             "val" : " ",
                             "property" : [ ]
                         },
