@@ -401,9 +401,6 @@
     <Content Include="SCPSWebLibrary\template\MicroClimateMonitoring-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\MicroClimateMonitoring-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\PhotovoltaicSystemRecords-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -420,6 +417,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\app.manifest" />
+    <None Include="SCPSWebLibrary\template\MicroclimateMonitoring-2.0-Template.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="SCPSWebLibrary\template\Presences-2.0-Template.json" />
     <None Include="SCPSWebLibrary\template\scps-urbandataset-schema-1.0.json" />
     <Content Include="SCPSWebLibrary\template\SinglePhaseCounterReading-2.0-Template.json">
