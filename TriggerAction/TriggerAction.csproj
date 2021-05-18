@@ -250,6 +250,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppHost.cs" />
+    <Compile Include="Config\BaseConfigurationElementCollection.cs" />
+    <Compile Include="Config\TriggerActionSettings.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Jobs\FileSenderJob.cs" />
     <Compile Include="Jobs\MyJob.cs" />
@@ -291,6 +293,10 @@
     <None Include="Configuration\copy_default_config.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Configuration\TriggerActionSettings.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Configuration\TriggerActionSettings.config.default" />
     <None Include="CreateZipOfOutputs.props" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>

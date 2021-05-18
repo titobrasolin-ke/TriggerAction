@@ -60,18 +60,20 @@ namespace TriggerAction
 
             /*
              * Configuriamo il database SQL Server predefinito e registriamo
-             * una connessione opzionale SQLite denominata "Reporting".
+             * una connessione opzionale SQLite denominata "Local".
              */
             var defaultDbConn = AppSettings.GetConnectionString("DefaultConnection")
                 ?? @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|aspnetdb.mdf;Integrated Security=True";
 
             var dbFactory = new OrmLiteConnectionFactory(defaultDbConn, SqlServer2012Dialect.Provider);
-            dbFactory.RegisterConnection("Reporting", Path.Combine(Constants.ApplicationDataFolder, "db.sqlite"), SqliteDialect.Provider);
+            dbFactory.RegisterConnection("Local", Path.Combine(Constants.ApplicationDataFolder, "db.sqlite"), SqliteDialect.Provider);
             container.Register<IDbConnectionFactory>(dbFactory);
 
-            using (var db = dbFactory.Open("Reporting"))
+            // Wrap all code in using statement to not forget about using db.Close()
+            using (var db = dbFactory.Open("Local"))
             {
                 db.CreateTableIfNotExists<PushResponseLog>();
+                db.CreateTableIfNotExists<Collaboration>();
             }
 
             CsvConfig.ItemSeperatorString = CultureInfo.CurrentCulture.TextInfo.ListSeparator;

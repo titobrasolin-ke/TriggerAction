@@ -1,0 +1,24 @@
+﻿<!--
+https://gist.github.com/danielgreen/5772822
+Code to create a custom configuration section with child collections
+-->
+<TriggerActionSettings defaultEnvironment="Training">
+  <Environments>
+    <Environment name="Training" webServiceURL="https://www.example.com/training">
+      <Accounts>
+        <Account username="TL-train" password="Password" serviceId="TL" serviceName="Argyll &amp; Bute" />
+        <Account username="TM-train" password="Password" serviceId="TM" serviceName="East &amp; West Dunbartonshire" />
+        <Account username="TN-train" password="Password" serviceId="TN" serviceName="North Lanarkshire" />
+        <Account username="TP-train" password="Password" serviceId="TP" serviceName="South Lanarkshire" />
+      </Accounts>
+    </Environment>
+    <Environment name="Live" webServiceURL="https://www.example.com/live">
+      <Accounts>
+        <Account username="TL-prod" password="Password" serviceId="TL" serviceName="Argyll &amp; Bute" />
+        <Account username="TM-prod" password="Password" serviceId="TM" serviceName="East &amp; West Dunbartonshire" />
+        <Account username="TN-prod" password="Password" serviceId="TN" serviceName="North Lanarkshire" />
+        <Account username="TP-prod" password="Password" serviceId="TP" serviceName="South Lanarkshire" />
+      </Accounts>
+    </Environment>
+  </Environments>
+</TriggerActionSettings>

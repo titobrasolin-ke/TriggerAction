@@ -60,6 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Push.cs" />
     <Compile Include="Test.cs" />
+    <Compile Include="Types\Collaboration.cs" />
     <Compile Include="Types\DataPacket.cs" />
     <Compile Include="Types\DataValue.cs" />
     <Compile Include="Types\Device.cs" />
