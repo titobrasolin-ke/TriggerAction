@@ -9,10 +9,5 @@ namespace TriggerAction.ServiceInterface
         {
             return new HelloResponse { Result = $"Hello, {request.Name}!" };
         }
-
-        public object Get(TestRequest request)
-        {
-            return new TestResponse() { Code = "00", Message = "Succesful" };
-        }
     }
 }

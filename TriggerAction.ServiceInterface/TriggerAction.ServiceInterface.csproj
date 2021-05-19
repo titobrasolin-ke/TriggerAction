@@ -84,6 +84,7 @@
     <Compile Include="DeviceService.cs" />
     <Compile Include="MyServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UrbanDatasetGatewayService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
