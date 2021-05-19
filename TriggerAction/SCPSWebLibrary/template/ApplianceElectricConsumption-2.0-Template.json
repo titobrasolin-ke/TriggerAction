@@ -1,20 +1,5 @@
 {
     "UrbanDataset" : {
-        "context" : {
-            "producer" : {
-                "id" : "id1",
-                "schemeID" : "schemeID1"
-            },
-            "timeZone" : "UTC+1",
-            "timestamp" : "2021-04-30T10:36:56",
-            "coordinates" : {
-                "latitude" : 0.0,
-                "longitude" : 0.0,
-                "height" : 0.0,
-                "format" : "WGS84-DD"
-            },
-            "language" : "IT"
-        },
         "specification" : {
             "version" : "2.0",
             "id" : {
@@ -46,48 +31,63 @@
                         "propertyDescription" : "tipo di appliance associata alla smart plug/switch\nes. lavatrice, televisione, lampada",
                         "dataType" : "string",
                         "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/ApplianceCode.gc",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "RoomCode",
                         "propertyDescription" : "Tipologia di stanza in cui sensore è installato\nes. cucina, bagno, ufficio",
                         "dataType" : "string",
                         "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/RoomCode.gc",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "SensorID",
                         "propertyDescription" : "identificativo univoco del sensore\nes. serial number, mac address",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "SensorName",
                         "propertyDescription" : "marca/modello (codice) del sensore",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "SensorTypeCode",
                         "propertyDescription" : "tipologia di sensore che effettua la misura\nes. smart plug, smart switch, presence, ...",
                         "dataType" : "string",
                         "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/SensorTypeCode.gc",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "start_ts",
                         "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "end_ts",
                         "propertyDescription" : "Marca temporale indicante la fine del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     }
                 ]
             }
+        },
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-05-19T13:32:25",
+            "coordinates" : {
+                "format" : "WGS84-DD",
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0
+            },
+            "language" : "IT"
         },
         "values" : {
             "line" : [
@@ -100,33 +100,27 @@
                     "property" : [
                         {
                             "name" : "ElectricConsumption",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "ApplianceCode",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "RoomCode",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "SensorID",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "SensorName",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "SensorTypeCode",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         }
                     ]
                 }

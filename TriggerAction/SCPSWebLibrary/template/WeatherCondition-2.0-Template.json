@@ -1,20 +1,5 @@
 {
     "UrbanDataset" : {
-        "context" : {
-            "producer" : {
-                "id" : "id1",
-                "schemeID" : "schemeID1"
-            },
-            "timeZone" : "UTC+1",
-            "timestamp" : "2021-04-30T10:36:45",
-            "coordinates" : {
-                "latitude" : 0.0,
-                "longitude" : 0.0,
-                "height" : 0.0,
-                "format" : "WGS84-DD"
-            },
-            "language" : "IT"
-        },
         "specification" : {
             "version" : "2.0",
             "id" : {
@@ -35,7 +20,7 @@
                         "propertyName" : "MeteoStationName",
                         "propertyDescription" : "Nome della stazione Meteo che ha fornito i dati",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "coordinates",
@@ -63,13 +48,13 @@
                         "propertyName" : "RelativeHumidity",
                         "propertyDescription" : "Umidità relativa dell'aria espressa in percentuale.",
                         "dataType" : "double",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "LocationID",
                         "propertyDescription" : "Identificativo dell'area osservata.",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "DewPoint",
@@ -99,7 +84,7 @@
                         "propertyName" : "SchemeID",
                         "propertyDescription" : "Identificativo di uno schema di identificazione utilizzato",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "ThreeHoursRainfall",
@@ -111,20 +96,20 @@
                         "propertyName" : "TotalCloudCoveragePercentage",
                         "propertyDescription" : "Percentuale di copertura nuvolosa sul totale.",
                         "dataType" : "double",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "WeatherConditionCode",
                         "propertyDescription" : "Parametro che definisce la situazione meteo (pioggia, neve, sereno, coperto,…)",
                         "dataType" : "string",
                         "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/WeatherConditionCode.gc",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "WeatherConditionDescription",
                         "propertyDescription" : "Descrizione testuale della situazione meteo.",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "OneHourRainfall",
@@ -143,50 +128,65 @@
                         "propertyDescription" : "Formato wgs84 in cui sono espresse le coordinate (attributo opzionale)",
                         "dataType" : "string",
                         "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/FormatCode.gc",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "latitude",
                         "propertyDescription" : "Latitudine",
                         "dataType" : "double",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "longitude",
                         "propertyDescription" : "Longitudine",
                         "dataType" : "double",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "height",
                         "propertyDescription" : "Altitudine (proprieta' opzionale)",
                         "dataType" : "double",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "start_ts",
                         "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "end_ts",
                         "propertyDescription" : "Marca temporale indicante la fine del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     }
                 ]
             }
+        },
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-05-19T13:32:11",
+            "coordinates" : {
+                "format" : "WGS84-DD",
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0
+            },
+            "language" : "IT"
         },
         "values" : {
             "line" : [
                 {
                     "id" : 1,
                     "coordinates" : {
+                        "format" : "WGS84-DD",
                         "latitude" : 0.0,
                         "longitude" : 0.0,
-                        "height" : 0.0,
-                        "format" : "WGS84-DD"
+                        "height" : 0.0
                     },
                     "period" : {
                         "start_ts" : "2000-12-31T00:00:00",
@@ -195,78 +195,63 @@
                     "property" : [
                         {
                             "name" : "AirTemperature",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "MeteoStationName",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "RelativeHumidity",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "LocationID",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "DewPoint",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "SolarRadiation",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "WindDirection",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "WindSpeed",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "SchemeID",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "ThreeHoursRainfall",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "TotalCloudCoveragePercentage",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "WeatherConditionCode",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "WeatherConditionDescription",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "OneHourRainfall",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "AtmosphericPressure",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         }
                     ]
                 }

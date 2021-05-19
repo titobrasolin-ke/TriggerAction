@@ -1,20 +1,5 @@
 {
     "UrbanDataset" : {
-        "context" : {
-            "producer" : {
-                "id" : "id1",
-                "schemeID" : "schemeID1"
-            },
-            "timeZone" : "UTC+1",
-            "timestamp" : "2021-04-30T10:36:49",
-            "coordinates" : {
-                "latitude" : 0.0,
-                "longitude" : 0.0,
-                "height" : 0.0,
-                "format" : "WGS84-DD"
-            },
-            "language" : "IT"
-        },
         "specification" : {
             "version" : "2.0",
             "id" : {
@@ -29,44 +14,44 @@
                         "propertyName" : "BuildingName",
                         "propertyDescription" : "Etichetta associata all'edificio",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "BuildingEnergyAnomalyCode",
                         "propertyDescription" : "Codice identificativo dell'anomalia dell'edificio.",
                         "dataType" : "string",
                         "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/BuildingEnergyAnomalyCode.gc",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "BuildingEnergyHighAnomalies",
                         "propertyDescription" : "Numero di anomalie con priorità alta, riscontrate in un edificio",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "BuildingEnergyLowAnomalies",
                         "propertyDescription" : "Numero di anomalie con priorità bassa, riscontrate in un edificio",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "BuildingEnergyMeanAnomalies",
                         "propertyDescription" : "Numero di anomalie con priorità media, riscontrate in un edificio",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "BuildingID",
                         "propertyDescription" : "Identificatore dell'edificio",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "DataDescription",
                         "propertyDescription" : "Descrizione testuale dei dati inviati",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "period",
@@ -82,16 +67,31 @@
                         "propertyName" : "start_ts",
                         "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "end_ts",
                         "propertyDescription" : "Marca temporale indicante la fine del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     }
                 ]
             }
+        },
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-05-19T13:32:17",
+            "coordinates" : {
+                "format" : "WGS84-DD",
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0
+            },
+            "language" : "IT"
         },
         "values" : {
             "line" : [
@@ -105,33 +105,27 @@
                     "property" : [
                         {
                             "name" : "BuildingName",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "BuildingEnergyAnomalyCode",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "BuildingEnergyHighAnomalies",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "BuildingEnergyLowAnomalies",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "BuildingEnergyMeanAnomalies",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "BuildingID",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         }
                     ]
                 }

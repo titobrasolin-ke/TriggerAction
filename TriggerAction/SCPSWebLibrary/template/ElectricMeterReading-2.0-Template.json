@@ -1,20 +1,5 @@
 {
     "UrbanDataset" : {
-        "context" : {
-            "producer" : {
-                "id" : "id1",
-                "schemeID" : "schemeID1"
-            },
-            "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-10T10:43:14",
-            "coordinates" : {
-                "latitude" : 0.0,
-                "longitude" : 0.0,
-                "height" : 0.0,
-                "format" : "WGS84-DD"
-            },
-            "language" : "IT"
-        },
         "specification" : {
             "version" : "2.0",
             "id" : {
@@ -45,7 +30,7 @@
                         "propertyName" : "PODID",
                         "propertyDescription" : "Codice POD che identifica univocamente il punto di prelievo",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "ReactiveEnergy",
@@ -69,7 +54,7 @@
                         "propertyName" : "SchemeID",
                         "propertyDescription" : "Identificativo di uno schema di identificazione utilizzato",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "ActivePower",
@@ -87,13 +72,13 @@
                         "propertyName" : "MeterID",
                         "propertyDescription" : "Identificativo univoco del contatore",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "MeterSchemeID",
                         "propertyDescription" : "Identificativo dello schema di codifica a cui appartiene l'identificativo fornito nel campo MeterID",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "PhaseVoltage",
@@ -111,39 +96,79 @@
                         "propertyName" : "RealEstateUnitID",
                         "propertyDescription" : "Identificativo dell'unità immobiliare (es. appartamento, edificio, abitazione indipendente...)",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "ElectricityEndUseCode",
                         "propertyDescription" : "Uso finale dell'energia elettrica consumata (ad es. illuminazione, forza motrice, generale, condizionamento,…)",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/ElectricityEndUseCode.gc",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "start_ts",
                         "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "end_ts",
                         "propertyDescription" : "Marca temporale indicante la fine del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
+                    },
+                    {
+                        "propertyName" : "format",
+                        "propertyDescription" : "Formato wgs84 in cui sono espresse le coordinate (attributo opzionale)",
+                        "dataType" : "string",
+                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/FormatCode.gc",
+                        "unitOfMeasure" : "adimensionale"
+                    },
+                    {
+                        "propertyName" : "latitude",
+                        "propertyDescription" : "Latitudine",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "adimensionale"
+                    },
+                    {
+                        "propertyName" : "longitude",
+                        "propertyDescription" : "Longitudine",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "adimensionale"
+                    },
+                    {
+                        "propertyName" : "height",
+                        "propertyDescription" : "Altitudine (proprieta' opzionale)",
+                        "dataType" : "double",
+                        "unitOfMeasure" : "adimensionale"
                     }
                 ]
             }
+        },
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-05-19T13:32:30",
+            "coordinates" : {
+                "format" : "WGS84-DD",
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0
+            },
+            "language" : "IT"
         },
         "values" : {
             "line" : [
                 {
                     "id" : 1,
                     "coordinates" : {
+                        "format" : "WGS84-DD",
                         "latitude" : 0.0,
                         "longitude" : 0.0,
-                        "height" : 0.0,
-                        "format" : "WGS84-DD"
+                        "height" : 0.0
                     },
                     "period" : {
                         "start_ts" : "2000-12-31T00:00:00",
@@ -152,63 +177,51 @@
                     "property" : [
                         {
                             "name" : "ActiveEnergy",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "PODID",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "ReactiveEnergy",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "SchemeID",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "ActivePower",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "LineCurrent",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "MeterID",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "MeterSchemeID",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "PhaseVoltage",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "ReactivePower",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "RealEstateUnitID",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "ElectricityEndUseCode",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         }
                     ]
                 }

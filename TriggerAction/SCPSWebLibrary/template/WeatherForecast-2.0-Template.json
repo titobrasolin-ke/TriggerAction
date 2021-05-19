@@ -1,20 +1,5 @@
 {
     "UrbanDataset" : {
-        "context" : {
-            "producer" : {
-                "id" : "id1",
-                "schemeID" : "schemeID1"
-            },
-            "timeZone" : "UTC+1",
-            "timestamp" : "2021-04-30T10:36:46",
-            "coordinates" : {
-                "latitude" : 0.0,
-                "longitude" : 0.0,
-                "height" : 0.0,
-                "format" : "WGS84-DD"
-            },
-            "language" : "IT"
-        },
         "specification" : {
             "version" : "2.0",
             "id" : {
@@ -45,7 +30,7 @@
                         "propertyName" : "RelativeHumidity",
                         "propertyDescription" : "Umidità relativa dell'aria espressa in percentuale.",
                         "dataType" : "double",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "WindSpeed",
@@ -57,19 +42,19 @@
                         "propertyName" : "LocationID",
                         "propertyDescription" : "Identificativo dell'area osservata.",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "PrecipitationProbabilityPercentage",
                         "propertyDescription" : "Probabilità, espressa in percentuale, con cui si verificheranno delle precipitazioni.",
                         "dataType" : "double",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "SchemeID",
                         "propertyDescription" : "Identificativo di uno schema di identificazione utilizzato",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "ThreeHoursRainfall",
@@ -81,20 +66,20 @@
                         "propertyName" : "TotalCloudCoveragePercentage",
                         "propertyDescription" : "Percentuale di copertura nuvolosa sul totale.",
                         "dataType" : "double",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "WeatherConditionCode",
                         "propertyDescription" : "Parametro che definisce la situazione meteo (pioggia, neve, sereno, coperto,…)",
                         "dataType" : "string",
                         "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/WeatherConditionCode.gc",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "WeatherConditionDescription",
                         "propertyDescription" : "Descrizione testuale della situazione meteo.",
                         "dataType" : "string",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "AtmosphericPressure",
@@ -106,16 +91,31 @@
                         "propertyName" : "start_ts",
                         "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "end_ts",
                         "propertyDescription" : "Marca temporale indicante la fine del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "adimensionale"
                     }
                 ]
             }
+        },
+        "context" : {
+            "producer" : {
+                "id" : "id1",
+                "schemeID" : "schemeID1"
+            },
+            "timeZone" : "UTC+1",
+            "timestamp" : "2021-05-19T13:32:12",
+            "coordinates" : {
+                "format" : "WGS84-DD",
+                "latitude" : 0.0,
+                "longitude" : 0.0,
+                "height" : 0.0
+            },
+            "language" : "IT"
         },
         "values" : {
             "line" : [
@@ -128,58 +128,47 @@
                     "property" : [
                         {
                             "name" : "AirTemperature",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "RelativeHumidity",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "WindSpeed",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "LocationID",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "PrecipitationProbabilityPercentage",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "SchemeID",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "ThreeHoursRainfall",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "TotalCloudCoveragePercentage",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "WeatherConditionCode",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "WeatherConditionDescription",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         },
                         {
                             "name" : "AtmosphericPressure",
-                            "val" : " ",
-                            "property" : [ ]
+                            "val" : " "
                         }
                     ]
                 }
