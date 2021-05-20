@@ -5,12 +5,16 @@ using ServiceStack.Configuration;
 using ServiceStack.Text;
 using SJP.Sherlock;
 using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Topshelf.Logging;
+using TriggerAction.Config;
 using TriggerAction.ServiceInterface;
 using TriggerAction.ServiceModel;
+using TriggerAction.ServiceModel.Types;
 using TriggerAction.Utilities;
 
 namespace TriggerAction.Jobs
@@ -26,18 +30,27 @@ namespace TriggerAction.Jobs
             {
                 if (_client == null)
                 {
-                    _client = new JsonServiceClient(AppSettings.GetRequiredString("scps.baseUri"));
+                    _client = new JsonServiceClient(_baseUri);
                 }
                 return _client;
             }
         }
+
+        private string _baseUri;
+
         public IAppSettings AppSettings { get; set; }
         public DeviceService Services { get; set; }
 
         public Task Execute(IJobExecutionContext context)
         {
-            var username = AppSettings.GetRequiredString("scps.username");
-            var password = AppSettings.GetRequiredString("scps.password");
+            var settings = (TriggerActionSettings)ConfigurationManager.GetSection("TriggerActionSettings");
+            var envSettings = settings.Environments.First(x => x.Name == settings.DefaultEnvironment);
+
+            _baseUri = envSettings.WebServiceURL;
+
+            var username = "";
+            var password = "";
+
             var outgoingFolder = AppSettings.GetRequiredString("scps.outgoingFolder");
 
             var path = FileSystemHelper.IsFullPath(outgoingFolder) ?
@@ -46,6 +59,8 @@ namespace TriggerAction.Jobs
             // Crea tutte le directory e le sottodirectory nel percorso specificato a meno che non esistano già.
             var directoryInfo = Directory.CreateDirectory(path);
             var files = Directory.GetFiles(directoryInfo.FullName, "*.json", SearchOption.TopDirectoryOnly);
+
+            var ResourceIds = new List<string>{ }; // Considereremo al massimo un file per ciascun "resource_id".
 
             foreach (var fileInfo in files.Select(fileName => new FileInfo(fileName)))
             {
@@ -56,6 +71,30 @@ namespace TriggerAction.Jobs
                     {
                         continue;
                     }
+
+                    // Indirizziamo il file in base alla "collaboration" com'è definita nella relativa tabella.
+
+                    PushRequest pr = null;
+                    try
+                    {
+                        pr = fileInfo.ReadAllText().FromJson<PushRequest>();
+                        var qr = HostContext.ServiceController.Execute(new QueryCollaboration { ResourceId = pr.ResourceId }) as QueryResponse<Collaboration>;
+                        username = qr.Results.First().Username;
+                        password = envSettings.Accounts.First(x => x.Username == username).Password;
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(ex.Message, ex);
+                        fileInfo.MoveTo(Path.ChangeExtension(fileInfo.FullName, "error"));
+                        continue; // foreach
+                    }
+
+                    if (ResourceIds.Contains(pr.ResourceId))
+                    {
+                        continue; // Consideriamo al massimo un file per ciascun "resource_id".
+                    }
+
+                    ResourceIds.Add(pr.ResourceId);
 
                     if (Client.BearerToken.IsNullOrEmpty())
                     {
@@ -71,7 +110,7 @@ namespace TriggerAction.Jobs
                         }
                         catch (Exception ex)
                         {
-                            Log.Error(ex);
+                            Log.Error(ex.Message, ex);
                         }
                     }
                     else
@@ -95,7 +134,7 @@ namespace TriggerAction.Jobs
                         }
                         catch (Exception ex)
                         {
-                            Log.Error(ex);
+                            Log.Error(ex.Message, ex);
                         }
                     }
 
