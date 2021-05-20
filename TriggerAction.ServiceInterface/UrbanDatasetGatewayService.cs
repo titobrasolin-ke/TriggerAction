@@ -46,16 +46,20 @@ namespace TriggerAction.ServiceInterface
             template.UrbanDataset.Context.Producer.SchemeId = null; // TODO: Verificare il significato di "SchemeId".
 
             template.UrbanDataset.Context.Coordinates.Format = "WGS84-DD";
-            template.UrbanDataset.Context.Coordinates.Height = 0;
-            template.UrbanDataset.Context.Coordinates.Latitude = 0; // TODO: Coordinate predefinite?
-            template.UrbanDataset.Context.Coordinates.Longitude = 0;
+            // template.UrbanDataset.Context.Coordinates.Height = 0; // Facoltativo.
+            template.UrbanDataset.Context.Coordinates.Latitude = 44.417778; // TODO: Quali sono le coordinate predefinite?
+            template.UrbanDataset.Context.Coordinates.Longitude = 12.199444;
 
             // Preserviamo il modello della riga, quindi vuotiamo la lista.
             var lineTemplate = template.UrbanDataset.Values.Line.FirstOrDefault();
             template.UrbanDataset.Values.Line.Clear();
 
             object q = HostContext.ServiceController.Execute(new DeviceValueQuery { BatchOperationType = resourceId });
-            if (q is QueryResponse<DeviceValue> qr)
+            if (!(q is QueryResponse<DeviceValue> qr))
+            {
+                return q;
+            }
+            else
             {
                 bool isWhatever = template.UrbanDataset.Specification.Id.Value.StartsWith("Whatever-");
 
@@ -68,7 +72,11 @@ namespace TriggerAction.ServiceInterface
                 foreach (var deviceId in deviceIds)
                 {
                     q = HostContext.ServiceController.Execute(new DeviceRequest { DeviceId = deviceId });
-                    if (q is DeviceResponse dr)
+                    if (!(q is DeviceResponse dr))
+                    {
+                        return q;
+                    }
+                    else
                     {
                         lineId += 1;
                         Line newLine = new Line { Id = lineId, Property = new List<ServiceModel.Types.Property>() };
@@ -89,7 +97,6 @@ namespace TriggerAction.ServiceInterface
                             {
                                 newLine.Coordinates = new Coordinates {
                                     Format = template.UrbanDataset.Context.Coordinates.Format,
-                                    Height = template.UrbanDataset.Context.Coordinates.Height,
                                     Latitude = template.UrbanDataset.Context.Coordinates.Latitude,
                                     Longitude = template.UrbanDataset.Context.Coordinates.Longitude
                                 };
@@ -123,6 +130,9 @@ namespace TriggerAction.ServiceInterface
                         = template.UrbanDataset.Specification.Properties.PropertyDefinition.Where(x => propertyNames.Contains(x.PropertyName)).ToList();
                 }
             }
+
+            template.UrbanDataset.Context.Timestamp = DateTime.Now;
+            template.UrbanDataset.Context.TimeZone = DateTimeOffset.Now.ToString("'UTC'zzz");
 
             // TODO: Al momento in assenza di dati restituiamo il template vuoto, in futuro meglio dare una risposta più pertinente.
             return new BasicResponse { Code = "03", Message = "Request-Response Successful", Dataset = new List<Template> { template } };
