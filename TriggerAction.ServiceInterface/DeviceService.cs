@@ -141,7 +141,7 @@ namespace TriggerAction.ServiceInterface
                 BatchOperationType = BatchOperationType,
                 DeviceId = DeviceId,
                 Label = PropertyName.SensorID,
-                Unit = "dimensionless",
+                Unit = "adimensionale",
                 Value = SensorID,
                 Timestamp = DateTimeOffset.Now
             });
@@ -154,7 +154,7 @@ namespace TriggerAction.ServiceInterface
                 BatchOperationType = BatchOperationType,
                 DeviceId = DeviceId,
                 Label = PropertyName.MeterID,
-                Unit = "dimensionless",
+                Unit = "adimensionale",
                 Value = SensorID,
                 Timestamp = DateTimeOffset.Now
             });
@@ -171,7 +171,7 @@ namespace TriggerAction.ServiceInterface
                             BatchOperationType = BatchOperationType,
                             DeviceId = DeviceId,
                             Label = key,
-                            Unit = "dimensionless",
+                            Unit = "adimensionale",
                             Value = val.Trim(), // TODO: Eliminare tutti gli spazi bianchi ed i caratteri non permessi?
                             Timestamp = DateTimeOffset.Now
                         });
