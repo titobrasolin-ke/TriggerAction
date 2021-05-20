@@ -48,7 +48,8 @@ namespace TriggerAction.Jobs
                     foreach (var item in resp.Dataset)
                     {
                         var pushRequest = new PushRequest { ResourceId = id, Dataset = item };
-                        var path = Path.Combine(path1, Guid.NewGuid().ToString() + ".json");
+                        var prefix = item.UrbanDataset.Context.Timestamp.ToString("yyyyMMddTHHmmss");
+                        var path = Path.Combine(path1, $"{prefix}_{id}.json");
                         using (var stream = File.OpenWrite(path))
                         {
                             JsonSerializer.SerializeToStream(pushRequest, stream);
