@@ -43,8 +43,6 @@ namespace TriggerAction.ServiceModel.Types
         [Ignore]
         public string BuildingID { get => Location?.BuildingID; set => Location.BuildingID = value; }
         [Ignore]
-        public string ApartmentID { get => Location?.ApartmentID; set => Location.ApartmentID = value; }
-        [Ignore]
         public string RealEstateUnitID { get => Location?.RealEstateUnitID; set => Location.RealEstateUnitID = value; }
         [Ignore]
         public string RoomCode { get => Location?.RoomCode; set => Location.RoomCode = value; }
@@ -64,7 +62,8 @@ namespace TriggerAction.ServiceModel.Types
         public double? Longitude { get; set; }
         [Description("Identificatore dell'edificio")]
         public string BuildingID { get; set; }
-        public string ApartmentID { get; set; }
+        [Description("Codice che identifica una stanza")]
+        public string RoomID { get; set; }
         [Description("Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)")]
         public string RealEstateUnitID { get; set; }
         [Description("Tipologia di stanza in cui sensore è installato es. cucina, bagno, ufficio")]
@@ -92,7 +91,6 @@ namespace TriggerAction.ServiceModel.Types
         public double? Longitude { get; set; }
         [Description("Identificatore dell'edificio")]
         public string BuildingID { get; set; }
-        public string ApartmentID { get; set; }
         [Description("Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)")]
         public string RealEstateUnitID { get; set; }
         [Description("Tipologia di stanza in cui sensore è installato es. cucina, bagno, ufficio")]
