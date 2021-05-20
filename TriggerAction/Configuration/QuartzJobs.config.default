@@ -10,9 +10,8 @@
 
   <schedule>
     <job>
-      <name>MyJob1</name>
-      <group>DEFAULT</group>
-      <job-type>TriggerAction.Jobs.MyJob, TriggerAction</job-type>
+      <name>UrbanDatasetProducerJob</name>
+      <job-type>TriggerAction.Jobs.UrbanDatasetProducerJob, TriggerAction</job-type>
       <durable>true</durable>
       <recover>false</recover>
       <job-data-map>
@@ -24,22 +23,21 @@
     </job>
     <trigger>
       <cron>
-        <name>every_two_min</name>
-        <job-name>MyJob1</job-name>
-        <cron-expression>0 0/2 * * * ?</cron-expression>
+        <name>UrbanDatasetProducerTrigger</name>
+        <job-name>UrbanDatasetProducerJob</job-name>
+        <cron-expression>0 0/5 * * * ?</cron-expression>
       </cron>
     </trigger>
 
     <job>
       <name>FileSenderJob</name>
-      <group>DEFAULT</group>
       <job-type>TriggerAction.Jobs.FileSenderJob, TriggerAction</job-type>
       <durable>true</durable>
       <recover>false</recover>
     </job>
     <trigger>
       <cron>
-        <name>every_min</name>
+        <name>FileSenderTrigger</name>
         <job-name>FileSenderJob</job-name>
         <cron-expression>0 * * * * ?</cron-expression>
       </cron>
