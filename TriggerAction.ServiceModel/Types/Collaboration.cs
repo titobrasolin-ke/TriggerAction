@@ -19,7 +19,10 @@ namespace TriggerAction.ServiceModel.Types
         public ResponseStatus ResponseStatus { get; set; }
     }
 
-    public class QueryCollaboration : QueryDb<Collaboration> { }
+    public class QueryCollaboration : QueryDb<Collaboration>
+    {
+        public string ResourceId { get; set; }
+    }
 
     public class CreateCollaboration :
         ICreateDb<Collaboration>, IReturn<CreateCollaborationResponse>
