@@ -25,7 +25,7 @@
       <cron>
         <name>UrbanDatasetProducerTrigger</name>
         <job-name>UrbanDatasetProducerJob</job-name>
-        <cron-expression>0 0/5 * * * ?</cron-expression>
+        <cron-expression>0 0,30 * * * ?</cron-expression>
       </cron>
     </trigger>
 
