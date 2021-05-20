@@ -308,58 +308,28 @@
     <Content Include="SCPSWebLibrary\template\AirMonitoring-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\ApplianceElectricConsumption-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\ApplianceElectricConsumption-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SCPSWebLibrary\template\BuildingDeviceAnomalies-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SCPSWebLibrary\template\BuildingDeviceAnomalies-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\BuildingElectricConsumption-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\BuildingElectricConsumption-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SCPSWebLibrary\template\BuildingEnergyAnomalies-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SCPSWebLibrary\template\BuildingEnergyAnomalies-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\BuildingRecords-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\BuildingRecords-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SCPSWebLibrary\template\CityPublicLightingIndicators-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SCPSWebLibrary\template\CityPublicLightingIndicators-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\CommunicationInformation-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\CommunicationInformation-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\CounterReading-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\CounterReading-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SCPSWebLibrary\template\CounterReadingMonophase-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SCPSWebLibrary\template\CounterRecords-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SCPSWebLibrary\template\CounterRecords-2.0-Template.json">
@@ -368,13 +338,7 @@
     <Content Include="SCPSWebLibrary\template\ElectricMeterReading-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\EnergyConversionSystemPowerExchange-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\EnergyConversionSystemPowerExchange-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SCPSWebLibrary\template\EnergyConversionSystemRecords-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SCPSWebLibrary\template\EnergyConversionSystemRecords-2.0-Template.json">
@@ -386,94 +350,54 @@
     <Content Include="SCPSWebLibrary\template\GasMeterReading-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\HomeAggregatedElectricConsumption-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\HomeAggregatedElectricConsumption-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SCPSWebLibrary\template\HomeAggregatedElectricProduction-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SCPSWebLibrary\template\HomeAggregatedElectricProduction-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\IndoorPositioningMonitoring-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\IndoorPositioningMonitoring-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SCPSWebLibrary\template\MicroClimateMonitoring-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SCPSWebLibrary\template\PhotovoltaicSystemRecords-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\PlatformStatus-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\PlatformStatus-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SCPSWebLibrary\template\PodKPIpell-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SCPSWebLibrary\template\PodKPIpell-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\app.manifest" />
-    <None Include="SCPSWebLibrary\template\MicroclimateMonitoring-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="SCPSWebLibrary\template\Presences-2.0-Template.json" />
-    <None Include="SCPSWebLibrary\template\scps-urbandataset-schema-1.0.json" />
-    <Content Include="SCPSWebLibrary\template\SinglePhaseCounterReading-2.0-Template.json">
+    <Content Include="SCPSWebLibrary\template\MicroclimateMonitoring-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\SocialNetworkGroupCommunityFeedback-1.0-Template.json">
+    <Content Include="SCPSWebLibrary\template\Presences-2.0-Template.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="SCPSWebLibrary\template\scps-urbandataset-schema-1.0.json" />
+    <Content Include="SCPSWebLibrary\template\SinglePhaseCounterReading-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SCPSWebLibrary\template\SocialNetworkGroupCommunityFeedback-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\SocialNetworkPageCommunityFeedback-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\SocialNetworkPageCommunityFeedback-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SCPSWebLibrary\template\TreatmentPlantWasteWaterAnomalies-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SCPSWebLibrary\template\TreatmentPlantWasteWaterAnomalies-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\TreatmentPlantWasteWaterPerformance-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\TreatmentPlantWasteWaterPerformance-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SCPSWebLibrary\template\TreatmentPlantWasteWaterRecords-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SCPSWebLibrary\template\TreatmentPlantWasteWaterRecords-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\WeatherCondition-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\WeatherCondition-2.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SCPSWebLibrary\template\WeatherForecast-1.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="SCPSWebLibrary\template\WeatherForecast-2.0-Template.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SCPSWebLibrary\template\WeatherSolarMonitoring-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SCPSWebLibrary\template\WeatherSolarMonitoring-2.0-Template.json">
@@ -482,6 +406,7 @@
     <Content Include="SCPSWebLibrary\template\Whatever-1.0-Template.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="SCPSWebLibrary\template\scps-urbandataset-schema-2.0.json" />
     <None Include="TriggerAction.nuspec" />
     <None Include="Web.config" />
     <Content Include="Views\Shared\_Layout.cshtml">
