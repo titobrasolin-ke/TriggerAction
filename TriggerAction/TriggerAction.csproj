@@ -282,13 +282,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Configuration\AppSettings.config.default">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Configuration\ConnectionStrings.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Configuration\ConnectionStrings.config.default">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Configuration\copy_default_config.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -296,7 +296,9 @@
     <None Include="Configuration\TriggerActionSettings.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Configuration\TriggerActionSettings.config.default" />
+    <None Include="Configuration\TriggerActionSettings.config.default">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="CreateZipOfOutputs.props" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
