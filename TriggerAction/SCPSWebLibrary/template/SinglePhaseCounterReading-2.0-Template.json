@@ -60,7 +60,7 @@
                         "propertyName" : "TownCode",
                         "propertyDescription" : "codice ISTAT del comune",
                         "dataType" : "string",
-                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/TownCode.gc",
+                        "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/TownCode.gc",
                         "unitOfMeasure" : "adimensionale"
                     },
                     {
@@ -103,7 +103,7 @@
                         "propertyName" : "format",
                         "propertyDescription" : "Formato wgs84 in cui sono espresse le coordinate (attributo opzionale)",
                         "dataType" : "string",
-                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/FormatCode.gc",
+                        "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/FormatCode.gc",
                         "unitOfMeasure" : "adimensionale"
                     },
                     {
@@ -145,7 +145,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-19T13:32:33",
+            "timestamp" : "2021-05-25T17:15:16",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,

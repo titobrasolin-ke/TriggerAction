@@ -30,14 +30,14 @@
                         "propertyName" : "ApplianceCode",
                         "propertyDescription" : "tipo di appliance associata alla smart plug/switch\nes. lavatrice, televisione, lampada",
                         "dataType" : "string",
-                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/ApplianceCode.gc",
+                        "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/ApplianceCode.gc",
                         "unitOfMeasure" : "adimensionale"
                     },
                     {
                         "propertyName" : "RoomCode",
                         "propertyDescription" : "Tipologia di stanza in cui sensore è installato\nes. cucina, bagno, ufficio",
                         "dataType" : "string",
-                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/RoomCode.gc",
+                        "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/RoomCode.gc",
                         "unitOfMeasure" : "adimensionale"
                     },
                     {
@@ -56,7 +56,7 @@
                         "propertyName" : "SensorTypeCode",
                         "propertyDescription" : "tipologia di sensore che effettua la misura\nes. smart plug, smart switch, presence, ...",
                         "dataType" : "string",
-                        "codeList" : "http://smartcityplatform.enea.it/specification/semantic/2.0/gc/SensorTypeCode.gc",
+                        "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/SensorTypeCode.gc",
                         "unitOfMeasure" : "adimensionale"
                     },
                     {
@@ -80,7 +80,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-19T13:32:25",
+            "timestamp" : "2021-05-25T17:15:09",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,
