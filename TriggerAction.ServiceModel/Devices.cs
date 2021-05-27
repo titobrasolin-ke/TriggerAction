@@ -24,7 +24,6 @@ namespace TriggerAction.ServiceModel
         public int? DeviceTypeId { get; set; }
         public string SensorLabel { get; set; }
         public string SensorName { get; set; }
-        public string SensorTypeCode { get; set; }
         public string UserLabel { get; set; }
         public LocationInfo Location { get; set; }
         public Period Period { get; set; }
