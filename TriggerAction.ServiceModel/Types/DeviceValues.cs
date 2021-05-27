@@ -1,12 +1,12 @@
 using ServiceStack;
 using ServiceStack.DataAnnotations;
 using ServiceStack.Model;
-using System.Collections.Generic;
 
 namespace TriggerAction.ServiceModel.Types
 {
     [Alias("DeviceValues")]
-    public partial class DeviceValue : IHasId<int>
+    public partial class DeviceValue : IHasId<int>,
+        IUpdateDb<DeviceValue>, IReturn<UpdateDeviceValueResponse>
     {
         [Alias("DeviceValueId")]
         [AutoIncrement]
@@ -41,13 +41,6 @@ namespace TriggerAction.ServiceModel.Types
     {
         public int Id { get; set; }
         public ResponseStatus ResponseStatus { get; set; }
-    }
-
-    public class UpdateDeviceValue :
-        IUpdateDb<DeviceValue>, IReturn<UpdateDeviceValueResponse>
-    {
-        public int Id { get; set; }
-        public Dictionary<string,string> Location { get; set; }
     }
 
     public class UpdateDeviceValueResponse
