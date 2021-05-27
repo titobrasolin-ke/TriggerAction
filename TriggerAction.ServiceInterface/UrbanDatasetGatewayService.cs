@@ -67,7 +67,7 @@ namespace TriggerAction.ServiceInterface
                 int lineId = 0;
 
                 // Definiamo una lista di proprietà che non andranno in nessun caso rimosse dalle "PropertyDefinition".
-                var propertyNames = new List<string> { "coordinates", "format", "latitude", "longitude", "height", "period", "start_ts", "end_ts" };
+                var propertyNames = new List<string> { "period", "start_ts", "end_ts" };
 
                 foreach (var deviceId in deviceIds)
                 {
@@ -90,17 +90,28 @@ namespace TriggerAction.ServiceInterface
                                 newLine.Coordinates = new Coordinates {
                                     Format = "WGS84-DD",
                                     Latitude = dr.Location.Latitude.Value,
-                                    Longitude = dr.Location.Longitude.Value
+                                    Longitude = dr.Location.Longitude.Value,
+                                    Height = 0 // TODO: Campo "Height".
                                 };
+                                propertyNames.AddIfNotExists("coordinates");
+                                propertyNames.AddIfNotExists("format");
+                                propertyNames.AddIfNotExists("latitude");
+                                propertyNames.AddIfNotExists("longitude");
+                                propertyNames.AddIfNotExists("height");
                             }
-                            else
-                            {
-                                newLine.Coordinates = new Coordinates {
-                                    Format = template.UrbanDataset.Context.Coordinates.Format,
-                                    Latitude = template.UrbanDataset.Context.Coordinates.Latitude,
-                                    Longitude = template.UrbanDataset.Context.Coordinates.Longitude
-                                };
-                            }
+
+                            /*
+                             * TODO: Valutare la possibilità di utilizzare le coordinate del contesto come default.
+                             */
+
+                            //else
+                            //{
+                            //    newLine.Coordinates = new Coordinates {
+                            //        Format = template.UrbanDataset.Context.Coordinates.Format,
+                            //        Latitude = template.UrbanDataset.Context.Coordinates.Latitude,
+                            //        Longitude = template.UrbanDataset.Context.Coordinates.Longitude
+                            //    };
+                            //}
                         }
 
                         if (isWhatever ||
