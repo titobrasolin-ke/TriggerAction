@@ -26,13 +26,6 @@ namespace TriggerAction.ServiceInterface
                 Db.LoadReferences(dev.DeviceType);
             }
 
-            // dto.SensorTypeCode = dev.DeviceType.DeviceCategory.Label;
-            //dto.SensorTypeCode = SensorTypeCode.ConfortMultisensor;
-
-
-            // TODO: SensorName, SensorTypeCode.
-            // Per SensorTypeCode si veda http://smartcityplatform.enea.it/specification/semantic/1.0/gc/SensorTypeCode.gc
-
             var sql =
                 "SELECT [Id] = B.[DataValueId]" +
                 ", A.[DeviceId]" +
@@ -111,15 +104,21 @@ namespace TriggerAction.ServiceInterface
             }
 
             /*
+             * Consideriamo la possibilità che oltre alle misure propriamente
+             * dette siano richiesti altri valori, da calcolare o costruire.
+             */
+
+            var BatchOperationType = "SCP-"; // Uguale per tutte le informazioni aggiuntive.
+            var DeviceId = request.DeviceId;
+            var allDeviceValues = Db.Select<DeviceValue>(x => x.DeviceId == request.DeviceId && x.BatchOperationType.StartsWith(BatchOperationType));
+
+            /*
              * Fanno parte delle "letture" anche alcune informazioni sui dispositivi, per esempio il "SensorID".
              * Quest'ultimo assume la sintassi [Label] + "-" [Id] dove [Label] è una stringa costituita da lettere
              * maiuscole e numeri, ed [Id] è un identificativo numerico. Se la [SensorLabel] nella base dati ha già
              * un formato simile la prendiamo testualmente, altrimenti costruiamo il "SensorID" utilizzando come [Id]
              * la chiave primaria.
              */
-
-            var BatchOperationType = "SCP-"; // Uguale per tutte le informazioni aggiuntive.
-            var DeviceId = request.DeviceId;
 
             string SensorID;
 
@@ -136,31 +135,22 @@ namespace TriggerAction.ServiceInterface
                 SensorID = Regex.Replace(dto.SensorLabel, @"[^a-zA-Z0-9]", string.Empty).ToUpperInvariant() + "-" + dto.Id;
             }
 
-            lastReadings.Add(new Reading
+            foreach (var item in allDeviceValues.Where(x => x.Label == "SensorID" && x.Unit == "adimensionale"))
             {
-                BatchOperationType = BatchOperationType,
-                DeviceId = DeviceId,
-                Label = PropertyName.SensorID,
-                Unit = "adimensionale",
-                Value = SensorID,
-                Timestamp = DateTimeOffset.Now
-            });
-
-            // Al momento la proprietà "MeterID" è un alias di "SensorID". È
-            // utilizzata, per esempio, nel dataset "GasMeterReading".
-
-            lastReadings.Add(new Reading
-            {
-                BatchOperationType = BatchOperationType,
-                DeviceId = DeviceId,
-                Label = PropertyName.MeterID,
-                Unit = "adimensionale",
-                Value = SensorID,
-                Timestamp = DateTimeOffset.Now
-            });
+                lastReadings.Add(new Reading
+                {
+                    BatchOperationType = item.BatchOperationType,
+                    DeviceId = DeviceId,
+                    Label = PropertyName.SensorID,
+                    Unit = item.Unit,
+                    Value = SensorID,
+                    Timestamp = DateTimeOffset.Now
+                });
+            }
 
             // Consideriamo la possibilità che il campo "Location" contenga un
-            // dizionario serializzato in formato JSV.
+            // dizionario serializzato in formato JSV. TODO: Aggiungere il
+            // valore solo se previsto in "DeviceTypes"?
 
             dev.Location.ToStringDictionary()
                 .Each((key, val) =>

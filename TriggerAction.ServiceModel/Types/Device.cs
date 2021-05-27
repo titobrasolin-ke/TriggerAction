@@ -36,22 +36,26 @@ namespace TriggerAction.ServiceModel.Types
         public DateTime UninstallDate { get; set; }
         public int? PollInterval { get; set; }
 
-        [Ignore]
+        [Ignore, Description("Riferimento geografico: latitudine")]
         public double? Latitude { get => Location?.Latitude; set => Location.Latitude = value; }
-        [Ignore]
+        [Ignore, Description("Riferimento geografico: longitudine")]
         public double? Longitude { get => Location?.Longitude; set => Location.Longitude = value; }
-        [Ignore]
+        [Ignore, Description("Identificatore dell'edificio")]
         public string BuildingID { get => Location?.BuildingID; set => Location.BuildingID = value; }
-        [Ignore]
+        [Ignore, Description("Codice che identifica una stanza")]
+        public string RoomID { get => Location?.RoomID; set => Location.RoomID = value; }
+        [Ignore, Description("Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)")]
         public string RealEstateUnitID { get => Location?.RealEstateUnitID; set => Location.RealEstateUnitID = value; }
-        [Ignore]
+        [Ignore, Description("Tipologia di stanza in cui sensore è installato es. cucina, bagno, ufficio")]
         public string RoomCode { get => Location?.RoomCode; set => Location.RoomCode = value; }
-        [Ignore]
+        [Ignore, Description("Identificativo dell'area osservata.")]
         public string LocationID { get => Location?.LocationID; set => Location.LocationID = value; }
-        [Ignore]
+        [Ignore, Description("Codice PDR cui è associata l'utenza")]
         public string PDRID { get => Location?.PDRID; set => Location.PDRID = value; }
-        [Ignore]
+        [Ignore, Description("Uso finale dell'energia elettrica consumata (ad es. illuminazione, forza motrice, generale, condizionamento, ...)")]
         public string ElectricityEndUseCode { get => Location?.ElectricityEndUseCode; set => Location.ElectricityEndUseCode = value; }
+        [Ignore, Description("tipologia di sensore che effettua la misura es. smart plug, smart switch, presence, ...")]
+        public string SensorTypeCode { get => Location?.SensorTypeCode; set => Location.SensorTypeCode = value; }
     }
 
     public class LocationInfo
@@ -74,6 +78,8 @@ namespace TriggerAction.ServiceModel.Types
         public string PDRID { get; set; }
         [Description("Uso finale dell'energia elettrica consumata (ad es. illuminazione, forza motrice, generale, condizionamento, ...)")]
         public string ElectricityEndUseCode { get; set; }
+        [Description("tipologia di sensore che effettua la misura es. smart plug, smart switch, presence, ...")]
+        public string SensorTypeCode { get; set; }
     }
 
     [AutoQueryViewer(DefaultFields = "Id,SensorLabel,UserLabel,Location,DeviceTypeId,LogicId,Slave,GatewayId,PlantId")]
@@ -92,6 +98,8 @@ namespace TriggerAction.ServiceModel.Types
         [Description("Identificatore dell'edificio")]
         public string BuildingID { get; set; }
         [Description("Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)")]
+        public string RoomID { get; set; }
+        [Description("Identificativo dell'unità immobiliare (es. appartemento, edificio, abitazione indipendente...)")]
         public string RealEstateUnitID { get; set; }
         [Description("Tipologia di stanza in cui sensore è installato es. cucina, bagno, ufficio")]
         public string RoomCode { get; set; }
@@ -101,6 +109,8 @@ namespace TriggerAction.ServiceModel.Types
         public string PDRID { get; set; }
         [Description("Uso finale dell'energia elettrica consumata (ad es. illuminazione, forza motrice, generale, condizionamento, ...)")]
         public string ElectricityEndUseCode { get; set; }
+        [Description("tipologia di sensore che effettua la misura es. smart plug, smart switch, presence, ...")]
+        public string SensorTypeCode { get; set; }
     }
 
     public class UpdateDeviceResponse
