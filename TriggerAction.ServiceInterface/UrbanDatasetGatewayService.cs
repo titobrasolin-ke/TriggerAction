@@ -142,8 +142,23 @@ namespace TriggerAction.ServiceInterface
                 }
             }
 
-            template.UrbanDataset.Context.Timestamp = DateTime.Now;
-            template.UrbanDataset.Context.TimeZone = DateTimeOffset.Now.ToString("'UTC'zzz");
+            var timestamp = DateTimeOffset.Now;
+            var offset = timestamp.Offset;
+
+            var timezoneCode = "UTC"; // http://smartcityplatform.enea.it/SCPSWebLibrary/property?name=timezone
+            if (offset != TimeSpan.Zero )
+            {
+                var hours = Math.Abs(offset.Hours).ToString(CultureInfo.InvariantCulture);
+                var minutes = Math.Abs(offset.Minutes).ToString(CultureInfo.InvariantCulture);
+                timezoneCode += (offset < TimeSpan.Zero ? "-" : "+") + hours;
+                if (minutes != "0")
+                {
+                    timezoneCode += ":" + (minutes.Length == 1 ? "0" + minutes : minutes);
+                }
+            }
+
+            template.UrbanDataset.Context.Timestamp = timestamp.DateTime;
+            template.UrbanDataset.Context.TimeZone = timezoneCode;
 
             // TODO: Al momento in assenza di dati restituiamo il template vuoto, in futuro meglio dare una risposta più pertinente.
             return new BasicResponse { Code = "03", Message = "Request-Response Successful", Dataset = new List<Template> { template } };
