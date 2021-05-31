@@ -46,8 +46,8 @@ namespace TriggerAction.ServiceInterface
             template.UrbanDataset.Context.Producer.SchemeId = null; // TODO: Verificare il significato di "SchemeId".
 
             template.UrbanDataset.Context.Coordinates.Format = "WGS84-DD";
-            // template.UrbanDataset.Context.Coordinates.Height = 0; // Facoltativo.
-            template.UrbanDataset.Context.Coordinates.Latitude = 44.417778; // TODO: Quali sono le coordinate predefinite?
+            template.UrbanDataset.Context.Coordinates.Height = 4; // Coordinate del centro di Ravenna.
+            template.UrbanDataset.Context.Coordinates.Latitude = 44.417778;
             template.UrbanDataset.Context.Coordinates.Longitude = 12.199444;
 
             // Preserviamo il modello della riga, quindi vuotiamo la lista.
@@ -140,6 +140,12 @@ namespace TriggerAction.ServiceInterface
                     template.UrbanDataset.Specification.Properties.PropertyDefinition
                         = template.UrbanDataset.Specification.Properties.PropertyDefinition.Where(x => propertyNames.Contains(x.PropertyName)).ToList();
                 }
+
+                // Traduciamo "adimensionale" in "dimensionless" in conformità con specifiche al momento definite in
+                // bozza e non ancora pubblicate. TODO: Rimuovere il codice seguente dopo l'aggiornamento dei template.
+
+                template.UrbanDataset.Specification.Properties.PropertyDefinition
+                    .Where(x => x.UnitOfMeasure == "adimensionale").Each(x => x.UnitOfMeasure = "dimensionless");
             }
 
             var timestamp = DateTimeOffset.Now;
