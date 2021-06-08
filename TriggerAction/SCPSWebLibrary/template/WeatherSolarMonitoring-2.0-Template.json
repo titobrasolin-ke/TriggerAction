@@ -42,11 +42,11 @@
                         "propertyName" : "RelativeHumidity",
                         "propertyDescription" : "Umidità relativa dell'aria espressa in percentuale.",
                         "dataType" : "double",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "SolarRadiation",
-                        "propertyDescription" : "Radiazione solare totale osservata misurata in Watt per metro quadrato",
+                        "propertyDescription" : "Radiazione solare totale osservata",
                         "dataType" : "double",
                         "unitOfMeasure" : "wattPerSquareMetre"
                     },
@@ -58,7 +58,7 @@
                     },
                     {
                         "propertyName" : "WindSpeed",
-                        "propertyDescription" : "Velocità del vento osservata in metri al secondo",
+                        "propertyDescription" : "Velocità del vento osservata",
                         "dataType" : "double",
                         "unitOfMeasure" : "metrePerSecond-Time"
                     },
@@ -66,20 +66,20 @@
                         "propertyName" : "SensorID",
                         "propertyDescription" : "identificativo univoco del sensore\nes. serial number, mac address",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "SensorName",
                         "propertyDescription" : "marca/modello (codice) del sensore",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "SensorTypeCode",
                         "propertyDescription" : "tipologia di sensore che effettua la misura\nes. smart plug, smart switch, presence, ...",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/SensorTypeCode.gc",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "DirectSolarRadition",
@@ -134,37 +134,37 @@
                         "propertyDescription" : "Formato wgs84 in cui sono espresse le coordinate (attributo opzionale)",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/FormatCode.gc",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "latitude",
                         "propertyDescription" : "Latitudine",
                         "dataType" : "double",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "longitude",
                         "propertyDescription" : "Longitudine",
                         "dataType" : "double",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "height",
                         "propertyDescription" : "Altitudine (proprieta' opzionale)",
                         "dataType" : "double",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "start_ts",
                         "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "end_ts",
                         "propertyDescription" : "Marca temporale indicante la fine del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     }
                 ]
             }
@@ -175,7 +175,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-25T17:14:59",
+            "timestamp" : "2021-06-08T10:52:30",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,

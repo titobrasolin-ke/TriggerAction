@@ -24,13 +24,13 @@
                         "propertyName" : "LocationID",
                         "propertyDescription" : "Identificativo dell'area osservata.",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "PresenceCount",
                         "propertyDescription" : "Numero di presenze rilevato",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "coordinates",
@@ -48,131 +48,131 @@
                         "propertyName" : "SchemeID",
                         "propertyDescription" : "Identificativo di uno schema di identificazione utilizzato",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "PeriodQualifierCode",
                         "propertyDescription" : "Qualificatore che descrive il periodo",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/PeriodValueQualifierCode.gc",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "SubLocationName",
                         "propertyDescription" : "Nome di un'area all'interno di un luogo",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "TotalCountFlag",
                         "propertyDescription" : "Indica se il numero di presenze indicato è un totale (true) o un parziale (false) per il periodo indicato.",
                         "dataType" : "boolean",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "TownName",
                         "propertyDescription" : "Nome esteso del Comune\nes. Roma, Anguillara Sabazia, ...",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "AgeRange",
                         "propertyDescription" : "Fascia di età",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "EndTimeSlot",
                         "propertyDescription" : "Ora di fine di una fascia oraria",
                         "dataType" : "Time",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "GenderCode",
                         "propertyDescription" : "Genere",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/GenderCode.gc",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "LocationName",
                         "propertyDescription" : "Denominazione luogo",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "Nationality",
                         "propertyDescription" : "Nazionalità",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "PeriodValue",
                         "propertyDescription" : "Periodo espresso come valore (es. il giorno della settimana, l'anno, ecc.)",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "PhysicalUnitCategoryCode",
                         "propertyDescription" : "Indica la categoria (persone, veicoli) alla quale si riferisce il conteggio",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/PhysicalUnitCategoryCode.gc",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "StartTimeSlot",
                         "propertyDescription" : "Ora di inizio di una fascia oraria",
                         "dataType" : "Time",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "TimeSlotDescription",
                         "propertyDescription" : "Fascia oraria espressa come valore.\nValori suggeriti \\\"diurna\\\", \\\"notturna\\\", dove se non diversamente specificato tramite \\\"Ora inizio\\\" e \\\"Ora fine\\\", si assume che:\n- diurna: dalle 07:00 alle 18:59\n- notturna: dalle 19:00 alle 06:59",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "WorkingDayFlag",
                         "propertyDescription" : "Indica se si fa riferimento a giorni feriali o festivi.",
                         "dataType" : "boolean",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "start_ts",
                         "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "end_ts",
                         "propertyDescription" : "Marca temporale indicante la fine del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "format",
                         "propertyDescription" : "Formato wgs84 in cui sono espresse le coordinate (attributo opzionale)",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/FormatCode.gc",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "latitude",
                         "propertyDescription" : "Latitudine",
                         "dataType" : "double",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "longitude",
                         "propertyDescription" : "Longitudine",
                         "dataType" : "double",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "height",
                         "propertyDescription" : "Altitudine (proprieta' opzionale)",
                         "dataType" : "double",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     }
                 ]
             }
@@ -183,7 +183,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-25T17:15:24",
+            "timestamp" : "2021-06-08T10:53:17",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,

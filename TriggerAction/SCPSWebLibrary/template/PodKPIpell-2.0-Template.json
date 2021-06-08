@@ -14,7 +14,7 @@
                         "propertyName" : "PODID",
                         "propertyDescription" : "Codice POD che identifica univocamente il punto di prelievo",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "period",
@@ -31,44 +31,44 @@
                         "propertyDescription" : "codice ISTAT del comune",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/TownCode.gc",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "EvaluationIndicator",
                         "propertyDescription" : "Valutazione del valore del KPI/indicatore\nes. 'ok’, ‘fuori soglia’, ‘non disponibile’\n",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "KPIValue",
                         "propertyDescription" : "Valore calcolato per il KPI specifico",
                         "dataType" : "double",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "PLHomogeneousAreaID",
                         "propertyDescription" : "Identificatore della zona omogenea secondo criteri illuminotecnici di un area urbana con illuminazione pubblica",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "PellKPICode",
                         "propertyDescription" : "KPI tecnici specifici del PELL IP",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/PellKPICode.gc",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "start_ts",
                         "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "end_ts",
                         "propertyDescription" : "Marca temporale indicante la fine del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     }
                 ]
             }
@@ -79,7 +79,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-25T17:14:55",
+            "timestamp" : "2021-06-08T10:52:22",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,

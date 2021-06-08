@@ -24,7 +24,7 @@
                         "propertyName" : "EnergySystemID",
                         "propertyDescription" : "Identificativo del sistema energetico (o macchina o apparecchio)",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "InputCoolingPower",
@@ -84,13 +84,13 @@
                         "propertyName" : "start_ts",
                         "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "end_ts",
                         "propertyDescription" : "Marca temporale indicante la fine del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     }
                 ]
             }
@@ -101,7 +101,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-19T13:32:36",
+            "timestamp" : "2021-06-08T10:53:06",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,

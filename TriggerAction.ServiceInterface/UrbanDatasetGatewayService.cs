@@ -140,12 +140,6 @@ namespace TriggerAction.ServiceInterface
                     template.UrbanDataset.Specification.Properties.PropertyDefinition
                         = template.UrbanDataset.Specification.Properties.PropertyDefinition.Where(x => propertyNames.Contains(x.PropertyName)).ToList();
                 }
-
-                // Traduciamo "adimensionale" in "dimensionless" in conformità con specifiche al momento definite in
-                // bozza e non ancora pubblicate. TODO: Rimuovere il codice seguente dopo l'aggiornamento dei template.
-
-                template.UrbanDataset.Specification.Properties.PropertyDefinition
-                    .Where(x => x.UnitOfMeasure == "adimensionale").Each(x => x.UnitOfMeasure = "dimensionless");
             }
 
             var timestamp = DateTimeOffset.Now;

@@ -14,75 +14,75 @@
                         "propertyName" : "DataDescription",
                         "propertyDescription" : "Descrizione testuale dei dati inviati",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "ProvinceCode",
                         "propertyDescription" : "Codice Provincia",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/ProvinceCode.gc",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "LogCode",
                         "propertyDescription" : "Codice che indica lo stato dell'\\\"oggetto\\\" monitorato",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/LogCode.gc",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "LogDescription",
                         "propertyDescription" : "Descrizione testuale dello stato dell'oggetto monitorato",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "PlatformID",
                         "propertyDescription" : "Identificatore della piattaforma software",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "PlatformName",
                         "propertyDescription" : "Nome della piattaforma software",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "TotalAccessedUDCount",
                         "propertyDescription" : "Numero totale UrbanDataset acceduti",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "TotalManagedUsersCount",
                         "propertyDescription" : "Numero degli utenti gestiti",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "TotalManagedVerticalsCount",
                         "propertyDescription" : "Numero delle applicazioni verticali gestite",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "TotalProducedUDCount",
                         "propertyDescription" : "Numero totale UrbanDataset prodotti",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "TownName",
                         "propertyDescription" : "Nome esteso del Comune\nes. Roma, Anguillara Sabazia, ...",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "ZIPCode",
                         "propertyDescription" : "Codice di Avviamento Postale (CAP)\neccezione nelle regole di naming in quanto non ha associato nessuna lista .gc",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     }
                 ]
             }
@@ -93,7 +93,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-25T17:15:22",
+            "timestamp" : "2021-06-08T10:53:14",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,

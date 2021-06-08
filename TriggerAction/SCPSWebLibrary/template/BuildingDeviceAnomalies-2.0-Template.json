@@ -14,38 +14,38 @@
                         "propertyName" : "BuildingName",
                         "propertyDescription" : "Etichetta associata all'edificio",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "BuildingID",
                         "propertyDescription" : "Identificatore dell'edificio",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "DataDescription",
                         "propertyDescription" : "Descrizione testuale dei dati inviati",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "DeviceAnomalyCode",
                         "propertyDescription" : "Codice identificativo dell'anomalia del device",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/DeviceAnomalyCode.gc",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "DeviceID",
                         "propertyDescription" : "Identificatore del device",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "DeviceTotalAnomalies",
                         "propertyDescription" : "Numero totale delle anomalie individuate su un device",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "period",
@@ -61,13 +61,13 @@
                         "propertyName" : "start_ts",
                         "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "end_ts",
                         "propertyDescription" : "Marca temporale indicante la fine del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     }
                 ]
             }
@@ -78,7 +78,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-25T17:15:01",
+            "timestamp" : "2021-06-08T10:52:32",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,

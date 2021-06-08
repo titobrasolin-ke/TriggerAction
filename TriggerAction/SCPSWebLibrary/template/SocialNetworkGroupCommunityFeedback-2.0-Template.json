@@ -14,31 +14,31 @@
                         "propertyName" : "DataDescription",
                         "propertyDescription" : "Descrizione testuale dei dati inviati",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "GroupID",
                         "propertyDescription" : "Identificatore del Gruppo del social network",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "GroupName",
                         "propertyDescription" : "Nome del Gruppo del social network",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "GroupURL",
                         "propertyDescription" : "Link (url) al Gruppo del social network",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "SocialNetworkName",
                         "propertyDescription" : "Nome o identificatore del social network a cui sono riferiti i\n            dati",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "period",
@@ -54,43 +54,43 @@
                         "propertyName" : "MemberCount",
                         "propertyDescription" : "Numero di iscritti al Gruppo",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "PageLikeCount",
                         "propertyDescription" : "Numero di \\\"Like\\\" ricevuti dalla pagina",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "PostReactionCount",
                         "propertyDescription" : "Numero di reazioni ai post pubblicati.",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "PostReplyCount",
                         "propertyDescription" : "Numero di risposte ai post pubblicati.",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "PostVisualizationCount",
                         "propertyDescription" : "Numero di utenti che hanno visualizzato i post della pagina",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "start_ts",
                         "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "end_ts",
                         "propertyDescription" : "Marca temporale indicante la fine del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     }
                 ]
             }
@@ -101,7 +101,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-19T13:32:43",
+            "timestamp" : "2021-06-08T10:53:20",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,

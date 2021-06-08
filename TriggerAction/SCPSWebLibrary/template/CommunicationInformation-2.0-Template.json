@@ -14,31 +14,31 @@
                         "propertyName" : "CommunicationPattern",
                         "propertyDescription" : "Pattern di comunicazione (valori possibili: \\\"Push\\\", \\\"Request\n            Response\\\", \\\"Pubblish Subscribe\\\")",
                         "dataType" : "enumeration",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "DataDescription",
                         "propertyDescription" : "Descrizione testuale dei dati inviati",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "DataFormat",
                         "propertyDescription" : "URL dello Schema del Formato con cui si invieranno i dati",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "VerticalSolutionName",
                         "propertyDescription" : "Nome della solution verticale",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "WSEndpoint",
                         "propertyDescription" : "URL dell'endpoint del Web Service a cui si vuole accedere",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     }
                 ]
             }
@@ -49,7 +49,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-19T13:32:46",
+            "timestamp" : "2021-06-08T10:53:27",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,

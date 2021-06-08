@@ -14,14 +14,14 @@
                         "propertyName" : "PlantID",
                         "propertyDescription" : "Identificatore\n            dell'impianto",
                         "dataType" : "string",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "TreatmentPlantAnomalyCode",
                         "propertyDescription" : "Codice identificativo dell'anomalia dell'impianto.",
                         "dataType" : "string",
                         "codeList" : "https://smartcityplatform.enea.it/specification/semantic/2.0/gc/TreatmentPlantAnomalyCode.gc",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "period",
@@ -37,13 +37,13 @@
                         "propertyName" : "start_ts",
                         "propertyDescription" : "Marca temporale indicante l'inizio del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     },
                     {
                         "propertyName" : "end_ts",
                         "propertyDescription" : "Marca temporale indicante la fine del periodo",
                         "dataType" : "dateTime",
-                        "unitOfMeasure" : "adimensionale"
+                        "unitOfMeasure" : "dimensionless"
                     }
                 ]
             }
@@ -54,7 +54,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-05-25T17:15:27",
+            "timestamp" : "2021-06-08T10:53:24",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,

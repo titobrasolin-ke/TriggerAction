@@ -135,7 +135,7 @@ namespace TriggerAction.ServiceInterface
                 SensorID = Regex.Replace(dto.SensorLabel, @"[^a-zA-Z0-9]", string.Empty).ToUpperInvariant() + "-" + dto.Id;
             }
 
-            foreach (var item in allDeviceValues.Where(x => x.Label == "SensorID" && x.Unit == "adimensionale"))
+            foreach (var item in allDeviceValues.Where(x => x.Label == "SensorID" && x.Unit == "dimensionless"))
             {
                 lastReadings.Add(new Reading
                 {
@@ -161,7 +161,7 @@ namespace TriggerAction.ServiceInterface
                             BatchOperationType = BatchOperationType,
                             DeviceId = DeviceId,
                             Label = key,
-                            Unit = "adimensionale",
+                            Unit = "dimensionless",
                             Value = val.Trim(), // TODO: Eliminare tutti gli spazi bianchi ed i caratteri non permessi?
                             Timestamp = DateTimeOffset.Now
                         });
@@ -176,14 +176,18 @@ namespace TriggerAction.ServiceInterface
             return Db.LoadSelect<Plant>();
         }
 
-        public class UpdateDeviceValidator : AbstractValidator<UpdateDevice>
-        {
-            public UpdateDeviceValidator()
-            {
-                RuleFor(r => r.PDRID)
-                    .Must(x => x.IsNullOrEmpty() || Regex.IsMatch(x, @"^[0-9]{14}$"))
-                    .WithMessage("Il codice PDR viene assegnato dal distributore dopo l'allacciamento del gas con l'installazione del contatore ed è composto da 14 cifre.");
-            }
-        }
+        /*
+         * Segue esempio, attualmente non utilizzato, di validatore per l'aggiornamento del dispositivo.
+         */
+
+        //public class UpdateDeviceValidator : AbstractValidator<UpdateDevice>
+        //{
+        //    public UpdateDeviceValidator()
+        //    {
+        //        RuleFor(r => r.PDRID)
+        //            .Must(x => x.IsNullOrEmpty() || Regex.IsMatch(x, @"^[0-9]{14}$"))
+        //            .WithMessage("Il codice PDR viene assegnato dal distributore dopo l'allacciamento del gas con l'installazione del contatore ed è composto da 14 cifre.");
+        //    }
+        //}
     }
 }
