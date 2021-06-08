@@ -50,8 +50,6 @@ namespace TriggerAction.ServiceModel.Types
         public string RoomCode { get => Location?.RoomCode; set => Location.RoomCode = value; }
         [Ignore, Description("Identificativo dell'area osservata.")]
         public string LocationID { get => Location?.LocationID; set => Location.LocationID = value; }
-        [Ignore, Description("Codice PDR cui è associata l'utenza")]
-        public string PDRID { get => Location?.PDRID; set => Location.PDRID = value; }
         [Ignore, Description("Uso finale dell'energia elettrica consumata (ad es. illuminazione, forza motrice, generale, condizionamento, ...)")]
         public string ElectricityEndUseCode { get => Location?.ElectricityEndUseCode; set => Location.ElectricityEndUseCode = value; }
         [Ignore, Description("tipologia di sensore che effettua la misura es. smart plug, smart switch, presence, ...")]
@@ -76,8 +74,6 @@ namespace TriggerAction.ServiceModel.Types
         public string RoomCode { get; set; }
         [Description("Identificativo dell'area osservata.")]
         public string LocationID { get; set; }
-        [Description("Codice PDR cui è associata l'utenza")]
-        public string PDRID { get; set; }
         [Description("Uso finale dell'energia elettrica consumata (ad es. illuminazione, forza motrice, generale, condizionamento, ...)")]
         public string ElectricityEndUseCode { get; set; }
         [Description("tipologia di sensore che effettua la misura es. smart plug, smart switch, presence, ...")]
@@ -109,8 +105,6 @@ namespace TriggerAction.ServiceModel.Types
         public string RoomCode { get; set; }
         [Description("Identificativo dell'area osservata.")]
         public string LocationID { get; set; }
-        [Description("Codice PDR cui è associata l'utenza")]
-        public string PDRID { get; set; }
         [Description("Uso finale dell'energia elettrica consumata (ad es. illuminazione, forza motrice, generale, condizionamento, ...)")]
         public string ElectricityEndUseCode { get; set; }
         [Description("tipologia di sensore che effettua la misura es. smart plug, smart switch, presence, ...")]
