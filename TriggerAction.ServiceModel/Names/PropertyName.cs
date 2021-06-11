@@ -166,7 +166,7 @@ namespace TriggerAction.ServiceModel.Names
         public static readonly string LogDescription = "LogDescription";
         [Description("Longitudine (dimensionless, double)")]
         public static readonly string longitude = "longitude";
-        [Description("misura della luminosità in lux (lux, double)")]
+        [Description("misura della luminosità (lux, double)")]
         public static readonly string Luminosity = "Luminosity";
         [Description("Numero di iscritti al Gruppo (dimensionless, integer)")]
         public static readonly string MemberCount = "MemberCount";
