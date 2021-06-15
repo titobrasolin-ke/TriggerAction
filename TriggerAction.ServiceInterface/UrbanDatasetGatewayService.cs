@@ -91,7 +91,7 @@ namespace TriggerAction.ServiceInterface
                                     Format = "WGS84-DD",
                                     Latitude = dr.Location.Latitude.Value,
                                     Longitude = dr.Location.Longitude.Value,
-                                    Height = 0 // TODO: Campo "Height".
+                                    // TODO: Campo "Height".
                                 };
                                 propertyNames.AddIfNotExists("coordinates");
                                 propertyNames.AddIfNotExists("format");
