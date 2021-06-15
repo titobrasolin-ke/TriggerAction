@@ -56,6 +56,8 @@ namespace TriggerAction.ServiceModel.Types
         public string SensorTypeCode { get => Location?.SensorTypeCode; set => Location.SensorTypeCode = value; }
         [Ignore, Description("Nome della stazione Meteo che ha fornito i dati")]
         public string MeteoStationName { get => Location?.MeteoStationName; set => Location.SensorTypeCode = value; }
+        [Ignore, Description("Identificativo del sistema energetico (o macchina o apparecchio)")]
+        public string EnergySystemID { get => Location?.EnergySystemID; set => Location.EnergySystemID = value; }
     }
 
     public class LocationInfo
@@ -80,6 +82,8 @@ namespace TriggerAction.ServiceModel.Types
         public string SensorTypeCode { get; set; }
         [Description("Nome della stazione Meteo che ha fornito i dati")]
         public string MeteoStationName { get; set; }
+        [Description("Identificativo del sistema energetico (o macchina o apparecchio)")]
+        public string EnergySystemID { get; set; }
     }
 
     [AutoQueryViewer(DefaultFields = "Id,SensorLabel,UserLabel,Location,DeviceTypeId,LogicId,Slave,GatewayId,PlantId")]
@@ -111,6 +115,8 @@ namespace TriggerAction.ServiceModel.Types
         public string SensorTypeCode { get; set; }
         [Description("Nome della stazione Meteo che ha fornito i dati")]
         public string MeteoStationName { get; set; }
+        [Description("Identificativo del sistema energetico (o macchina o apparecchio)")]
+        public string EnergySystemID { get; set; }
     }
 
     public class UpdateDeviceResponse
