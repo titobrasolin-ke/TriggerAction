@@ -5,6 +5,11 @@ using TriggerAction.ServiceModel.Types;
 
 namespace TriggerAction.ServiceModel
 {
+    [Route("/devices", "GET")]
+    public class SearchDevices : IReturn<List<Device>>
+    {
+    }
+
     [Route("/devices/{DeviceId}", "GET")]
     public class DeviceRequest : IReturn<DeviceResponse>
     {

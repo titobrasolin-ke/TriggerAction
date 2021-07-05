@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using TriggerAction.ServiceModel;
+using TriggerAction.ServiceModel.Codes;
 using TriggerAction.ServiceModel.Names;
 using TriggerAction.ServiceModel.Types;
 
@@ -92,7 +93,22 @@ namespace TriggerAction.ServiceInterface
 
                     if (double.TryParse(reading.Value, out double result))
                     {
-                        reading.Value = result.ToString(CultureInfo.InvariantCulture);
+                        // Alcune letture possono richiedere ulteriori operazioni, a seconda
+                        // del dispositivo. Le altre possono essere riportate testualmente.
+
+                        if (reading.Label == "WindowStatusCode" && reading.Unit == "dimensionless" && (
+                            (dto.DeviceTypeId == 1046) || // KET-REL-200 (Relè 230 VAC Radio Amplificato)
+                            (dto.DeviceTypeId == 1077)    // KET-DIM-100 (Dimmer radio)
+                            ))
+                        {
+                            reading.Value = (((ushort)result) & (1 << 8)) != 0
+                                ? WindowStatusCode.FinestraAperta
+                                : WindowStatusCode.FinestraChiusa;
+                        }
+                        else
+                        {
+                            reading.Value = result.ToString(CultureInfo.InvariantCulture);
+                        }
                     }
                 }
 
@@ -174,6 +190,11 @@ namespace TriggerAction.ServiceInterface
         public object Get(PlantsRequest req)
         {
             return Db.LoadSelect<Plant>();
+        }
+
+        public object Get(SearchDevices req)
+        {
+            return Db.LoadSelect<Device>();
         }
 
         /*
