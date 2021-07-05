@@ -11,11 +11,21 @@ using TriggerAction.ServiceModel.Types;
 
 namespace TriggerAction.ServiceInterface
 {
-    class UrbanDatasetGatewayService : Service
+    public class UrbanDatasetGatewayService : Service
     {
-        // TODO: Non servono tutti i gruppi di cattura e la convalida dovrebbe essere più restrittiva.
-        private static readonly string resourceIdPattern =
-            @"^(?<ResourceId>(?<SmartCityId>SCP-[^_]+)_(?<SolutionId>(?<NomeSolution>[^-]+)-[^_]+)_(?<DatasetId>(?<NomeUrbanDataset>[^-]+)-(?<VersioneOntologia>[^_]+))_(?<CollaborationStart>[0-9]{14}))$";
+        /*
+         * Validiamo il parametro "ResourceId" sulla base del formato definito nelle specifiche SCPS Collaboration 2.0
+         * https://smartcityplatform.enea.it/#/it/specification/collaboration/2.0/index.html#definizioneproduzione
+         *
+         * Consideriamo però che possa essere esteso con un suffisso contenente informazioni aggiuntive.
+         * TODO: Non servono tutti i gruppi di cattura e la convalida potrebbe essere più restrittiva.
+         */
+        public static readonly string ResourceIdPattern =
+            "^(?<ResourceId>(?<SmartCityId>SCP-[^_]+)" +
+            "_(?<SolutionId>(?<NomeSolution>[^-]+)-[^_]+)" +
+            "_(?<DatasetId>(?<NomeUrbanDataset>[^-]+)-(?<VersioneOntologia>[^_]+))" +
+            "_(?<CollaborationStart>[0-9]{14}))" +
+            "(?:_(?:[^_]*))?$"; // <- Suffisso fuori specifica SCPS Collaboration 2.0
 
         public object Get(TestRequest request)
         {
@@ -28,7 +38,7 @@ namespace TriggerAction.ServiceInterface
             if (resourceId.IsNullOrEmpty())
                 throw new ArgumentNullException("ResourceId");
 
-            var match = Regex.Match(resourceId, resourceIdPattern);
+            var match = Regex.Match(resourceId, ResourceIdPattern);
             if (!match.Success)
                 throw new ArgumentException("ResourceId");
 
@@ -85,9 +95,10 @@ namespace TriggerAction.ServiceInterface
                             template.UrbanDataset.Specification.Properties.PropertyDefinition.Exists(x => x.PropertyName == "coordinates"))
                         {
                             if (dr.Location.Latitude.HasValue &&
-                                dr.Location.Longitude.HasValue )
+                                dr.Location.Longitude.HasValue)
                             {
-                                newLine.Coordinates = new Coordinates {
+                                newLine.Coordinates = new Coordinates
+                                {
                                     Format = "WGS84-DD",
                                     Latitude = dr.Location.Latitude.Value,
                                     Longitude = dr.Location.Longitude.Value,
@@ -103,15 +114,6 @@ namespace TriggerAction.ServiceInterface
                             /*
                              * TODO: Valutare la possibilità di utilizzare le coordinate del contesto come default.
                              */
-
-                            //else
-                            //{
-                            //    newLine.Coordinates = new Coordinates {
-                            //        Format = template.UrbanDataset.Context.Coordinates.Format,
-                            //        Latitude = template.UrbanDataset.Context.Coordinates.Latitude,
-                            //        Longitude = template.UrbanDataset.Context.Coordinates.Longitude
-                            //    };
-                            //}
                         }
 
                         if (isWhatever ||
@@ -146,7 +148,7 @@ namespace TriggerAction.ServiceInterface
             var offset = timestamp.Offset;
 
             var timezoneCode = "UTC"; // http://smartcityplatform.enea.it/SCPSWebLibrary/property?name=timezone
-            if (offset != TimeSpan.Zero )
+            if (offset != TimeSpan.Zero)
             {
                 var hours = Math.Abs(offset.Hours).ToString(CultureInfo.InvariantCulture);
                 var minutes = Math.Abs(offset.Minutes).ToString(CultureInfo.InvariantCulture);
