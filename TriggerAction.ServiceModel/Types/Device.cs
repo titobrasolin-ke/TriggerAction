@@ -55,7 +55,9 @@ namespace TriggerAction.ServiceModel.Types
         [Ignore, Description("tipologia di sensore che effettua la misura es. smart plug, smart switch, presence, ...")]
         public string SensorTypeCode { get => Location?.SensorTypeCode; set => Location.SensorTypeCode = value; }
         [Ignore, Description("Nome della stazione Meteo che ha fornito i dati")]
-        public string MeteoStationName { get => Location?.MeteoStationName; set => Location.SensorTypeCode = value; }
+        public string MeteoStationName { get => Location?.MeteoStationName; set => Location.MeteoStationName = value; }
+        [Ignore, Description("Nome della stazione di monitoraggio che ha fornito i dati")]
+        public string MonitoringStationName { get => Location?.MonitoringStationName; set => Location.MonitoringStationName = value; }
         [Ignore, Description("Identificativo del sistema energetico (o macchina o apparecchio)")]
         public string EnergySystemID { get => Location?.EnergySystemID; set => Location.EnergySystemID = value; }
     }
@@ -82,6 +84,8 @@ namespace TriggerAction.ServiceModel.Types
         public string SensorTypeCode { get; set; }
         [Description("Nome della stazione Meteo che ha fornito i dati")]
         public string MeteoStationName { get; set; }
+        [Description("Nome della stazione di monitoraggio che ha fornito i dati")]
+        public string MonitoringStationName { get; set; }
         [Description("Identificativo del sistema energetico (o macchina o apparecchio)")]
         public string EnergySystemID { get; set; }
     }
@@ -115,6 +119,8 @@ namespace TriggerAction.ServiceModel.Types
         public string SensorTypeCode { get; set; }
         [Description("Nome della stazione Meteo che ha fornito i dati")]
         public string MeteoStationName { get; set; }
+        [Description("Nome della stazione di monitoraggio che ha fornito i dati")]
+        public string MonitoringStationName { get; set; }
         [Description("Identificativo del sistema energetico (o macchina o apparecchio)")]
         public string EnergySystemID { get; set; }
     }
