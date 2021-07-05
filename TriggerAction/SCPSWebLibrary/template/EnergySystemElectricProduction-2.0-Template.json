@@ -54,7 +54,8 @@
                         "propertyName" : "OutputElectricPower",
                         "propertyDescription" : "Potenza elettrica in uscita",
                         "dataType" : "double",
-                        "unitOfMeasure" : "kilowatt"
+                        "unitOfMeasure" : "kilowatt",
+                        "measurementType" : "average"
                     },
                     {
                         "propertyName" : "start_ts",
@@ -102,7 +103,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-06-08T10:53:01",
+            "timestamp" : "2021-06-15T12:37:14",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,

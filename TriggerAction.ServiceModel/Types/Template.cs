@@ -146,6 +146,11 @@ namespace TriggerAction.ServiceModel.Types
         /// </value>
         [DataMember(Name="unitOfMeasure", IsRequired = false)]
         public string UnitOfMeasure { get; set; }
+        /// <value>
+        /// Examples: "average", "instantaneous", "static", "total".
+        /// </value>
+        [DataMember(Name = "measurementType", IsRequired = false)]
+        public string MeasurementType { get; set; }
 
         [DataMember(Name="subProperties", IsRequired = false)]
         public SubProperties SubProperties { get; set; }

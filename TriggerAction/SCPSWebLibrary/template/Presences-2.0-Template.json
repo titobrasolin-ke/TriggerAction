@@ -30,7 +30,8 @@
                         "propertyName" : "PresenceCount",
                         "propertyDescription" : "Numero di presenze rilevato",
                         "dataType" : "integer",
-                        "unitOfMeasure" : "dimensionless"
+                        "unitOfMeasure" : "dimensionless",
+                        "measurementType" : "average"
                     },
                     {
                         "propertyName" : "coordinates",
@@ -183,7 +184,7 @@
                 "schemeID" : "schemeID1"
             },
             "timeZone" : "UTC+1",
-            "timestamp" : "2021-06-08T10:53:17",
+            "timestamp" : "2021-06-15T12:37:22",
             "coordinates" : {
                 "format" : "WGS84-DD",
                 "latitude" : 0.0,

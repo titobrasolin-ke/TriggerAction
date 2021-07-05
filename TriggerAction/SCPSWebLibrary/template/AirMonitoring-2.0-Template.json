@@ -48,7 +48,7 @@
                         "propertyName" : "NO2",
                         "propertyDescription" : "Biossido di azoto",
                         "dataType" : "double",
-                        "unitOfMeasure" : "microgramPerCubicMeter"
+                        "unitOfMeasure" : "partsPerMillion"
                     },
                     {
                         "propertyName" : "PM2",
@@ -60,7 +60,7 @@
                         "propertyName" : "SO2",
                         "propertyDescription" : "Concentrazione di biossido di Zolfo",
                         "dataType" : "double",
-                        "unitOfMeasure" : "microgramPerCubicMeter"
+                        "unitOfMeasure" : "partsPerMillion"
                     },
                     {
                         "propertyName" : "coordinates",
@@ -102,7 +102,7 @@
                         "propertyName" : "CO",
                         "propertyDescription" : "Monossido di carbonio",
                         "dataType" : "double",
-                        "unitOfMeasure" : "microgramPerCubicMeter"
+                        "unitOfMeasure" : "partsPerMillion"
                     },
                     {
                         "propertyName" : "CadmiumConcentration",
@@ -132,7 +132,7 @@
                         "propertyName" : "VOC",
                         "propertyDescription" : "Composti organici volatili",
                         "dataType" : "double",
-                        "unitOfMeasure" : "partsPerMillion"
+                        "unitOfMeasure" : "partsPerBillion"
                     },
                     {
                         "propertyName" : "start_ts",

@@ -104,7 +104,7 @@
                         "propertyName" : "VOC",
                         "propertyDescription" : "Composti organici volatili",
                         "dataType" : "double",
-                        "unitOfMeasure" : "partsPerMillion"
+                        "unitOfMeasure" : "partsPerBillion"
                     },
                     {
                         "propertyName" : "RoomID",
