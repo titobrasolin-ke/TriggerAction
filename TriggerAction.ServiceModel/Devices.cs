@@ -1,6 +1,8 @@
 ﻿using ServiceStack;
+using ServiceStack.Api.OpenApi.Specification;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using TriggerAction.ServiceModel.Types;
 
 namespace TriggerAction.ServiceModel
@@ -11,9 +13,20 @@ namespace TriggerAction.ServiceModel
     }
 
     [Route("/devices/{DeviceId}", "GET")]
+    [DataContract]
     public class DeviceRequest : IReturn<DeviceResponse>
     {
+        [ApiMember(
+            Name = "DeviceId", DataType = OpenApiType.Integer, Format = OpenApiTypeFormat.Int,
+            ParameterType = "path", IsRequired = true, AllowMultiple = false)]
+        [DataMember(Name = "DeviceId")]
         public int DeviceId { get; set; }
+
+        [ApiMember(
+            Name = "timestamp_lt", DataType = OpenApiType.String, Format = OpenApiTypeFormat.DateTime,
+            ParameterType = "query", Description = "Less Than.")]
+        [DataMember(Name = "timestamp_lt")]
+        public DateTime? TimestampLessThan { get; set; }
     }
 
     public class Period
