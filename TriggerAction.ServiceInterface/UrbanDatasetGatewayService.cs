@@ -46,6 +46,46 @@ namespace TriggerAction.ServiceInterface
             var SolutionId = match.Groups["SolutionId"].Value;
             var DatasetId = match.Groups["DatasetId"].Value;
 
+            /*
+             * Se il parametro "TimestampLessThan" è specificato e non è
+             * ambiguo lo utilizziamo anche come timestamp di generazione del
+             * dataset. Se non è valido o è ambiguo solleviamo un'eccezione.
+             */
+            DateTime timestampLessThan;
+            DateTimeOffset timestamp;
+
+            if (request.TimestampLessThan.HasValue)
+            {
+                timestampLessThan = DateTime.SpecifyKind(request.TimestampLessThan.Value, DateTimeKind.Local);
+                if (TimeZoneInfo.Local.IsInvalidTime(timestampLessThan))
+                {
+                    throw new ArgumentException("TimeZoneInfo.Local.IsInvalidTime", "TimestampLessThan");
+                }
+                if (TimeZoneInfo.Local.IsAmbiguousTime(timestampLessThan))
+                {
+                    throw new ArgumentException("TimeZoneInfo.Local.IsAmbiguousTime", "TimestampLessThan");
+                }
+                timestamp = new DateTimeOffset(timestampLessThan);
+            }
+            else
+            {
+                timestamp = DateTimeOffset.Now;
+                timestampLessThan = timestamp.DateTime;
+            }
+
+            var offset = timestamp.Offset;
+            var timezoneCode = "UTC"; // http://smartcityplatform.enea.it/SCPSWebLibrary/property?name=timezone
+            if (offset != TimeSpan.Zero)
+            {
+                var hours = Math.Abs(offset.Hours).ToString(CultureInfo.InvariantCulture);
+                var minutes = Math.Abs(offset.Minutes).ToString(CultureInfo.InvariantCulture);
+                timezoneCode += (offset < TimeSpan.Zero ? "-" : "+") + hours;
+                if (minutes != "0")
+                {
+                    timezoneCode += ":" + (minutes.Length == 1 ? "0" + minutes : minutes);
+                }
+            }
+
             var templateBaseDir = Path.Combine("~/SCPSWebLibrary/template".MapAbsolutePath());
             string fileName = DatasetId + "-Template.json";
             var filePath = Path.Combine(templateBaseDir, fileName);
@@ -81,7 +121,7 @@ namespace TriggerAction.ServiceInterface
 
                 foreach (var deviceId in deviceIds)
                 {
-                    q = HostContext.ServiceController.Execute(new DeviceRequest { DeviceId = deviceId });
+                    q = HostContext.ServiceController.Execute(new DeviceRequest { DeviceId = deviceId, TimestampLessThan = timestampLessThan });
                     if (!(q is DeviceResponse dr))
                     {
                         return q;
@@ -102,7 +142,8 @@ namespace TriggerAction.ServiceInterface
                                     Format = "WGS84-DD",
                                     Latitude = dr.Location.Latitude.Value,
                                     Longitude = dr.Location.Longitude.Value,
-                                    // TODO: Campo "Height".
+                                    // TODO: Campo "Height". Per il momento replichiamo l'altitudine del contesto.
+                                    Height = template.UrbanDataset.Context.Coordinates.Height,
                                 };
                                 propertyNames.AddIfNotExists("coordinates");
                                 propertyNames.AddIfNotExists("format");
@@ -141,21 +182,6 @@ namespace TriggerAction.ServiceInterface
                     // Rimuoviamo dalle "PropertyDefinition" gli elementi non presenti nelle righe.
                     template.UrbanDataset.Specification.Properties.PropertyDefinition
                         = template.UrbanDataset.Specification.Properties.PropertyDefinition.Where(x => propertyNames.Contains(x.PropertyName)).ToList();
-                }
-            }
-
-            var timestamp = DateTimeOffset.Now;
-            var offset = timestamp.Offset;
-
-            var timezoneCode = "UTC"; // http://smartcityplatform.enea.it/SCPSWebLibrary/property?name=timezone
-            if (offset != TimeSpan.Zero)
-            {
-                var hours = Math.Abs(offset.Hours).ToString(CultureInfo.InvariantCulture);
-                var minutes = Math.Abs(offset.Minutes).ToString(CultureInfo.InvariantCulture);
-                timezoneCode += (offset < TimeSpan.Zero ? "-" : "+") + hours;
-                if (minutes != "0")
-                {
-                    timezoneCode += ":" + (minutes.Length == 1 ? "0" + minutes : minutes);
                 }
             }
 

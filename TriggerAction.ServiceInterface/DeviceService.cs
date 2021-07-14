@@ -27,6 +27,8 @@ namespace TriggerAction.ServiceInterface
                 Db.LoadReferences(dev.DeviceType);
             }
 
+            var TimestampLessThan = request.TimestampLessThan ?? DateTime.Now;
+
             var sql =
                 "SELECT [Id] = B.[DataValueId]" +
                 ", A.[DeviceId]" +
@@ -56,6 +58,7 @@ namespace TriggerAction.ServiceInterface
                 " FROM [DataPackets]" +
                 " JOIN [DataValues] ON [DataValues].[PacketId] = [DataPackets].[PacketId]" +
                 " WHERE [DataPackets].[DeviceId] = A.[DeviceId]" +
+                " AND [DataPackets].[Timestamp] < @TimestampLessThan" +
                 " AND [DataValues].[ValueTypeId] = A.[ValueTypeId]" +
                 " ORDER BY [DataPackets].[Timestamp] DESC" +
                 ") B" +
@@ -75,7 +78,7 @@ namespace TriggerAction.ServiceInterface
             // perciò eliminiamo i record con marca temporale non valida od ambigua. Successivamente riporteremo tutto
             // al fuso orario corrente.
 
-            var lastReadings = Db.Select<Reading>(sql, new { request.DeviceId })
+            var lastReadings = Db.Select<Reading>(sql, new { request.DeviceId, TimestampLessThan })
                 .SafeWhere(x => x.Timestamp != null && !TimeZoneInfo.Local.IsInvalidTime(x.Timestamp.DateTime) && !TimeZoneInfo.Local.IsAmbiguousTime(x.Timestamp.DateTime))
                 .ToList();
 
