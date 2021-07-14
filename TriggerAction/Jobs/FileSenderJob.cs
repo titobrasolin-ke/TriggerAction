@@ -60,7 +60,7 @@ namespace TriggerAction.Jobs
             var directoryInfo = Directory.CreateDirectory(path);
             var files = Directory.GetFiles(directoryInfo.FullName, "*.json", SearchOption.TopDirectoryOnly);
 
-            var ResourceIds = new List<string>{ }; // Considereremo al massimo un file per ciascun "resource_id".
+            var ResourceIds = new List<string> { }; // Considereremo al massimo un file per ciascun "resource_id".
 
             foreach (var fileInfo in files.Select(fileName => new FileInfo(fileName)))
             {
@@ -140,10 +140,36 @@ namespace TriggerAction.Jobs
 
                     if (!Client.BearerToken.IsNullOrEmpty())
                     {
-                        var pushResp = Client.Post<PushResponse>("/push", File.ReadAllText(fileInfo.FullName));
-                        var moveTo = fileInfo.Directory.CreateSubdirectory(Path.Combine("processed", pushResp.Code));
+                        // NOTA: Tecnicamente non sarebbe necessario limitare il numero di esecuzioni del ciclo "do",
+                        // preferisco tuttavia evitare ogni possibilità di un loop senza uscita causato da eventuali
+                        // comportamenti "anomali" del server che al momento potrei non essere in grado di prevedere.
 
-                        File.Move(fileInfo.FullName, Path.Combine(moveTo.FullName, fileInfo.Name));
+                        int maxRetries = 2;
+                        string code;
+                        do
+                        {
+                            var pushResp = Client.Post<PushResponse>("/push", File.ReadAllText(fileInfo.FullName));
+
+                            // In data 9 luglio 2021 gli UrbanDataset esistenti *non* vengono aggiornati, perciò se il
+                            // server ha risposto "UrbanDataset already exists" lo cancelliamo dalla SCP. Se l'operazione
+                            // ha successo *non* spostiamo il file tra quelli elaborati, ritenteremo poi l'invio.
+
+                            if (pushResp.Detail == "UrbanDataset already exists")
+                            {
+                                var deleteResp = Client.Post(new DeleteRequest { ResourceId = pr.ResourceId, Timestamp = pr.Dataset.UrbanDataset.Context.Timestamp });
+                                code = deleteResp.Code;
+                            }
+                            else
+                            {
+                                code = pushResp.Code;
+                            }
+
+                            if (code != "08") // "08" => "Delete Successful"
+                            {
+                                var moveTo = fileInfo.Directory.CreateSubdirectory(Path.Combine("processed", pushResp.Code));
+                                File.Move(fileInfo.FullName, Path.Combine(moveTo.FullName, fileInfo.Name));
+                            }
+                        } while (code == "08" && --maxRetries > 0);
                     }
                 }
                 catch (Exception ex)
