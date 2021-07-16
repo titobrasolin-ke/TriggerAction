@@ -44,7 +44,18 @@ namespace TriggerAction.Jobs
                 {
                     continue;
                 }
-                object v = HostContext.ServiceController.Execute(new BasicRequest { ResourceId = batchOperationType });
+
+                /*
+                 * N.B. Come marca temporale per la generazione del dataset
+                 * utilizzeremo l'istante di esecuzione pianificato per il job.
+                 */
+                object requestDto = new BasicRequest
+                {
+                    ResourceId = batchOperationType,
+                    TimestampLessThan = context.ScheduledFireTimeUtc?.LocalDateTime
+                };
+
+                object v = HostContext.ServiceController.Execute(requestDto);
                 if (v is BasicResponse resp && resp.Code == "03") // Request-Response Successful
                 {
                     var outgoingFolder = AppSettings.GetRequiredString("scps.outgoingFolder");
