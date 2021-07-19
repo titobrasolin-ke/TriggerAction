@@ -74,10 +74,13 @@ namespace TriggerAction.Jobs
 
                     // Indirizziamo il file in base alla "collaboration" com'è definita nella relativa tabella.
 
+                    string jsonToPush = default;
                     PushRequest pr = null;
+
                     try
                     {
-                        pr = fileInfo.ReadAllText().FromJson<PushRequest>();
+                        jsonToPush = fileInfo.ReadAllText();
+                        pr = jsonToPush.FromJson<PushRequest>();
                         var qr = HostContext.ServiceController.Execute(new QueryCollaboration { ResourceId = pr.ResourceId }) as QueryResponse<Collaboration>;
                         username = qr.Results.First().Username;
                         password = envSettings.Accounts.First(x => x.Username == username).Password;
@@ -95,6 +98,54 @@ namespace TriggerAction.Jobs
                     }
 
                     ResourceIds.Add(pr.ResourceId);
+
+                    /*
+                     * Prima di tentare il "push" consideriamo la possibilità che l'ultimo dataset inviato con
+                     * succcesso al server (codice "02") differisca da quello corrente solo per la marca temporale. In
+                     * questo caso tutto il "verticale" è probabilmente fermo ed omettiamo perciò l'invio del dataset,
+                     * così che la situazione si rispecchi negli "Interoperability Indicators" della SCP-GUI.
+                     *
+                     * Fidandoci della marca temporale presente nel nome del file, supponiamo che il dataset più
+                     * recente sia l'ultimo in ordine alfabetico.
+                     */
+
+                    string lastSuccessfulFile;
+                    var pushSuccesfulFolderPath = Path.Combine(fileInfo.Directory.FullName, "processed", "02");
+
+                    try
+                    {
+                        lastSuccessfulFile = Directory.GetFiles(pushSuccesfulFolderPath, $"*_{pr.ResourceId}*.json", SearchOption.TopDirectoryOnly)
+                            .OrderBy(f => f).LastOrDefault();
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(ex.Message, ex);
+                        lastSuccessfulFile = default;
+                    }
+
+                    if (!string.IsNullOrEmpty(lastSuccessfulFile))
+                    {
+                        try
+                        {
+                            var history = File.ReadAllText(lastSuccessfulFile).FromJson<PushRequest>();
+                            history.Dataset.UrbanDataset.Context.Timestamp = pr.Dataset.UrbanDataset.Context.Timestamp;
+                            history.Dataset.UrbanDataset.Context.TimeZone = pr.Dataset.UrbanDataset.Context.TimeZone;
+                            if (JsonSerializer.SerializeToString(history) == jsonToPush)
+                            {
+                                Log.InfoFormat("{0} data already sent, skipping.", pr.ResourceId);
+                                File.Move(fileInfo.FullName, Path.Combine(fileInfo.Directory.CreateSubdirectory("skipped").FullName, fileInfo.Name));
+                                continue; // foreach
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error(ex.Message, ex);
+                        }
+                    }
+
+                    /*
+                     * Se il file non è stato saltato procediamo con il tentativo di invio alla SCP.
+                     */
 
                     if (Client.BearerToken.IsNullOrEmpty())
                     {
@@ -148,7 +199,7 @@ namespace TriggerAction.Jobs
                         string code;
                         do
                         {
-                            var pushResp = Client.Post<PushResponse>("/push", File.ReadAllText(fileInfo.FullName));
+                            var pushResp = Client.Post<PushResponse>("/push", jsonToPush);
 
                             // In data 9 luglio 2021 gli UrbanDataset esistenti *non* vengono aggiornati, perciò se il
                             // server ha risposto "UrbanDataset already exists" lo cancelliamo dalla SCP. Se l'operazione
