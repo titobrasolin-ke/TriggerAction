@@ -1,4 +1,6 @@
-﻿using ServiceStack;
+﻿using org.matheval; // https://github.com/matheval/expression-evaluator-c-sharp/blob/main/LICENSE
+using ServiceStack;
+using ServiceStack.Logging;
 using ServiceStack.Text;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ namespace TriggerAction.ServiceInterface
 {
     public class UrbanDatasetGatewayService : Service
     {
+        public ILog log = LogManager.GetLogger(typeof(UrbanDatasetGatewayService));
         /*
          * Validiamo il parametro "ResourceId" sulla base del formato definito nelle specifiche SCPS Collaboration 2.0
          * https://smartcityplatform.enea.it/#/it/specification/collaboration/2.0/index.html#definizioneproduzione
@@ -104,7 +107,13 @@ namespace TriggerAction.ServiceInterface
             var lineTemplate = template.UrbanDataset.Values.Line.FirstOrDefault();
             template.UrbanDataset.Values.Line.Clear();
 
-            object q = HostContext.ServiceController.Execute(new DeviceValueQuery { BatchOperationType = resourceId });
+            /*
+             * N.B. Ha senso utilizzare BatchOperationTypeStartsWith nella query seguente anche perché resourceId è
+             * stato convalidato in modo abbastanza stringente all'inizio di questa funzione. Tipicamente
+             * BatchOperationType conterrà o un resourceId puro e semplice, oppure un resourceId seguito da ulteriori
+             * istruzioni (per esempio un'espressione da valutare per correggere il valore prima dell'invio).
+             */
+            object q = HostContext.ServiceController.Execute(new DeviceValueQuery { BatchOperationTypeStartsWith = resourceId });
             if (!(q is QueryResponse<DeviceValue> qr))
             {
                 return q;
@@ -168,8 +177,40 @@ namespace TriggerAction.ServiceInterface
                             if (isWhatever ||
                                 template.UrbanDataset.Specification.Properties.PropertyDefinition.Exists(x => x.PropertyName == item.Label && x.UnitOfMeasure == item.Unit))
                             {
+                                var valueToSend = item.Value; // Default
+
+                                // Consideriamo la possibilità che BatchOperationType oltre ad iniziare con il
+                                // ResourceId contenga un'espressione da applicare al valore prima dell'invio.
+                                var formular = item.BatchOperationType.SafeSubstring(resourceId.Length).TrimStart(' ', '|');
+                                if (!formular.IsNullOrEmpty())
+                                {
+                                    if (decimal.TryParse(item.Value, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal val))
+                                    {
+                                        var expr = new Expression(formular);
+                                        var errors = expr.GetError();
+                                        if (errors.Count == 0)
+                                        {
+                                            try
+                                            {
+                                                valueToSend = expr.Bind("val", val).Eval<decimal>().ToString(CultureInfo.InvariantCulture);
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                log.Error(ex, "{0}|{1}", resourceId, formular);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            foreach (var error in errors)
+                                            {
+                                                log.WarnFormat("{0}|{1}|{2}", error, resourceId, formular);
+                                            }
+                                        }
+                                    }
+                                }
+
                                 propertyNames.AddIfNotExists(item.Label);
-                                newLine.Property.Add(new ServiceModel.Types.Property { Name = item.Label, Val = item.Value.ToString(CultureInfo.InvariantCulture) });
+                                newLine.Property.Add(new ServiceModel.Types.Property { Name = item.Label, Val = valueToSend });
                             }
                         }
 
