@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Topshelf.Logging;
 using TriggerAction.Config;
@@ -52,6 +53,7 @@ namespace TriggerAction.Jobs
             var password = "";
 
             var outgoingFolder = AppSettings.GetRequiredString("scps.outgoingFolder");
+            var submissionDelay = AppSettings.Get("scps.submissionDelay", 0);
 
             var path = FileSystemHelper.IsFullPath(outgoingFolder) ?
                 outgoingFolder : Path.Combine(Constants.ApplicationDataFolder, outgoingFolder);
@@ -144,9 +146,10 @@ namespace TriggerAction.Jobs
                     }
 
                     /*
-                     * Se il file non è stato saltato procediamo con il tentativo di invio alla SCP.
+                     * Se il file non è stato saltato procediamo con il tentativo di invio alla SCP, dopo aver
+                     * eventualmente atteso qualche secondo per evitare di sovraccaricare il server.
                      */
-
+                    if (submissionDelay > 0) Thread.Sleep(new TimeSpan(0, 0, submissionDelay < 60 ? submissionDelay : 60));
                     if (Client.BearerToken.IsNullOrEmpty())
                     {
                         try
